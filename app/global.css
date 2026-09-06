@@ -17,3 +17,18 @@ html > body[data-scroll-locked] {
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
 }
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+:root {
+  --color-fd-primary: #2e8b7f;
+  --color-fd-primary-foreground: #ffffff;
+}
+
+.dark {
+  --color-fd-primary: #3a9d8f;
+  --color-fd-primary-foreground: #ffffff;
+}
