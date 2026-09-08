@@ -12,6 +12,7 @@ import {
 import { File, Folder, Files } from "fumadocs-ui/components/files";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Mermaid } from "./mermaid";
+import { TypeTable } from "fumadocs-ui/components/type-table";
 
 export function getMDXComponents(components?: MDXComponents) {
     return {
@@ -35,6 +36,7 @@ export function getMDXComponents(components?: MDXComponents) {
         Accordions,
 
         Mermaid,
+        TypeTable,
     } satisfies MDXComponents;
 }
 
