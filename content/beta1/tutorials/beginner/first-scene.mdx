@@ -1,0 +1,159 @@
+---
+title: Build your first scene
+description: Create a lit cube and give it a textured PBR material in Atlas.
+---
+
+In this tutorial, you will create an Atlas project, replace the starter lighting, and turn the default cube into a small acoustic-foam prop. The finished scene will also be the starting point for the next tutorial, where you will animate the cube with TypeScript.
+Note that to follow this tutorial, you will need a PBR texture set. The screenshots use a free acoustic-foam texture set from [CC0 Textures](https://cc0textures.com/view?id=AcousticFoam003).
+
+## Create the project
+
+<Steps>
+
+<Step>
+### Start a new project
+
+Open Atlas Engine and select **New project**.
+
+<img src="/images/tutorials/first-scene/1.png" alt="Atlas Engine launcher with the New project button selected" />
+</Step>
+
+<Step>
+### Choose the PBR renderer
+
+Select **PBR**, enter a project name and location, and create the project. PBR is the best fit for this scene because it supports the base-color, normal, metallic, and roughness textures used later in the tutorial.
+
+The other renderer choices are useful for different goals:
+
+- **PBR + DDGI** adds dynamic diffuse global illumination.
+- **Path Tracing** progressively simulates more light bounces for high-fidelity scenes, but requires more rendering time.
+
+<img src="/images/tutorials/first-scene/2.png" alt="New project screen with PBR selected" />
+</Step>
+
+<Step>
+### Learn the editor layout
+
+The new project opens with a cube, a camera, ambient lighting, and a procedural sky.
+
+<img src="/images/tutorials/first-scene/3.png" alt="A new Atlas project open in the editor" />
+
+The editor is divided into five main areas:
+
+1. **Scene Collection** — select and organize the objects in the scene.
+2. **Viewport** — view the scene and move, rotate, or scale objects.
+3. **Inspector** — edit the selected object's transform, material, and components.
+4. **Content Browser** — manage scenes, scripts, textures, and materials in the project.
+5. **Top bar** — save, configure, and run the project.
+
+The tabs above the viewport provide focused workspaces for the scene, materials, post-processing effects, and Graphite interfaces. Stay in **Scene** for now.
+</Step>
+
+</Steps>
+
+## Replace the starter lighting
+
+<Steps>
+
+<Step>
+### Turn off the procedural sky
+
+Select **Environment** in the Scene Collection. In the Inspector, turn off **Atmosphere Sky** and **Automatic Ambient**. This removes the blue sky and stops it from automatically lighting the cube.
+
+<img src="/images/tutorials/first-scene/4.png" alt="Atmosphere Sky and Automatic Ambient disabled in the Environment inspector" />
+
+Click **Reload runtime** in the viewport toolbar to reload the scene with the new environment settings.
+
+<img src="/images/tutorials/first-scene/5.png" alt="Reload runtime button in the viewport toolbar" />
+</Step>
+
+<Step>
+### Remove the remaining default light
+
+With **Environment** still selected, expand its atmosphere global-light settings and turn off **Casts Shadows** and **Enabled**.
+
+<img src="/images/tutorials/first-scene/6.png" alt="Atmosphere global light disabled with shadow casting turned off" />
+
+Select **ambientLight_0** in the Scene Collection and set **Intensity** to `0`. The scene should now be black except for the editor grid and the unlit cube.
+
+<img src="/images/tutorials/first-scene/7.png" alt="Ambient light intensity set to zero" />
+
+<img src="/images/tutorials/first-scene/8.png" alt="Unlit cube in the dark scene" />
+</Step>
+
+</Steps>
+
+## Create the material
+
+Before continuing, place an extracted PBR acoustic-foam texture set inside the project's `assets` folder. The screenshots use a folder named `AcousticFoam003_4K-JPG` containing color, DirectX normal, metalness, and roughness images.
+
+<Steps>
+
+<Step>
+### Organize the material assets
+
+At the project root in the Content Browser, select **Create → Folder**, name the folder `materials`, and open it. This keeps the material beside `assets`, matching the `../assets/AcousticFoam003_4K-JPG/...` texture paths visible in the Shading workspace.
+
+<img src="/images/tutorials/first-scene/9.png" alt="Creating a materials folder in the Content Browser" />
+</Step>
+
+<Step>
+### Create a PBR material
+
+Inside `materials`, select **Create → Material** and name it `Foam Material`. Atlas creates the material and adds it to the Content Browser.
+
+<img src="/images/tutorials/first-scene/10.png" alt="Creating a material named Foam Material" />
+</Step>
+
+<Step>
+### Connect the texture maps
+
+Double-click **Foam Material** to open the Shading workspace. Use **Choose** beside each channel to assign the matching image:
+
+| Material channel | Texture used in the screenshots |
+| --- | --- |
+| Base Color | `AcousticFoam003_4K_Color.jpg` |
+| Normal | `AcousticFoam003_4K_NormalDX.jpg` |
+| Metallic | `AcousticFoam003_4K_Metalness.jpg` |
+| Roughness | `AcousticFoam003_4K_Roughness.jpg` |
+
+Leave **Ambient Occlusion**, **PBR Pack**, and **Opacity** empty because this texture set provides no separate maps for them. The material preview should show the alternating acoustic-foam pattern.
+
+<img src="/images/tutorials/first-scene/11.png" alt="Foam Material with base color, normal, metallic, and roughness textures assigned" />
+</Step>
+
+</Steps>
+
+## Finish and run the scene
+
+<Steps>
+
+<Step>
+### Apply the material to the cube
+
+Return to **Scene** and select **Cube**. Drag **Foam Material** from the Content Browser onto the Inspector. The cube now uses all four PBR maps from the material.
+</Step>
+
+<Step>
+### Add a point light
+
+Press `Shift L` to add a point light. Move it just in front of and slightly above the cube so the normal map catches the light clearly. The screenshot uses approximately `X 1.25`, `Y 1.0`, and `Z -1.3`.
+
+Keep the light white and leave **Casts Shadows** off for this simple scene. Adjust its intensity if needed until the ridges are visible without washing out the material.
+
+<img src="/images/tutorials/first-scene/12.png" alt="Textured cube illuminated by a point light in the Atlas editor" />
+</Step>
+
+<Step>
+### Save and run
+
+Save the scene with `Command S`, then select **Run** in the top-right corner. Atlas opens the project in the runtime window, using the scene camera rather than the editor camera.
+
+<img src="/images/tutorials/first-scene/13.png" alt="Finished acoustic-foam cube running in Atlas Runtime" />
+
+If the cube is not framed like the screenshot, stop the runtime, select **Main Camera**, and adjust its position or target before running again.
+</Step>
+
+</Steps>
+
+Your first scene is complete. Continue with [Animate the cube with a script](./animate-with-a-script) to add motion without changing the scene setup.

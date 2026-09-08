@@ -1,0 +1,83 @@
+---
+title: Animate with a script
+description: Animate the cube from your first scene with a simple TypeScript component.
+---
+
+This tutorial continues from [Build your first scene](./first-scene). You will create a TypeScript component, attach it to the textured cube, and rotate the cube at a consistent speed while the project is playing.
+
+## Create the component
+
+<Steps>
+
+<Step>
+### Add a TypeScript script
+
+In the Content Browser, open `assets`, create a folder named `scripts` if it does not already exist, and open it. Select **Create → TypeScript Script** and name the script `SpinCube`.
+
+Atlas creates `assets/scripts/SpinCube.ts` and registers the exported component in `project.atlas` so the runtime can load it.
+</Step>
+
+<Step>
+### Write the animation
+
+Open `SpinCube.ts` and replace its generated contents with:
+
+```ts title="assets/scripts/SpinCube.ts"
+import { Component } from "atlas";
+import { Position3d } from "atlas/units";
+
+export class SpinCube extends Component {
+    speed = 45;
+
+    init(): void {}
+
+    update(deltaTime: number): void {
+        this.getParent().rotate(
+            new Position3d(0, this.speed * deltaTime, 0),
+        );
+    }
+}
+```
+
+`getParent()` returns the object that owns the component. Each frame, `rotate()` adds a small Y-axis rotation to that object.
+
+The runtime supplies `deltaTime` in seconds. Multiplying the speed by `deltaTime` makes the cube rotate at roughly 45 degrees per second instead of rotating by a fixed amount per rendered frame. This keeps the animation consistent across different frame rates.
+</Step>
+
+</Steps>
+
+## Attach and test the component
+
+<Steps>
+
+<Step>
+### Attach SpinCube to the cube
+
+Return to the Atlas editor and select **Cube** in the Scene Collection. In the Inspector, select **Add Component**, search for `SpinCube`, and choose **Script · SpinCube**.
+
+You can also drag `SpinCube.ts` from the Content Browser onto the cube's Inspector. Either method attaches the same script component.
+</Step>
+
+<Step>
+### Play the scene
+
+Save with `Command S`, then click **Play** in the viewport toolbar. Atlas compiles the TypeScript scripts, reloads the embedded runtime, and starts calling `update()` every frame. The foam cube should rotate smoothly around its vertical axis while its position and material stay unchanged.
+
+Use **Pause** to inspect a frame or **Stop** to leave play mode. Stopping reloads the saved scene, so the cube returns to its authored rotation rather than keeping the temporary play-mode transform.
+</Step>
+
+<Step>
+### Change the animation speed
+
+Edit the `speed` value in `SpinCube.ts` to tune the motion:
+
+- `90` makes one complete rotation every four seconds.
+- `-45` rotates at the original speed in the opposite direction.
+- `0` stops the rotation without removing the component.
+
+Save the script and start play mode again to test the new value.
+</Step>
+
+</Steps>
+
+You now have a reusable behavior component. Attach `SpinCube` to another object to give it the same animation, or create a second component that calls `move()` or `setScale()` for a different effect.

@@ -1,0 +1,63 @@
+---
+title: Photon
+description: Configure global illumination and path tracing for Atlas scenes.
+icon: Eclipse
+---
+
+Photon is Atlas's advanced illumination system. It provides probe-based global illumination for the deferred renderer and a path-traced rendering mode for scenes that need physically richer lighting.
+
+Photon is selected through project renderer settings. You normally configure it through `project.atlas` or Atlas Editor rather than constructing Photon objects in a gameplay script.
+
+## Enable global illumination
+
+Global illumination adds indirect light to the deferred renderer.
+
+```toml title="project.atlas"
+[renderer]
+default = "deferred"
+global_illumination = true
+```
+
+Direct lights explain which surfaces receive light from a source. Global illumination carries that energy into nearby surfaces, making interiors and shadowed regions feel connected to the lit environment.
+
+Start with global illumination disabled while arranging the scene, then enable it and tune the final lighting. Confirm that the scene has sensible scale, materials, light intensities, and probe coverage before treating GI as a correction for poor direct lighting.
+
+## Enable path tracing
+
+```toml title="project.atlas"
+[renderer]
+default = "pathtracing"
+global_illumination = false
+accumulation_frames = 512
+samples_per_pixel = 10
+max_bounces = 8
+denoising = true
+use_upscaling = true
+upscaling_ratio = 0.67
+```
+
+Path tracing replaces the normal rasterized scene pass for the active target. It accumulates samples over frames, traces multiple light bounces, optionally denoises the result, and resolves it into the render target.
+
+The main quality controls are:
+
+- `samples_per_pixel`: more samples reduce noise but cost more per frame.
+- `max_bounces`: more bounces capture longer light paths but increase trace work.
+- `accumulation_frames`: how long Atlas continues refining a stable view.
+- `denoising`: reduces visible noise in a lower-sample result.
+- `use_upscaling` and `upscaling_ratio`: trace fewer pixels and scale the image to the output size.
+
+## Choose the right mode
+
+Use deferred rendering with global illumination for interactive scenes that need broad hardware support and stable real-time performance. Use path tracing when lighting accuracy and reflections matter more than frame cost, and when the selected backend supports the required ray-tracing path.
+
+Path-traced accumulation assumes the view is stable. Camera motion, object movement, lighting changes, and resizing invalidate prior samples and require the image to converge again.
+
+## Prepare materials and lights
+
+Photon uses the scene's existing Atlas materials and lights. Set albedo, metallic, roughness, emissive color and intensity, transmittance, and index of refraction intentionally. `transmittance` and `ior` are especially relevant to the path-traced result.
+
+Keep emissive intensity and light energy within a controlled range. Very bright isolated values can increase visible variance and slow convergence. Compare the result at the target output size and motion pattern rather than judging only a static editor frame.
+
+## Backend expectations
+
+Photon runs above Opal, but not every backend offers the same ray-tracing capability. Select the backend and renderer together, then validate the final project on its deployment hardware. Metal is the documented path for Atlas's current path-tracing test project.

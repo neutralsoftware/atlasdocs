@@ -1,0 +1,96 @@
+---
+title: Atlas CLI
+description: Create, script, run, build, and package Atlas projects from the terminal.
+icon: Terminal
+---
+
+The `atlas` command-line tool manages an Atlas project from creation through packaging. Run project commands from the directory that contains `project.atlas` unless a command accepts an explicit path.
+
+## Create a project
+
+```bash
+atlas create my-game
+cd my-game
+```
+
+Interactive creation chooses the project settings and writes the starter manifest, scene, and asset structure. You can also provide common choices directly:
+
+```bash
+atlas create \
+    --project-name "My Game" \
+    --path ./my-game \
+    --version beta1 \
+    --renderer deferred \
+    --global-illumination
+```
+
+The renderer choice is `deferred` or `pathtracing`. You can refine its settings later in `project.atlas`.
+
+## Set up TypeScript
+
+```bash
+atlas script init
+atlas script new assets/scripts/Player.ts --component-name Player
+atlas script compile
+```
+
+`script init` prepares the package and TypeScript configuration. `script new` creates a component file, and `script compile` bundles the registered scripts for QuickJS. The editor also compiles scripts when entering play mode.
+
+## Run and build
+
+```bash
+atlas run
+atlas build
+atlas build --release 1
+```
+
+`atlas run` resolves the runtime version declared by `atlas_version`, loads the runtime library, and starts the current project. `atlas build` configures and compiles the standalone project executable.
+
+The rendering backend normally comes from `project.atlas`, but a build can override it:
+
+```bash
+atlas build --backend VULKAN
+atlas clangd --backend VULKAN
+```
+
+Valid renderer backends are `AUTO`, `METAL`, `VULKAN`, and `OPENGL`. `atlas clangd` produces a `compile_commands.json` view for C++ language tooling.
+
+## Package a release
+
+```bash
+atlas pack --release 1
+```
+
+Packaging writes a distributable result below `dist/`. On macOS it creates an application bundle containing the Atlas CLI, runtime library, launcher, project resources, `Info.plist`, and optional icon. Other desktop hosts receive a portable application directory.
+
+Set the product details in the manifest before packaging:
+
+```toml
+[pack]
+icon = "assets/AppIcon.icns"
+supported_platforms = "all"
+identifier = "com.example.mygame"
+version = "1.0.0"
+```
+
+## Register an installed runtime
+
+Atlas can keep several engine versions in `~/.atlas/config.json`. Register the CLI and matching runtime library under the version used by a project's manifest:
+
+```bash
+atlas register beta1 \
+    --atlas /absolute/path/to/atlas \
+    --runtime-lib /absolute/path/to/runtime.dylib
+```
+
+The editor's toolchain installer performs this registration automatically for its bundled version. Manual registration is useful for source builds or multiple local toolchains.
+
+## A useful daily loop
+
+```bash
+atlas script compile
+atlas run
+atlas pack --release 1
+```
+
+Compile scripts while iterating, run the whole project rather than an isolated scene before release, and package only after the manifest's version, identifier, icon, renderer, and main scene are final.

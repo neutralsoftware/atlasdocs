@@ -1,0 +1,69 @@
+---
+title: Bezel Native
+description: Understand the experimental native physics backend and how to select it.
+icon: Atom
+---
+
+Bezel is the physics boundary used by Atlas. Bezel Native is the engine's built-in backend; it is intentionally small and is still under active development. Most games should use Bezel Jolt unless they are developing or testing the native physics implementation itself.
+
+## Select the native backend
+
+The backend is chosen when Atlas is configured, not per rigidbody and not in `project.atlas`.
+
+```bash
+cmake -S . -B build-native -G Ninja -DBEZEL_NATIVE=ON -DBACKEND=AUTO
+cmake --build build-native --parallel
+```
+
+Every runtime and editor executable linked from that build uses Bezel Native. Projects continue to use the same Atlas-facing physics components, which allows backend work without rewriting scene or script code.
+
+## Use the shared physics API
+
+Attach a `Rigidbody` to a scene object, give it at least one collider, and choose its motion type.
+
+```ts
+import { Component } from "atlas";
+import { Rigidbody } from "bezel";
+import { Position3d } from "atlas/units";
+
+export class NativeBody extends Component {
+    body: Rigidbody | null = null;
+
+    init(): void {
+        const parent = this.getParent();
+        const body = new Rigidbody();
+        body.addCollider({ size: new Position3d(1, 1, 1) });
+        body.setMotionType("Dynamic");
+        body.setMass(1);
+        parent.addComponent(body);
+        this.body = body;
+    }
+
+    update(_deltaTime: number): void {}
+
+    launch(): void {
+        this.body?.applyForce(new Position3d(0, 20, 0));
+    }
+}
+```
+
+The available motion types are:
+
+- `Static` for immovable level geometry.
+- `Dynamic` for bodies driven by simulation, forces, and impulses.
+- `Kinematic` for bodies moved by game logic while still participating in contacts.
+
+Primitive box, sphere, and capsule colliders are the simplest starting point. Mesh colliders are more expensive and should be reserved for geometry that cannot be approximated well with primitives.
+
+## Understand the limitation
+
+Atlas exposes rigidbodies, sensors, collision callbacks, spatial queries, joints, and vehicles through the common Bezel API. That shared surface does not guarantee that the native backend implements every Jolt behavior with the same maturity or stability.
+
+Use Bezel Native when you are:
+
+- working on Atlas physics internals;
+- comparing backend behavior;
+- testing a project against the built-in implementation;
+- able to validate the exact collision and constraint features your project needs.
+
+For production-oriented physics, vehicles, joints, and the broadest tested behavior, use **Bezel Jolt**.

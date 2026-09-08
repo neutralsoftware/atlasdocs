@@ -1,0 +1,89 @@
+---
+title: Hydra
+description: Add a day-night atmosphere, weather, clouds, sky lighting, and water.
+icon: Droplet
+---
+
+Hydra supplies the environmental systems around an Atlas scene: procedural sky colors, sun and moon lighting, stars, a day-night cycle, weather, volumetric clouds, and renderable water.
+
+## Enable the atmosphere
+
+Every scene exposes its `Atmosphere`. Configure it from a component and let Hydra drive the scene sky and global light.
+
+```ts
+import { Component } from "atlas";
+
+export class DayNightCycle extends Component {
+    init(): void {
+        const atmosphere = this.getScene().atmosphere;
+        atmosphere.enable();
+        atmosphere.setTime(8, 30, 0);
+        atmosphere.secondsPerHour = 20;
+        atmosphere.cycle = true;
+        atmosphere.useGlobalLight();
+        atmosphere.castShadowsFromSunlight(2048);
+        this.getScene().useAtmosphereSkybox(true);
+    }
+
+    update(_deltaTime: number): void {}
+}
+```
+
+`timeOfDay` represents the atmosphere clock, while `secondsPerHour` controls how quickly it advances when `cycle` is enabled. Use `isDaytime()`, `getNormalizedTime()`, and the sun/moon angle methods when gameplay should follow the lighting cycle.
+
+## Add clouds
+
+```ts
+const atmosphere = this.getScene().atmosphere;
+atmosphere.addClouds(3, 8);
+
+if (atmosphere.clouds) {
+    atmosphere.clouds.density = 0.48;
+    atmosphere.clouds.absorption = 0.35;
+    atmosphere.clouds.primaryStepCount = 64;
+    atmosphere.clouds.lightStepCount = 8;
+}
+```
+
+Frequency and division count shape the generated Worley noise. Density, absorption, scattering, phase, step counts, and wind then control the rendered volume. Higher step counts can improve quality but increase rendering cost.
+
+## Drive weather
+
+Enable weather and assign a delegate that returns a condition, intensity, and wind for the current frame information.
+
+```ts
+import { WeatherCondition } from "hydra";
+import { Position3d } from "atlas/units";
+
+atmosphere.enableWeather();
+atmosphere.weatherDelegate = (_information) => ({
+    condition: WeatherCondition.Rain,
+    intensity: 0.7,
+    wind: new Position3d(2, 0, 1),
+});
+```
+
+Built-in conditions are `Clear`, `Rain`, `Snow`, and `Storm`. Keep the delegate deterministic for a fixed game state; use `ViewInformation` only when weather genuinely depends on the active view or frame.
+
+## Create water
+
+`Fluid` is a renderable `GameObject`, so it has normal position, rotation, and scale controls.
+
+```ts
+import { Color, Position3d, Size2d } from "atlas/units";
+import { Fluid } from "hydra";
+
+const lake = new Fluid();
+lake.create(
+    new Size2d(80, 80),
+    new Color(0.04, 0.24, 0.34, 0.82),
+);
+lake.setPosition(new Position3d(0, 0, 0));
+lake.setWaveVelocity(0.35);
+```
+
+Fluid rendering maintains reflection and refraction captures around the surface. Large numbers of independent water surfaces therefore cost more than one shared body of water. Assign normal and movement textures when the default wave appearance is not sufficient.
+
+## Keep environment ownership clear
+
+Use the scene's existing atmosphere instead of constructing competing atmosphere objects. Treat Hydra as scene-wide lighting and weather state, while individual `Fluid` objects remain ordinary scene objects.

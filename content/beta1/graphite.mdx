@@ -1,0 +1,111 @@
+---
+title: Graphite
+description: Build responsive runtime interfaces with UI documents, layouts, styles, and scripts.
+icon: Webhook
+---
+
+Graphite is Atlas's in-game UI system. It renders interfaces inside the game through the engine renderer; it is separate from the Qt interface used by Atlas Editor.
+
+Graphite interfaces are stored as versioned `.aui` JSON documents. A document defines a reference canvas, default font, elements, layouts, styles, and script components.
+
+## Create a UI document
+
+```json title="assets/ui/main-menu.aui"
+{
+  "format": "atlas.graphite.ui",
+  "version": 1,
+  "name": "Main Menu",
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "background": [0.035, 0.04, 0.055, 1]
+  },
+  "defaultFont": {
+    "source": "../fonts/Inter-Regular.ttf",
+    "size": 24
+  },
+  "elements": [
+    {
+      "id": "play",
+      "name": "Play Button",
+      "type": "button",
+      "label": "Play",
+      "position": [80, 420],
+      "size": [240, 56],
+      "components": []
+    }
+  ]
+}
+```
+
+Paths inside a UI document are relative to the `.aui` file. Colors accept normalized RGBA arrays, and positions and sizes use two-number arrays.
+
+## Attach the UI to a scene
+
+Add the document to the top-level `ui` array in a scene:
+
+```json title="main.ascene"
+{
+  "name": "Main",
+  "objects": [],
+  "ui": [
+    "assets/ui/main-menu.aui",
+    { "source": "assets/ui/pause-menu.aui", "enabled": false }
+  ]
+}
+```
+
+Graphite renders after the world scene. In the editor scene workspace, it appears while viewing through the scene camera so it does not obstruct ordinary world editing.
+
+## Choose elements and layouts
+
+Use `text`, `image`, `button`, `checkbox`, and `textField` for content and controls. Use `column` for vertical flow, `row` for horizontal flow, and `stack` when children should overlap.
+
+Layouts accept children, size, padding, spacing, alignment, and an anchor. Prefer layouts over individually positioning every child: the interface becomes easier to resize and localize.
+
+## Style interaction states
+
+Each element can define `normal`, `hovered`, `pressed`, `focused`, `disabled`, and `checked` variants.
+
+```json
+{
+  "style": {
+    "normal": {
+      "background": [0.12, 0.13, 0.17, 0.96],
+      "foreground": [1, 1, 1, 1],
+      "cornerRadius": 10
+    },
+    "hovered": {
+      "background": [0.18, 0.2, 0.26, 1]
+    },
+    "pressed": {
+      "background": [0.08, 0.09, 0.12, 1]
+    }
+  }
+}
+```
+
+Unspecified values fall back through the element style and current `Theme`, which keeps state variants small.
+
+## Add behavior
+
+UI elements accept the same script-component structure as scene objects. In the script, cast the parent to the matching Graphite type and register the interaction callback during `init()`.
+
+```ts title="assets/scripts/PlayButton.ts"
+import { Component } from "atlas";
+import { Debug } from "atlas/log";
+import { Button } from "graphite";
+
+export class PlayButton extends Component {
+    init(): void {
+        const button = this.getParent() as Button;
+        button.setOnClick(() => {
+            Debug.print("Play selected");
+        });
+    }
+
+    update(_deltaTime: number): void {}
+}
+```
+
+Buttons, checkboxes, and text fields expose click, toggle, and change callbacks. Keep input registration in `init()` so it happens once rather than once per frame.

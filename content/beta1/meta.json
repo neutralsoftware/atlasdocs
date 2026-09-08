@@ -5,7 +5,21 @@
         "what",
         "building",
         "concepts",
-        "---Modules---"
+        "---Tutorials---",
+        "tutorials/beginner",
+        "---Modules---",
+        "atlas-engine",
+        "aurora",
+        "bezel-native",
+        "bezel-jolt",
+        "atlas-cli",
+        "atlas-editor",
+        "finewave",
+        "graphite",
+        "hydra",
+        "opal",
+        "photon",
+        "tracer"
     ],
     "title": "Beta 1 Vela",
     "root": "version"

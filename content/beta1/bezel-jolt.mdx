@@ -1,0 +1,85 @@
+---
+title: Bezel Jolt
+description: Add rigidbodies, colliders, queries, collision callbacks, joints, and vehicles.
+icon: Orbit
+---
+
+Bezel Jolt is Atlas's default physics backend. Atlas gives scripts and scenes a stable `Rigidbody`, query, joint, and vehicle API while Bezel translates those operations to Jolt Physics.
+
+## Add a rigidbody
+
+The editor can attach a Rigidbody component and configure its collider, mass, friction, damping, restitution, tags, sensor state, and motion type. You can also work with the component from a script:
+
+```ts
+import { Component } from "atlas";
+import { Rigidbody } from "bezel";
+import { Position3d } from "atlas/units";
+
+export class Crate extends Component {
+    body: Rigidbody | null = null;
+
+    init(): void {
+        this.body = this.getParent(Rigidbody);
+        this.body?.setMass(2);
+        this.body?.setFriction(0.7);
+        this.body?.setDamping(0.05, 0.1);
+    }
+
+    update(_deltaTime: number): void {}
+
+    jump(): void {
+        this.body?.applyImpulse(new Position3d(0, 8, 0));
+    }
+}
+```
+
+Use `applyForce()` for acceleration over time and `applyImpulse()` for an immediate change in velocity. `applyForceAtPoint()` can also produce torque. Direct velocity setters are useful for character or arcade-style control.
+
+## React to collisions
+
+Collision callbacks belong on components attached to the participating objects.
+
+```ts
+import { Component, GameObject } from "atlas";
+import { Debug } from "atlas/log";
+
+export class CollisionReporter extends Component {
+    init(): void {}
+    update(_deltaTime: number): void {}
+
+    onCollisionEnter(other: GameObject): void {
+        Debug.print(`Started touching ${other.name}`);
+    }
+
+    onCollisionExit(other: GameObject): void {
+        Debug.print(`Stopped touching ${other.name}`);
+    }
+}
+```
+
+Use a `Sensor` when you need contact detection without a normal solid response. Sensors can send a named signal to other components.
+
+## Query the world
+
+`Rigidbody` supports raycasts, overlap tests, and movement prediction sweeps. Single-result variants expose the closest hit, while `All` variants collect every hit.
+
+```ts
+import { Position3d } from "atlas/units";
+
+const result = this.body?.raycast(new Position3d(0, -1, 0), 2);
+if (result?.hit?.didHit) {
+    const distance = result.hit.distance;
+}
+```
+
+Tagged raycasts limit results to bodies with selected tags. World variants accept an explicit origin, which is useful when the query should not begin at the owning rigidbody.
+
+## Joints and vehicles
+
+Use `FixedJoint` to lock two members together, `HingeJoint` for rotation around an axis, and `SpringJoint` for a configurable distance constraint. A joint can connect two game objects or connect an object to the world. Configure both endpoints and anchors before initialization.
+
+`Vehicle` is a component with wheel, suspension, engine, transmission, differential, steering, brake, and hand-brake settings. After changing its structural settings, call `requestRecreate()` so Bezel rebuilds the backend vehicle safely.
+
+## Frame timing
+
+Atlas pushes authored transforms into physics before the simulation step and pulls simulated transforms back afterward. Apply physics inputs through components and avoid overwriting a dynamic object's transform every `update()`, because that fights the solver. Use a kinematic body when script-controlled movement is the intended behavior.

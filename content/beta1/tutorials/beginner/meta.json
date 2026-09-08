@@ -1,0 +1,6 @@
+{
+    "title": "Beginner",
+    "defaultOpen": false,
+    "collapsible": true,
+    "pages": ["first-scene", "animate-with-a-script"]
+}

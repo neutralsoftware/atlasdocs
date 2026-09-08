@@ -1,0 +1,89 @@
+---
+title: Finewave
+description: Load, play, spatialize, and process audio in Atlas projects.
+icon: AudioLines
+---
+
+Finewave is Atlas's audio layer. It manages the audio device and listener, decodes audio resources, controls playback sources, and provides reverb, echo, and distortion effects through OpenAL.
+
+## Use an Audio Player component
+
+For normal game audio, attach an Audio Player component to an object in the editor. Assign an audio asset, then configure volume, looping, and spatial audio. The component follows its parent object's position and updates the listener from the active camera.
+
+Scripts can retrieve and control the component:
+
+```ts
+import { Component } from "atlas";
+import { AudioPlayer } from "atlas/audio";
+
+export class MusicController extends Component {
+    player: AudioPlayer | null = null;
+
+    init(): void {
+        this.player = this.getParent(AudioPlayer);
+        this.player?.setLoop(true);
+        this.player?.setVolume(0.65);
+        this.player?.play();
+    }
+
+    update(_deltaTime: number): void {}
+}
+```
+
+Use `play()`, `pause()`, and `stop()` for transport. `play()` resumes a paused source. Set looping before starting a music or ambience source.
+
+## Load audio from a script
+
+```ts
+import { Resource, ResourceType } from "atlas";
+import { AudioData, AudioSource } from "finewave";
+
+const resource = Resource.fromAssetPath(
+    "audio/door.wav",
+    ResourceType.Audio,
+    "Door",
+);
+
+const data = AudioData.fromResource(resource);
+const source = new AudioSource();
+source.setData(data);
+source.setVolume(0.8);
+source.play();
+```
+
+`AudioData` owns the decoded clip data. `AudioSource` owns playback state and can reuse that data. Reuse loaded data for repeated sound effects instead of decoding the same asset for every play.
+
+## Spatial audio
+
+Enable spatial audio for sounds that belong to a position in the world, such as footsteps or machinery. Keep menu sounds and music non-spatial so their volume does not depend on the camera.
+
+```ts
+import { Position3d } from "atlas/units";
+
+source.useSpatialization();
+source.setPosition(new Position3d(4, 1, -2));
+source.setVelocity(new Position3d(0, 0, 0));
+```
+
+Mono clips are the safest choice for 3D positioning. The listener uses a position, forward/up orientation, and velocity; the Atlas `AudioPlayer` component synchronizes those values with the main camera during updates.
+
+## Add effects
+
+Finewave provides `Reverb`, `Echo`, and `Distortion` audio effects. Configure an effect, add it to a source, and retain the effect while it is in use.
+
+```ts
+import { Reverb } from "finewave";
+
+const room = new Reverb();
+room.setRoomSize(0.75);
+room.setDamping(0.4);
+room.setWetLevel(0.3);
+room.setDryLevel(0.9);
+source.applyEffect(room);
+```
+
+Effects are best used deliberately: reverb can communicate room size, echo suits large reflective spaces, and distortion can signal damage or radio playback. Too many simultaneous processed sources can make a mix unclear and increase audio work.
+
+## Control overall volume
+
+`AudioEngine` controls the master volume and listener state. Access it through the active `Window` when the game needs a global volume control. Use source volume for category or per-sound balance and master volume for the player's overall audio setting.

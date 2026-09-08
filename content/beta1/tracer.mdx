@@ -1,0 +1,79 @@
+---
+title: Tracer
+description: Log runtime events and understand Atlas's diagnostics and profiling data.
+icon: TestTubeDiagonal
+---
+
+Tracer is Atlas's diagnostics system. It combines script and native logging with structured graphics, memory, object, resource, and profiling events that Atlas and its editor can present while a project runs.
+
+## Log from TypeScript
+
+Use the `Debug` API for messages that should appear in Atlas runtime diagnostics.
+
+```ts
+import { Component } from "atlas";
+import { Debug } from "atlas/log";
+
+export class HealthReporter extends Component {
+    health = 100;
+
+    init(): void {
+        Debug.print("Health reporter initialized");
+    }
+
+    update(_deltaTime: number): void {
+        if (this.health <= 0) {
+            Debug.warning("Object health reached zero");
+        }
+    }
+}
+```
+
+`Debug.print`, `Debug.warning`, and `Debug.error` represent informational, warning, and error severities. Pick the severity based on what the person running the project should do:
+
+- Print state that helps explain normal execution.
+- Warn about recoverable or suspicious conditions.
+- Report an error when an operation failed or the result cannot be trusted.
+
+Avoid logging every frame. Log state transitions, unusual inputs, load results, and failures so important events remain visible.
+
+## Log from native code
+
+Engine and native module code can include the Tracer logging header and use the call-site macros:
+
+```cpp
+#include <atlas/tracer/log.h>
+
+void loadLevel(const std::string &name) {
+    atlas_log("Loading level " + name);
+}
+```
+
+The native logger attaches file and line information. `atlas_warning` and `atlas_error` provide the other severities. Console filtering can independently enable informational, warning, and error output without changing the events a connected tracer receives.
+
+## Measure a native scope
+
+`DebugTimer` measures elapsed time using scope lifetime:
+
+```cpp
+#include <atlas/tracer/log.h>
+
+void rebuildLighting() {
+    DebugTimer timer("RebuildLighting");
+    updateLightBuffers();
+}
+```
+
+Atlas uses the same mechanism around sections of the main frame and GPU work. Give timers stable, specific names so repeated captures can be compared.
+
+## Understand structured events
+
+Tracer is more than a text console. Atlas emits categories for graphics resources, memory, objects, profiling, and project resources. This makes it possible to connect a timing spike to the objects or resources created around it.
+
+The engine's frame loop owns its main timers, so subsystem measurements appear in the same frame context instead of separate clocks. Resource creation paths can also emit diagnostics when models, meshes, textures, or related data are prepared.
+
+## Use diagnostics effectively
+
+Reproduce one problem at a time, keep the input sequence short, and mark meaningful transitions in the log. For performance work, compare the same scene, camera, backend, renderer mode, and output size. A timing number without those conditions is not a reliable comparison.
+
+Tracer connectivity is an alpha API. Native integrations should treat connection failure as a loss of diagnostics, not a reason for the game itself to stop.

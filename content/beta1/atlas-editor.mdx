@@ -1,0 +1,58 @@
+---
+title: Atlas Editor
+description: Learn the scene, object, asset, viewport, play-mode, and export workflow.
+icon: PanelsTopLeft
+---
+
+Atlas Editor is the visual workspace for Atlas projects. It edits the same `project.atlas`, `.ascene`, material, UI, and asset files used by the standalone runtime, so changes made in the editor remain ordinary project files.
+
+## Understand the workspace
+
+- **Viewport** renders the active scene and provides transform tools.
+- **Hierarchy** shows scene objects and their parent relationships.
+- **Inspector** edits the selected object's transform, material, and components.
+- **Content Browser** manages project assets and supports model import.
+- **Console and debugging panels** show runtime messages and diagnostics.
+
+Scenes open in tabs above the viewport. The runtime remains the source of truth: editor actions mutate the embedded runtime, and the panels refresh from the resulting scene snapshot.
+
+## Create and arrange a scene
+
+Use `Shift A` to open Add Object, `Shift N` for an empty object, `Shift C` for a camera, and `Shift L` for a point light. Select an object in the hierarchy or viewport, then use:
+
+| Action | Shortcut |
+| --- | --- |
+| Move | `G` |
+| Rotate | `R` |
+| Scale | `S` |
+| Constrain to an axis | `X`, `Y`, or `Z` |
+| Toggle local or world space | `Shift T` |
+| Frame the selection | `Tab` |
+| Duplicate | `Command D` |
+| Delete | `Backspace` |
+
+Press `Enter` or left-click to confirm a modal transform. Press `Escape` or right-click to cancel it. Middle-drag orbits the view, while right-drag pans it.
+
+## Work with assets
+
+The Content Browser represents files inside the project. Drop OBJ, FBX, glTF, GLB, or DAE assets onto the viewport to import a model. Rename an asset with `Enter`, search assets with `Command Option F`, and refresh the asset database with `Command Shift R`.
+
+Keep asset paths inside one of the directories listed by `[game].assets` in `project.atlas`. Scenes and scripts refer to those project-relative paths so packaged games can resolve them.
+
+## Add behavior
+
+Attach built-in components such as Rigidbody or Audio Player from the Inspector. For gameplay logic, create a TypeScript component with the CLI, attach it as a script component, and edit its exposed values in the Inspector.
+
+The editor watches JavaScript and TypeScript files. When scripts change, it can recompile and reload the embedded runtime so the scene uses the new behavior.
+
+## Play safely
+
+Use `Command P` to play or pause, `Command Shift K` to step one frame, and `Command Shift L` to stop. Entering play mode saves the scene, compiles scripts, reloads the runtime, and enables simulation. Stopping reloads the saved scene, discarding runtime-only movement and mutations.
+
+That boundary is useful: edit mode changes should be saved, while play mode is a disposable test of the current saved state.
+
+## Save and export
+
+Use `Command S` to save the scene and `Command ,` for project settings. `Command B` builds the project, `Command Shift B` runs it, and **File → Export Project** opens the packaging workflow with visible progress and logs.
+
+Before exporting, verify the main scene, rendering mode, target platform, application identifier, version, and icon in the project configuration. The exported application uses the same runtime behavior as `atlas pack`.

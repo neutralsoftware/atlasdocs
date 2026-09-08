@@ -1,0 +1,97 @@
+---
+title: Aurora
+description: Create heightmap and procedural terrains with generators, noise, and biomes.
+icon: MountainSnow
+---
+
+Aurora is Atlas's terrain system. It creates renderable terrain from image heightmaps or procedural generators and can assign biomes using height, moisture, and temperature ranges.
+
+## Choose a terrain source
+
+Use a heightmap when an artist or external terrain tool defines the shape. Use a generator when the terrain should be reproducible from parameters or created at runtime.
+
+```ts
+import { Terrain, MountainGenerator } from "aurora";
+
+const generator = new MountainGenerator(0.02, 24, 6, 0.5);
+const terrain = Terrain.fromGenerator(generator);
+```
+
+The mountain constructor takes scale, amplitude, octave count, and persistence. A lower scale spreads features over a larger area; amplitude controls their height; octaves add detail; persistence controls how strongly later octaves contribute.
+
+Other built-in generators are `HillGenerator`, `PlainGenerator`, and `IslandGenerator`. `CompoundGenerator` layers several generators:
+
+```ts
+import {
+    CompoundGenerator,
+    HillGenerator,
+    IslandGenerator,
+    Terrain,
+} from "aurora";
+
+const generator = new CompoundGenerator();
+generator.addGenerator(new IslandGenerator(18, 0.015));
+generator.addGenerator(new HillGenerator(0.05, 3));
+
+const terrain = Terrain.fromGenerator(generator);
+```
+
+## Load a heightmap
+
+```ts
+import { Resource, ResourceType } from "atlas";
+import { Terrain } from "aurora";
+
+const heightmap = Resource.fromAssetPath(
+    "terrain/island-height.png",
+    ResourceType.Texture,
+    "Island Heightmap",
+);
+
+const terrain = Terrain.fromHeightmap(heightmap);
+```
+
+`Terrain` is a `GameObject`, so it uses the familiar transform and visibility methods: `setPosition`, `move`, `setRotation`, `setScale`, `show`, and `hide`. Its `width`, `length`, `height`, `maxPeak`, and `seaLevel` values control the generated result.
+
+## Add biomes
+
+A biome combines a texture or fallback color with selection ranges. Add narrower biomes before broad fallback regions so their intent remains easy to understand.
+
+```ts
+import { Biome } from "aurora";
+import { Color } from "atlas/units";
+import { Texture, TextureType } from "atlas/graphics";
+
+const snowColor = new Color(0.92, 0.95, 1, 1);
+const snowTexture = Texture.createColor(
+    snowColor,
+    TextureType.Color,
+    1,
+    1,
+);
+const snow = new Biome("Snow", snowTexture, snowColor, false);
+
+snow.minHeight = 0.72;
+snow.maxHeight = 1;
+snow.minMoisture = 0;
+snow.maxMoisture = 1;
+snow.minTemperature = 0;
+snow.maxTemperature = 0.4;
+
+terrain.addBiome(snow);
+```
+
+Set `useTexture` to `true` and call `attachTexture()` when the biome should use an actual surface texture. Moisture and temperature textures allow the same height band to produce different regions.
+
+## Sample noise directly
+
+Aurora also exposes `PerlinNoise`, `SimplexNoise`, `WorleyNoise`, `FractalNoise`, and the `Noise` convenience class. These return scalar samples and are useful for placement, masks, weather maps, or custom generation logic.
+
+```ts
+import { PerlinNoise } from "aurora";
+
+const noise = new PerlinNoise(42);
+const density = noise.noise(worldX * 0.01, worldZ * 0.01);
+```
+
+Keep the seed stable when the same project must reproduce the same terrain. Terrain generation creates geometry, so avoid rebuilding it every frame.

@@ -1,0 +1,99 @@
+---
+title: Atlas Engine
+description: Learn how Atlas projects, scenes, objects, components, and scripts work together.
+icon: Boxes
+---
+
+Atlas Engine is the layer that connects your scene, objects, input, rendering, physics, audio, and scripts. Most projects use it through the editor and the TypeScript runtime rather than by calling the lower-level subsystem libraries directly.
+
+## The project model
+
+An Atlas project starts with three pieces:
+
+- `project.atlas` describes the application, renderer, main scene, scripts, window, and packaging settings.
+- `.ascene` files store scene objects, lights, the camera, environment, render targets, and UI documents.
+- `assets/` contains scripts, models, textures, audio, fonts, and other resources.
+
+The runtime reads `project.atlas`, loads the main scene, creates the engine window, initializes every object and component, and then advances the whole game through one shared frame loop.
+
+```toml title="project.atlas"
+app_name = "My Game"
+atlas_version = "beta1"
+backend = "AUTO"
+name = "My Game"
+platform = "DESKTOP"
+
+[game]
+assets = ["assets/"]
+main_scene = "main.ascene"
+
+[renderer]
+default = "deferred"
+global_illumination = false
+
+[window]
+dimensions = [1280, 720]
+mouse_capture = false
+```
+
+## Objects and components
+
+A `GameObject` has a name, ID, transform, visibility, and a list of components. Renderable objects such as `CoreObject`, `Model`, `Terrain`, and `Fluid` extend that model with their own data.
+
+Components add behavior without changing the object itself. Atlas calls their lifecycle in this order:
+
+1. `atAttach()` when the component receives its parent.
+2. `init()` when it is initialized.
+3. `beforePhysics()` before each physics step.
+4. `update(deltaTime)` after physics on each frame.
+5. Collision, signal, and query callbacks when those events occur.
+
+## Write a first component
+
+Create scripts with `atlas script new`, or add a TypeScript file below `assets/scripts` and register it in the project. Export the component class so the runtime can construct it.
+
+```ts title="assets/scripts/Spinner.ts"
+import { Component } from "atlas";
+import { Position3d } from "atlas/units";
+
+export class Spinner extends Component {
+    speed = 45;
+
+    init(): void {}
+
+    update(deltaTime: number): void {
+        this.getParent().rotate(
+            new Position3d(0, this.speed * deltaTime, 0),
+        );
+    }
+}
+```
+
+Attach the script to an object in the editor. Public serializable values such as `speed` can then be configured per object without duplicating the script.
+
+Use `getParent()` for the owning object, `getObject(nameOrId)` to find another scene object, `getScene()` for lighting and environment, and `getWindow()` for window-level features. Prefer storing a resolved object or component during `init()` instead of looking it up every frame.
+
+## Work with resources
+
+Resources are project-relative asset references. Create one from an asset path when an API needs a texture, audio clip, font, or model.
+
+```ts
+import { Resource, ResourceType } from "atlas";
+
+const sound = Resource.fromAssetPath(
+    "audio/impact.wav",
+    ResourceType.Audio,
+    "Impact",
+);
+```
+
+The resource is only a lightweight descriptor. The subsystem consuming it performs the actual decoding or GPU upload.
+
+## Choose the next module
+
+- Use **Atlas Editor** to author scenes visually.
+- Use **Atlas CLI** to create, run, build, and package projects.
+- Use **Bezel** for rigidbodies, collisions, queries, joints, and vehicles.
+- Use **Finewave** for playback and spatial audio.
+- Use **Aurora**, **Hydra**, and **Graphite** for terrain, environments, and UI.
+- Configure rendering through **Opal** and **Photon**.
