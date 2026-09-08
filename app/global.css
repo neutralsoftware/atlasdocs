@@ -4,7 +4,6 @@
 
 html {
   scrollbar-gutter: stable;
-  background-color: #FAF8F5;
 }
 
 html > body[data-scroll-locked] {
@@ -16,11 +15,6 @@ html > body[data-scroll-locked] {
 @theme {
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
-}
-
-h2 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
 }
 
 :root {

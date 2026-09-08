@@ -5,7 +5,7 @@ icon: Rocket
 ---
 
 import { Logo } from "@/lib/layout.shared"; 
-import { Droplet, Atom, Orbit, Terminal, PanelsTopLeft, AudioLines, Webhook, MountainSnow, Box, Eclipse } from "lucide-react";
+import { Droplet, Atom, Orbit, Terminal, PanelsTopLeft, AudioLines, Webhook, MountainSnow, Box, Eclipse, TestTubeDiagonal } from "lucide-react";
 
 ## Introduction
 
@@ -17,17 +17,18 @@ or old software. Atlas is just supported in macOS, with Windows and Linux suppor
 Atlas is modular and divided into several frameworks:
 
 <Cards>
-    <Card title="Atlas Engine" description="The engine itself, responsible for rendering logic, controls, and state management." icon={<Logo />} href="/docs/engine" />
-    <Card title="Aurora" description="A realistic terrain creation and reconstruction framework." icon={<MountainSnow />} href="/docs/aurora" />
-    <Card title="Bezel Native" description="A physics simulation framework for realistic object interactions." icon={<Atom />} href="/docs/aurora" />
-    <Card title="Bezel Jolt" description="A fast and efficient physics engine for real-time simulations based on the Jolt project." icon={<Orbit />} href="/docs/aurora" />
-    <Card title="Atlas CLI" description="A simple and easy to use command-line interface for managing your Atlas projects." icon={<Terminal />} href="/docs/aurora" />
-    <Card title="Atlas Editor" description="A visual editor for creating and editing your Atlas projects." icon={<PanelsTopLeft />} href="/docs/aurora" />
-    <Card title="Finewave" description="A framework for handling audio and music in your games." icon={<AudioLines />} href="/docs/aurora" />
-    <Card title="Graphite" description="A UI framework so that you can create beautiful user interfaces." icon={<Webhook />} href="/docs/aurora" />
-    <Card title="Hydra" description="An atmosphere framework that provides realistic sky, weather, and water effects." icon={<Droplet />} href="/docs/aurora" />
-    <Card title="Opal" description="A core rendering framework that is the backbone of the Atlas Engine, abstracting Vulkan, Metal and OpenGL." icon={<Box />} href="/docs/aurora" />
-    <Card title="Photon" description="A path tracing and global illumination system for creating realistic lighting in your scenes." icon={<Eclipse />} href="/docs/aurora" />
+    <Card title="Atlas Engine" description="The engine itself, responsible for rendering logic, controls, and state management." icon={<Logo />} href="/engine" />
+    <Card title="Aurora" description="A realistic terrain creation and reconstruction framework." icon={<MountainSnow />} href="/aurora" />
+    <Card title="Bezel Native" description="A physics simulation framework for realistic object interactions." icon={<Atom />} href="/aurora" />
+    <Card title="Bezel Jolt" description="A fast and efficient physics engine for real-time simulations based on the Jolt project." icon={<Orbit />} href="/aurora" />
+    <Card title="Atlas CLI" description="A simple and easy to use command-line interface for managing your Atlas projects." icon={<Terminal />} href="/aurora" />
+    <Card title="Atlas Editor" description="A visual editor for creating and editing your Atlas projects." icon={<PanelsTopLeft />} href="/aurora" />
+    <Card title="Finewave" description="A framework for handling audio and music in your games." icon={<AudioLines />} href="/aurora" />
+    <Card title="Graphite" description="A UI framework so that you can create beautiful user interfaces." icon={<Webhook />} href="/aurora" />
+    <Card title="Hydra" description="An atmosphere framework that provides realistic sky, weather, and water effects." icon={<Droplet />} href="/aurora" />
+    <Card title="Opal" description="A core rendering framework that is the backbone of the Atlas Engine, abstracting Vulkan, Metal and OpenGL." icon={<Box />} href="/aurora" />
+    <Card title="Photon" description="A path tracing and global illumination system for creating realistic lighting in your scenes." icon={<Eclipse />} href="/aurora" />
+    <Card title="Tracer" description="An application and framework for debugging your projects." icon={<TestTubeDiagonal />} href="/aurora" />
 </Cards>
 
 Read the rest of the documentation to learn more about each framework and how to use them in your projects.
@@ -73,7 +74,7 @@ atlas create <project-name>
 Open the Atlas Editor and simply click on *New Project* to create a new project. You will be prompted to enter a project name and select a location for the project files.
 
 It is important to know that you will be asked to decide on a pipeline to use. A pipeline simply refers to the rendering engine that will be used in your project.
-To dive deeper, please refer to the [Rendering Pipeline](https://atlasengine.org/docs/engine/rendering-pipeline) documentation.
+To dive deeper, please refer to the [Rendering Pipeline](https://atlasengine.org/engine/rendering-pipeline) documentation.
 
 For now, you can select the PBR pipeline, which is the default and most commonly used pipeline in Atlas. This pipeline provides a physically-based rendering approach that simulates real-world lighting and materials.
 
