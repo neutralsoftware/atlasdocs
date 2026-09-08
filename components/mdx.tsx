@@ -9,6 +9,9 @@ import {
     TabsTrigger,
     TabsContent,
 } from "fumadocs-ui/components/tabs";
+import { File, Folder, Files } from "fumadocs-ui/components/files";
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Mermaid } from "./mermaid";
 
 export function getMDXComponents(components?: MDXComponents) {
     return {
@@ -23,6 +26,15 @@ export function getMDXComponents(components?: MDXComponents) {
         TabsList,
         TabsTrigger,
         TabsContent,
+
+        File,
+        Folder,
+        Files,
+
+        Accordion,
+        Accordions,
+
+        Mermaid,
     } satisfies MDXComponents;
 }
 
