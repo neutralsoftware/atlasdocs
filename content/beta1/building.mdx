@@ -1,0 +1,85 @@
+---
+title: Building from Source
+description: Learn how to build Atlas from its source code.
+icon: Hammer
+---
+
+Building Atlas from source allows you to customize the engine, contribute to its development, or simply understand how it works under the hood. This guide will walk you through the steps required to build Atlas on your system.
+
+## Prerequisites
+
+- Git with submodule support
+- CMake (version 3.21 or higher)
+- Ninja
+- Clang with C++ 20 support
+- Python 3
+- Qt 6 with the Widgets component
+- Rust and Cargo for the Atlas CLI bundled with the editor
+- Internet access during configuration so CMake can download the required dependencies
+
+## 1. Install Xcode command line tools, homebrew and tools
+
+Firstly, make sure you have the Xcode command line tools installed. You can install them by running the following command in your terminal:
+
+<Tabs items={['macOS']}>
+  <Tab value="macOS">
+
+```bash
+xcode-select --install
+```
+
+  </Tab>
+</Tabs>
+
+Also you will need [Homebrew](https://brew.sh/). Homebrew is a package manager for macOS that makes it easy to install and manage software packages. You can install Homebrew by following the instructions on the [Homebrew website](https://brew.sh/).
+To install the required tools, run the following command in your terminal:
+
+<Tabs items={["macOS"]}>
+    <Tab value="macOS">
+        ```sh
+        bash brew install cmake ninja qt@6 python rust 
+        ```
+    </Tab>
+</Tabs>
+
+<Callout title="Using 'just'">
+    You can use the `just` command to run the build commands. If you don't have
+    `just` installed, you can install it using Homebrew by running `brew install
+    just`.
+</Callout>
+
+## 2. Clone the Atlas repository
+
+Clone the Atlas repository from GitHub using the following command:
+
+<Tabs items={["macOS"]}>
+    <Tab value="macOS">
+        ```bash
+        git clone --recurse-submodules https://github.com/neutralsoftware/atlas.git
+        ```
+    </Tab>
+</Tabs>
+
+## 3. Configure and build the editor
+
+To configure and build the Atlas editor, navigate to the cloned repository and run the following commands:
+
+<Tabs items={["macOS"]}>
+    <Tab value="macOS">
+```bash
+cmake -S . -B build -G Ninja -DBACKEND=AUTO -DCMAKE_PREFIX_PATH="$(brew --prefix qt@6)"
+cmake --build build --parallel
+```
+    </Tab>
+</Tabs>
+
+Or optionally, you can use the `just` command to configure and build the editor:
+<Tabs items={["macOS"]}>
+    <Tab value="macOS">
+```bash
+just config 
+just build
+just editor
+```
+    </Tab>
+</Tabs>

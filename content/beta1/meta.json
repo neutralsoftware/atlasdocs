@@ -1,5 +1,5 @@
 {
-  "pages": ["---Introduction---", "index"],
-  "title": "Beta 1 Vela",
-  "root": "version"
+    "pages": ["---Introduction---", "index", "what", "building"],
+    "title": "Beta 1 Vela",
+    "root": "version"
 }
