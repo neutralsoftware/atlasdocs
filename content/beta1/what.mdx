@@ -1,0 +1,119 @@
+---
+title: What is Atlas?
+description: Find out what Atlas is and how it can help you in your projects.
+icon: CircleQuestionMark
+---
+
+Atlas is an open-source powerful and versatile game engine that provides developers with the tools and resources they need to create high-quality games and interactive experiences.
+It combines a full editor and engine with lower-level libraries for rendering, physics, native platform integration, and scripting.
+
+## Design Principles
+### Modern Graphics First
+Atlas is designed around modern rendering techniques rather than preserving decades of backwards compatibility. This does not mean that Atlas is expensive to run nor use, but rather that it is
+designed to be efficient and performant while still providing developers with the tools they need to create high-quality graphics and visual effects.
+
+### Explicit Over Magical
+Atlas provides high-level systems without completely obscuring the graphics and engine architecture underneath. This allows developers to have a better understanding of how the engine works and how to optimize their projects for performance and quality.
+
+### Modularity
+A simple change in an specific framework should not require a complete rebuild of the engine. Atlas is designed to be modular, allowing developers to use the builtin frameworks or replace them with their own implementations.
+For instance, if you want to use a different physics engine than Bezel Jolt, you can do so without having to modify the rest of the engine or its frameworks.
+
+### Cross-Platform in the Future
+Atlas is designed from the ground up to be cross-platform, with planned support for Windows, Linux and macOS. However, at the moment, Atlas is only supported on macOS due to the limitations of Opal's Vulkan backend.
+The Vulkan backend is still in development and is not yet stable enough for production use. Once the Vulkan backend is stable, Atlas will be able to run on Windows and Linux as well.
+
+Opal is Atlas's core rendering framework, which abstracts the underlying graphics API (Vulkan, Metal, OpenGL) and provides a unified interface for rendering. This allows us to write cross-platform rendering code that can run on any
+supported platform and center ourselves around a single graphics API rather than having to write separate code for each platform.
+
+### And editor, not a DCC
+Atlas leaves specialized content creation to specialized tools. The Atlas Editor focuses on assembling, programming, inspecting, debugging, and running games—closer to the experience of a modern IDE than a 3D creation suite.
+
+## How does Atlas compare to other engines?
+
+| Feature | Atlas | Unity | Unreal Engine | Godot |
+| --- | --- | --- | --- | --- |
+| Open-source | Yes | No | No | Yes |
+| License | MIT | Proprietary | Proprietary | MIT |
+| Primary Language | C++ | C# | C++ | C++ |
+| Scripting Language | Typescript | C# | Blueprint, C++ | GDScript, C# |
+| Rendering abstraction | Opal | Internal | Internal | Internal |
+| Graphics backends | Metal (as of Beta 1) | Multiple | DirectX, Vulkan, Metal | Vulkan, OpenGL |
+| Editor included | Yes | Yes | Yes | Yes |
+| Modular engine architecture | Strong focus | Moderate | Moderate | Strong |
+| Complexity of codebase | Moderate | High | High | Moderate | 
+| Maturity | Early / Beta | Mature | Mature | Mature |
+| Editor philosophy | IDE-like, focused game development environment | General-purpose game editor | General-purpose game editor | Integrated game development + content creation environment |
+
+## Rendering and Graphics
+Atlas ships with the following graphics features and capabilities:
+- Physically-based rendering (PBR) with support for metallic-roughness and specular-glossiness workflows
+- Dynamic Diffuse Global Illumination (DDGI) for real-time indirect lighting
+- Path tracing and global illumination for realistic lighting in your scenes
+- Deferred rendering pipeline with support for multiple render targets and post-processing effects
+- Framebuffer (Render Target) support for custom rendering and post-processing
+- Support for multiple graphics backends, including Vulkan, Metal, and OpenGL
+- Screenspace Ambient Occlusion (SSAO) for realistic shading and depth perception
+- Shadow mapping with support for multiple light types and cascaded shadow maps
+- Fog and volumetric lighting for atmospheric effects
+- Support for high-dynamic-range (HDR) rendering and tone mapping
+- Support for multiple texture formats, including compressed textures and texture arrays
+- Support for multiple mesh formats, including glTF, FBX, and OBJ
+- Screenspace reflections and refractions for realistic water and reflective surfaces
+
+## Scripting and native code
+### Using C++
+Atlas is written in C++ and provides a C++ API that can be used to create custom game logic, systems, and components. The C++ API is designed to be easy to use and understand, while still providing the power and flexibility of C++.
+Here is an example of creating a debug cube in C++:
+```cpp
+#include <atlas/camera.h>
+#include <atlas/light.h>
+#include <atlas/object.h>
+#include <atlas/scene.h>
+#include <atlas/units.h>
+#include <atlas/window.h>
+
+class MainScene : public Scene {
+    CoreObject cube;
+    Camera camera;
+
+  public:
+    void update(Window& window) override {
+        camera.update(window);
+    }
+
+    void initialize(Window &window) override {
+        camera = Camera();
+        camera.setPosition({0, 0, 5});
+        camera.lookAt({0, 0, 0});
+        window.setCamera(&camera);
+
+        cube = createDebugBox({0.5f, 0.5f, 0.5f});
+        cube.setPosition({-1.0f, 0.0f, 0.0f});
+        window.addObject(&cube);
+    }
+}
+
+int main() {
+    Window window = Window({.title = "My Window"});
+    MainScene scene;
+    window.setScene(&scene);
+    window.run();
+    return 0;
+}
+```
+
+<Callout title="Using C++ in Atlas">Atlas deprecated C++ in favor of the more modern and easier to use Typescript + Runtime combo in Alpha 9.</Callout>
+
+### Using the editor and Typescript
+
+Typescript scripting is easier to use and more accessible than C++, while still providing the power and flexibility of a modern programming language. Atlas provides a Typescript API that can be used to create custom game logic, systems, and components.
+
+## Who is Atlas for?
+Atlas is designed for developers that want to create high-quality games and interactive experiences without the hassle of complex tools or old software. Atlas is for developers that want to focus on creating their games and not on learning how to use a complex engine or editor.
+Developers that want to create games that look and feel like AAA games, but without the complexity and overhead of traditional game engines. Atlas is for developers that want to create games that are fun, engaging, and immersive.
+
+## Project Status
+Right now we launched the first public beta of Atlas, which is a major milestone in the development of the engine. The beta is a stable and usable version of Atlas, but it is still in development and may contain bugs and issues. We are actively working on improving the engine and adding new features, and we welcome feedback from the community.
+
+[Check out the release page](https://atlasengine.org/vela1) to see what has changed since the last release and what new features have been added.

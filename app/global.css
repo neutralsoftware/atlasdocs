@@ -4,7 +4,6 @@
 
 html {
   scrollbar-gutter: stable;
-  background-color: #FAF8F5;
 }
 
 html > body[data-scroll-locked] {
@@ -16,4 +15,14 @@ html > body[data-scroll-locked] {
 @theme {
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --color-fd-primary: #2e8b7f;
+  --color-fd-primary-foreground: #ffffff;
+}
+
+.dark {
+  --color-fd-primary: #3a9d8f;
+  --color-fd-primary-foreground: #ffffff;
 }
