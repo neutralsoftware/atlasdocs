@@ -1,5 +1,12 @@
 {
-    "pages": ["---Introduction---", "index", "what", "building", "concepts"],
+    "pages": [
+        "---Introduction---",
+        "index",
+        "what",
+        "building",
+        "concepts",
+        "---Modules---"
+    ],
     "title": "Beta 1 Vela",
     "root": "version"
 }
