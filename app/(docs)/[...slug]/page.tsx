@@ -13,7 +13,11 @@ import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { gitConfig } from '@/lib/shared';
 
-export default async function Page(props: PageProps<'/[[...slug]]'>) {
+type DocsPageProps = {
+  params: Promise<{ slug?: string[] }>;
+};
+
+export default async function Page(props: DocsPageProps) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
@@ -48,7 +52,7 @@ export async function generateStaticParams() {
   return source.generateParams();
 }
 
-export async function generateMetadata(props: PageProps<'/[[...slug]]'>): Promise<Metadata> {
+export async function generateMetadata(props: DocsPageProps): Promise<Metadata> {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
@@ -56,8 +60,25 @@ export async function generateMetadata(props: PageProps<'/[[...slug]]'>): Promis
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: { canonical: page.url },
     openGraph: {
-      images: getPageImageUrl(page).url,
+      title: page.data.title,
+      description: page.data.description,
+      url: page.url,
+      siteName: "Atlas Engine Documentation",
+      type: "article",
+      images: [
+        {
+          url: getPageImageUrl(page).url,
+          alt: page.data.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.data.title,
+      description: page.data.description,
+      images: [getPageImageUrl(page).url],
     },
   };
 }
