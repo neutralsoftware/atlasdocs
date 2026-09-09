@@ -1,0 +1,44 @@
+---
+title: "Echo"
+description: "Delay effect with decay and wet/dry controls."
+---
+**Module:** `finewave`
+
+Delay effect with decay and wet/dry controls.
+
+## Declaration
+
+```ts
+export class Echo extends AudioEffect { ... }
+```
+
+**Extends:** `AudioEffect`
+
+## Methods
+
+### `setDelay`
+
+Sets the echo delay in seconds.
+
+```ts
+setDelay(delay: number): void;
+```
+
+### `setDecay`
+
+```ts
+setDecay(decay: number): void;
+```
+
+### `setWetLevel`
+
+```ts
+setWetLevel(level: number): void;
+```
+
+### `setDryLevel`
+
+```ts
+setDryLevel(level: number): void;
+```
+

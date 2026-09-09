@@ -1,0 +1,90 @@
+---
+title: "Theme"
+description: "Shared default styles for UI element types, with access to the current theme."
+---
+**Module:** `graphite`
+
+Shared default styles for UI element types, with access to the current theme.
+
+## Declaration
+
+```ts
+export class Theme { ... }
+```
+
+## Properties
+
+### `text`
+
+```ts
+text: UIStyle;
+```
+
+### `image`
+
+```ts
+image: UIStyle;
+```
+
+### `textField`
+
+```ts
+textField: UIStyle;
+```
+
+### `button`
+
+```ts
+button: UIStyle;
+```
+
+### `checkbox`
+
+```ts
+checkbox: UIStyle;
+```
+
+### `row`
+
+```ts
+row: UIStyle;
+```
+
+### `column`
+
+```ts
+column: UIStyle;
+```
+
+### `stack`
+
+```ts
+stack: UIStyle;
+```
+
+## Methods
+
+### `current`
+
+Returns the current shared UI theme.
+
+```ts
+static current(): Theme;
+```
+
+### `set`
+
+Replaces the current shared UI theme.
+
+```ts
+static set(theme: Theme): void;
+```
+
+### `reset`
+
+Restores the default UI theme.
+
+```ts
+static reset(): void;
+```
+

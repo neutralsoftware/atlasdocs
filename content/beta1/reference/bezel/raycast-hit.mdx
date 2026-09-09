@@ -1,0 +1,52 @@
+---
+title: "RaycastHit"
+description: "Ray intersection information, including the hit object and surface normal."
+---
+**Module:** `bezel`
+
+Ray intersection information, including the hit object and surface normal.
+
+## Declaration
+
+```ts
+export type RaycastHit = {
+        position: Position3d;
+        normal: Normal3d;
+        distance: number;
+        object: GameObject;
+        didHit: boolean;
+    };
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `normal`
+
+```ts
+normal: Normal3d;
+```
+
+### `distance`
+
+```ts
+distance: number;
+```
+
+### `object`
+
+```ts
+object: GameObject;
+```
+
+### `didHit`
+
+```ts
+didHit: boolean;
+```
+

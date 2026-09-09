@@ -1,0 +1,60 @@
+---
+title: "UIStyle"
+description: "Collection of visual overrides for normal and interactive states."
+---
+**Module:** `graphite`
+
+Collection of visual overrides for normal and interactive states.
+
+## Declaration
+
+```ts
+export class UIStyle { ... }
+```
+
+## Methods
+
+### `normal`
+
+```ts
+normal(): UIStyleVariant;
+```
+
+### `hovered`
+
+```ts
+hovered(): UIStyleVariant;
+```
+
+### `pressed`
+
+```ts
+pressed(): UIStyleVariant;
+```
+
+### `disabled`
+
+```ts
+disabled(): UIStyleVariant;
+```
+
+### `focused`
+
+```ts
+focused(): UIStyleVariant;
+```
+
+### `checked`
+
+```ts
+checked(): UIStyleVariant;
+```
+
+### `variant`
+
+Returns the style variant associated with the selected interaction state.
+
+```ts
+variant(state: UIStyleState): UIStyleVariant;
+```
+

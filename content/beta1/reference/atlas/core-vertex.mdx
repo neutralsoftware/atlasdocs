@@ -1,0 +1,65 @@
+---
+title: "CoreVertex"
+description: "Mesh vertex with position, color, UV coordinates, and a tangent-space basis."
+---
+**Module:** `atlas`
+
+Mesh vertex with position, color, UV coordinates, and a tangent-space basis.
+
+## Declaration
+
+```ts
+export class CoreVertex { ... }
+```
+
+## Constructors
+
+```ts
+constructor(
+            position?: Position3d,
+            color?: Color,
+            textureCoord?: Position2d,
+            normal?: Normal3d,
+            tangent?: Normal3d,
+            bitangent?: Normal3d,
+        );
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+### `textureCoord`
+
+```ts
+textureCoord: Position2d;
+```
+
+### `normal`
+
+```ts
+normal: Normal3d;
+```
+
+### `tangent`
+
+```ts
+tangent: Normal3d;
+```
+
+### `bitangent`
+
+```ts
+bitangent: Normal3d;
+```
+

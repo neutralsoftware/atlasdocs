@@ -1,0 +1,114 @@
+---
+title: "Position2d"
+description: "Two-component value. Arithmetic returns new values; up is +Y."
+---
+**Module:** `atlas/units`
+
+Two-component value. Arithmetic returns new values; up is +Y.
+
+## Declaration
+
+```ts
+export class Position2d { ... }
+```
+
+## Constructors
+
+```ts
+constructor(x: number, y: number);
+```
+
+## Properties
+
+### `x`
+
+```ts
+x: number;
+```
+
+### `y`
+
+```ts
+y: number;
+```
+
+## Methods
+
+### `zero`
+
+```ts
+static zero(): Position2d;
+```
+
+### `up`
+
+```ts
+static up(): Position2d;
+```
+
+### `down`
+
+```ts
+static down(): Position2d;
+```
+
+### `left`
+
+```ts
+static left(): Position2d;
+```
+
+### `right`
+
+```ts
+static right(): Position2d;
+```
+
+### `invalid`
+
+Returns a value whose coordinate components are NaN.
+
+```ts
+static invalid(): Position2d;
+```
+
+### `add`
+
+Returns a new value by adding the operand component-wise; a numeric operand applies to every component.
+
+```ts
+add(other: Position2d | number): Position2d;
+```
+
+### `subtract`
+
+Returns a new value by subtracting the operand component-wise; a numeric operand applies to every component.
+
+```ts
+subtract(other: Position2d | number): Position2d;
+```
+
+### `multiply`
+
+Returns a new value by multiplying by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+multiply(other: Position2d | number): Position2d;
+```
+
+### `divide`
+
+Returns a new value by dividing by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+divide(other: Position2d | number): Position2d;
+```
+
+### `is`
+
+Tests exact equality of all components.
+
+```ts
+is(other: Position2d): boolean;
+```
+

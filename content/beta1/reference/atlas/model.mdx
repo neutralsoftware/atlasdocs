@@ -1,0 +1,112 @@
+---
+title: "Model"
+description: "A resource-backed model containing multiple CoreObjects."
+---
+**Module:** `atlas`
+
+A resource-backed model containing multiple CoreObjects.
+
+## Declaration
+
+```ts
+export class Model extends GameObject { ... }
+```
+
+**Extends:** `GameObject`
+
+## Methods
+
+### `fromResource`
+
+```ts
+static fromResource(path: string): Model;
+```
+
+### `getObjects`
+
+Returns the mesh objects that make up the model.
+
+```ts
+getObjects(): CoreObject[];
+```
+
+### `move`
+
+Translates by the supplied offset.
+
+```ts
+override move(position: Position3d): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+override setPosition(position: Position3d): void;
+```
+
+### `setRotation`
+
+Replaces the rotation.
+
+```ts
+override setRotation(rotation: Rotation3d): void;
+```
+
+### `lookAt`
+
+Orients toward the target position.
+
+```ts
+override lookAt(target: Position3d, up?: Normal3d): void;
+```
+
+### `rotate`
+
+Applies an incremental rotation.
+
+```ts
+override rotate(rotation: Rotation3d): void;
+```
+
+### `setScale`
+
+Replaces the scale factors.
+
+```ts
+override setScale(scale: Scale3d): void;
+```
+
+### `scaleBy`
+
+Multiplies the current scale component-wise by the supplied factors.
+
+```ts
+override scaleBy(scale: Scale3d): void;
+```
+
+### `show`
+
+Makes the object visible.
+
+```ts
+override show(): void;
+```
+
+### `hide`
+
+Makes the object invisible.
+
+```ts
+override hide(): void;
+```
+
+### `attachTexture`
+
+Attaches a texture to this object.
+
+```ts
+override attachTexture(texture: Texture): void;
+```
+

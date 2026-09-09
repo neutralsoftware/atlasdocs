@@ -1,0 +1,240 @@
+---
+title: "Checkbox"
+description: "Toggleable checkbox with a label and change callback support."
+---
+**Module:** `graphite`
+
+Toggleable checkbox with a label and change callback support.
+
+## Declaration
+
+```ts
+export class Checkbox extends UIObject { ... }
+```
+
+**Extends:** `UIObject`
+
+## Constructors
+
+```ts
+constructor();
+```
+
+```ts
+constructor(font: Font, label: string, position: Position2d);
+```
+
+## Properties
+
+### `label`
+
+```ts
+label: string;
+```
+
+### `font`
+
+```ts
+font: Font;
+```
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `fontSize`
+
+```ts
+fontSize: number;
+```
+
+### `padding`
+
+```ts
+padding: Size2d;
+```
+
+### `boxSize`
+
+```ts
+boxSize: number;
+```
+
+### `spacing`
+
+```ts
+spacing: number;
+```
+
+### `checked`
+
+```ts
+checked: boolean;
+```
+
+### `enabled`
+
+```ts
+enabled: boolean;
+```
+
+### `textColor`
+
+```ts
+textColor: Color;
+```
+
+### `boxBackgroundColor`
+
+```ts
+boxBackgroundColor: Color;
+```
+
+### `hoverBoxBackgroundColor`
+
+```ts
+hoverBoxBackgroundColor: Color;
+```
+
+### `borderColor`
+
+```ts
+borderColor: Color;
+```
+
+### `activeBorderColor`
+
+```ts
+activeBorderColor: Color;
+```
+
+### `checkColor`
+
+```ts
+checkColor: Color;
+```
+
+## Methods
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+override getSize(): Size2d;
+```
+
+### `getScreenPosition`
+
+Returns the UI element's screen-space position.
+
+```ts
+override getScreenPosition(): Position2d;
+```
+
+### `setScreenPosition`
+
+Sets the UI element's screen-space position.
+
+```ts
+override setScreenPosition(position: Position2d): void;
+```
+
+### `getLabel`
+
+```ts
+getLabel(): string;
+```
+
+### `isChecked`
+
+```ts
+isChecked(): boolean;
+```
+
+### `isHovered`
+
+```ts
+isHovered(): boolean;
+```
+
+### `isEnabled`
+
+```ts
+isEnabled(): boolean;
+```
+
+### `style`
+
+Returns the element's style.
+
+```ts
+style(): UIStyle;
+```
+
+### `setLabel`
+
+```ts
+setLabel(label: string): Checkbox;
+```
+
+### `setPadding`
+
+```ts
+setPadding(padding: Size2d): Checkbox;
+```
+
+### `setFontSize`
+
+```ts
+setFontSize(size: number): Checkbox;
+```
+
+### `setBoxSize`
+
+```ts
+setBoxSize(size: number): Checkbox;
+```
+
+### `setSpacing`
+
+```ts
+setSpacing(spacing: number): Checkbox;
+```
+
+### `setStyle`
+
+Applies a style to the element.
+
+```ts
+setStyle(style: UIStyle): Checkbox;
+```
+
+### `setOnToggle`
+
+Registers the toggle callback and returns this checkbox for chaining.
+
+```ts
+setOnToggle(callback: Checkbox.ToggleCallback): Checkbox;
+```
+
+### `setChecked`
+
+```ts
+setChecked(checked: boolean): void;
+```
+
+### `setEnabled`
+
+```ts
+setEnabled(enabled: boolean): void;
+```
+
+### `toggle`
+
+```ts
+toggle(): void;
+```
+

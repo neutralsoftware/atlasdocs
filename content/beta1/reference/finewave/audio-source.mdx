@@ -1,0 +1,136 @@
+---
+title: "AudioSource"
+description: "Playback controls for audio data, including spatialization and effects."
+---
+**Module:** `finewave`
+
+Playback controls for audio data, including spatialization and effects.
+
+## Declaration
+
+```ts
+export class AudioSource { ... }
+```
+
+## Methods
+
+### `setData`
+
+```ts
+setData(data: AudioData): void;
+```
+
+### `fromFile`
+
+```ts
+fromFile(resource: Resource): void;
+```
+
+### `play`
+
+Starts or resumes playback.
+
+```ts
+play(): void;
+```
+
+### `pause`
+
+Pauses playback.
+
+```ts
+pause(): void;
+```
+
+### `stop`
+
+Stops playback.
+
+```ts
+stop(): void;
+```
+
+### `setLoop`
+
+Enables or disables repeated playback.
+
+```ts
+setLoop(loop: boolean): void;
+```
+
+### `setVolume`
+
+```ts
+setVolume(volume: number): void;
+```
+
+### `setPitch`
+
+```ts
+setPitch(pitch: number): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+setPosition(position: Position3d): void;
+```
+
+### `setVelocity`
+
+```ts
+setVelocity(velocity: Position3d): void;
+```
+
+### `isPlaying`
+
+```ts
+isPlaying(): boolean;
+```
+
+### `playFrom`
+
+Starts playback at the supplied offset in seconds.
+
+```ts
+playFrom(position: number): void;
+```
+
+### `disableSpatialization`
+
+Disables positional audio processing for this source.
+
+```ts
+disableSpatialization(): void;
+```
+
+### `applyEffect`
+
+Applies an audio effect to this source.
+
+```ts
+applyEffect(effect: AudioEffect): void;
+```
+
+### `getPosition`
+
+```ts
+getPosition(): Position3d;
+```
+
+### `getListenerPosition`
+
+```ts
+getListenerPosition(): Position3d;
+```
+
+### `useSpatialization`
+
+Enables positional audio processing for this source.
+
+```ts
+useSpatialization(): void;
+```
+

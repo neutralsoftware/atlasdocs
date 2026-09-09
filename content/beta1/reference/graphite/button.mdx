@@ -1,0 +1,204 @@
+---
+title: "Button"
+description: "Clickable text button with hover, enabled state, and click callback support."
+---
+**Module:** `graphite`
+
+Clickable text button with hover, enabled state, and click callback support.
+
+## Declaration
+
+```ts
+export class Button extends UIObject { ... }
+```
+
+**Extends:** `UIObject`
+
+## Constructors
+
+```ts
+constructor();
+```
+
+```ts
+constructor(font: Font, label: string, position: Position2d);
+```
+
+## Properties
+
+### `label`
+
+```ts
+label: string;
+```
+
+### `font`
+
+```ts
+font: Font;
+```
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `fontSize`
+
+```ts
+fontSize: number;
+```
+
+### `padding`
+
+```ts
+padding: Size2d;
+```
+
+### `minimumSize`
+
+```ts
+minimumSize: Size2d;
+```
+
+### `textColor`
+
+```ts
+textColor: Color;
+```
+
+### `backgroundColor`
+
+```ts
+backgroundColor: Color;
+```
+
+### `hoverBackgroundColor`
+
+```ts
+hoverBackgroundColor: Color;
+```
+
+### `pressedBackgroundColor`
+
+```ts
+pressedBackgroundColor: Color;
+```
+
+### `borderColor`
+
+```ts
+borderColor: Color;
+```
+
+### `hoverBorderColor`
+
+```ts
+hoverBorderColor: Color;
+```
+
+### `enabled`
+
+```ts
+enabled: boolean;
+```
+
+## Methods
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+override getSize(): Size2d;
+```
+
+### `getScreenPosition`
+
+Returns the UI element's screen-space position.
+
+```ts
+override getScreenPosition(): Position2d;
+```
+
+### `setScreenPosition`
+
+Sets the UI element's screen-space position.
+
+```ts
+override setScreenPosition(position: Position2d): void;
+```
+
+### `getLabel`
+
+```ts
+getLabel(): string;
+```
+
+### `isHovered`
+
+```ts
+isHovered(): boolean;
+```
+
+### `isEnabled`
+
+```ts
+isEnabled(): boolean;
+```
+
+### `style`
+
+Returns the element's style.
+
+```ts
+style(): UIStyle;
+```
+
+### `setLabel`
+
+```ts
+setLabel(label: string): Button;
+```
+
+### `setPadding`
+
+```ts
+setPadding(padding: Size2d): Button;
+```
+
+### `setMinimumSize`
+
+```ts
+setMinimumSize(size: Size2d): Button;
+```
+
+### `setFontSize`
+
+```ts
+setFontSize(size: number): Button;
+```
+
+### `setStyle`
+
+Applies a style to the element.
+
+```ts
+setStyle(style: UIStyle): Button;
+```
+
+### `setOnClick`
+
+Registers the click callback and returns this button for chaining.
+
+```ts
+setOnClick(callback: Button.ClickCallback): Button;
+```
+
+### `setEnabled`
+
+```ts
+setEnabled(enabled: boolean): void;
+```
+

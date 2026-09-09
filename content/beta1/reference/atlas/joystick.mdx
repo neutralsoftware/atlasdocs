@@ -1,0 +1,66 @@
+---
+title: "Joystick"
+description: "Joystick access using device-specific axis and button indices."
+---
+**Module:** `atlas`
+
+Joystick access using device-specific axis and button indices.
+
+## Declaration
+
+```ts
+export class Joystick { ... }
+```
+
+## Properties
+
+### `joystickId`
+
+```ts
+joystickId: number;
+```
+
+### `name`
+
+```ts
+name: string;
+```
+
+### `connected`
+
+```ts
+connected: boolean;
+```
+
+## Methods
+
+### `getSingleAxisTrigger`
+
+```ts
+getSingleAxisTrigger(axisIndex: number): AxisTrigger;
+```
+
+### `getDualAxisTrigger`
+
+```ts
+getDualAxisTrigger(axisIndexX: number, axisIndexY: number): AxisTrigger;
+```
+
+### `getButtonTrigger`
+
+```ts
+getButtonTrigger(buttonIndex: number): Trigger;
+```
+
+### `getAxisCount`
+
+```ts
+getAxisCount(): number;
+```
+
+### `getButtonCount`
+
+```ts
+getButtonCount(): number;
+```
+

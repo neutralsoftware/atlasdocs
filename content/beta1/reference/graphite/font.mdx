@@ -1,0 +1,66 @@
+---
+title: "Font"
+description: "Resource-backed font with atlas texture and size controls."
+---
+**Module:** `graphite`
+
+Resource-backed font with atlas texture and size controls.
+
+## Declaration
+
+```ts
+export class Font { ... }
+```
+
+## Properties
+
+### `name`
+
+```ts
+name: string;
+```
+
+### `atlas`
+
+```ts
+atlas: Texture;
+```
+
+### `size`
+
+```ts
+size: number;
+```
+
+### `resource`
+
+```ts
+resource: Resource;
+```
+
+### `texture`
+
+```ts
+texture: Texture;
+```
+
+## Methods
+
+### `fromResource`
+
+```ts
+static fromResource(resource: Resource): Font;
+```
+
+### `getFont`
+
+```ts
+static getFont(name: string): Font;
+```
+
+### `changeSize`
+
+```ts
+changeSize(size: number): Font;
+```
+

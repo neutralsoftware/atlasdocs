@@ -1,0 +1,72 @@
+---
+title: "Gamepad"
+description: "Connected gamepad access, trigger creation, and vibration control."
+---
+**Module:** `atlas`
+
+Connected gamepad access, trigger creation, and vibration control.
+
+## Declaration
+
+```ts
+export class Gamepad { ... }
+```
+
+## Properties
+
+### `controllerId`
+
+```ts
+controllerId: number;
+```
+
+### `name`
+
+```ts
+name: string;
+```
+
+### `connected`
+
+```ts
+connected: boolean;
+```
+
+## Methods
+
+### `getAxisTrigger`
+
+```ts
+getAxisTrigger(axis: ControllerAxis): AxisTrigger;
+```
+
+### `getGlobalAxisTrigger`
+
+Creates an axis binding without selecting a specific controller.
+
+```ts
+static getGlobalAxisTrigger(axis: ControllerAxis): AxisTrigger;
+```
+
+### `getButtonTrigger`
+
+```ts
+getButtonTrigger(button: ControllerButton): Trigger;
+```
+
+### `getGlobalButtonTrigger`
+
+Creates a button binding without selecting a specific controller.
+
+```ts
+static getGlobalButtonTrigger(button: ControllerButton): Trigger;
+```
+
+### `runble`
+
+Requests controller vibration. The method name retains the spelling used by this declaration.
+
+```ts
+runble(strength: number, duration: number): void;
+```
+

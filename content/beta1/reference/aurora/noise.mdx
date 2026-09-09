@@ -1,0 +1,59 @@
+---
+title: "Noise"
+description: "Convenience entry points for the supported two-dimensional noise functions."
+---
+**Module:** `aurora`
+
+Convenience entry points for the supported two-dimensional noise functions.
+
+## Declaration
+
+```ts
+export class Noise { ... }
+```
+
+## Properties
+
+### `seed`
+
+```ts
+static seed: number;
+```
+
+### `initializedSeed`
+
+```ts
+static initializedSeed: boolean;
+```
+
+## Methods
+
+### `perlin`
+
+```ts
+static perlin(x: number, y: number): number;
+```
+
+### `simplex`
+
+```ts
+static simplex(x: number, y: number): number;
+```
+
+### `worley`
+
+```ts
+static worley(x: number, y: number): number;
+```
+
+### `fractal`
+
+```ts
+static fractal(
+            x: number,
+            y: number,
+            octaves: number,
+            persistence: number,
+        ): number;
+```
+

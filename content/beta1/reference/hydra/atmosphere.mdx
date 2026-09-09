@@ -1,0 +1,218 @@
+---
+title: "Atmosphere"
+description: "Day/night cycle, sky colors, celestial lighting, weather, and clouds."
+---
+**Module:** `hydra`
+
+Day/night cycle, sky colors, celestial lighting, weather, and clouds.
+
+## Declaration
+
+```ts
+export class Atmosphere { ... }
+```
+
+## Properties
+
+### `timeOfDay`
+
+```ts
+timeOfDay: number;
+```
+
+### `secondsPerHour`
+
+```ts
+secondsPerHour: number;
+```
+
+### `wind`
+
+```ts
+wind: Magnitude3d;
+```
+
+### `weatherDelegate`
+
+```ts
+weatherDelegate: WeatherDelegate;
+```
+
+### `clouds`
+
+```ts
+clouds?: Clouds;
+```
+
+### `sunColor`
+
+```ts
+sunColor: Color;
+```
+
+### `moonColor`
+
+```ts
+moonColor: Color;
+```
+
+### `sunSize`
+
+```ts
+sunSize: number;
+```
+
+### `moonSize`
+
+```ts
+moonSize: number;
+```
+
+### `sunTintStrength`
+
+```ts
+sunTintStrength: number;
+```
+
+### `moonTintStrength`
+
+```ts
+moonTintStrength: number;
+```
+
+### `starIntensity`
+
+```ts
+starIntensity: number;
+```
+
+### `cycle`
+
+```ts
+cycle: boolean;
+```
+
+## Methods
+
+### `enable`
+
+```ts
+enable(): void;
+```
+
+### `disable`
+
+```ts
+disable(): void;
+```
+
+### `isEnabled`
+
+```ts
+isEnabled(): boolean;
+```
+
+### `enableWeather`
+
+```ts
+enableWeather(): void;
+```
+
+### `disableWeather`
+
+```ts
+disableWeather(): void;
+```
+
+### `getNormalizedTime`
+
+```ts
+getNormalizedTime(): number;
+```
+
+### `getSunAngle`
+
+```ts
+getSunAngle(): Magnitude3d;
+```
+
+### `getMoonAngle`
+
+```ts
+getMoonAngle(): Magnitude3d;
+```
+
+### `getLightIntensity`
+
+```ts
+getLightIntensity(): number;
+```
+
+### `getLightColor`
+
+```ts
+getLightColor(): Color;
+```
+
+### `getSkyboxColors`
+
+```ts
+getSkyboxColors(): Color[];
+```
+
+### `createSkyCubemap`
+
+Creates a sky cubemap with the requested face size.
+
+```ts
+createSkyCubemap(size: number): Cubemap;
+```
+
+### `updateSkyCubemap`
+
+Updates an existing cubemap with the current sky colors.
+
+```ts
+updateSkyCubemap(cubemap: Cubemap): void;
+```
+
+### `castShadowsFromSunlight`
+
+```ts
+castShadowsFromSunlight(resolution: number): void;
+```
+
+### `useGlobalLight`
+
+```ts
+useGlobalLight(): void;
+```
+
+### `isDaytime`
+
+```ts
+isDaytime(): boolean;
+```
+
+### `setTime`
+
+Sets the atmosphere clock using hours, minutes, and seconds.
+
+```ts
+setTime(hours: number, minutes: number, seconds: number): void;
+```
+
+### `addClouds`
+
+Creates clouds using the supplied noise frequency and division count.
+
+```ts
+addClouds(frequency: number, numDivisions: number): void;
+```
+
+### `resetRuntimeState`
+
+```ts
+resetRuntimeState(): void;
+```
+

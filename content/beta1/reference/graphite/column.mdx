@@ -1,0 +1,131 @@
+---
+title: "Column"
+description: "Vertical layout of UI children with spacing, padding, alignment, and an anchor."
+---
+**Module:** `graphite`
+
+Vertical layout of UI children with spacing, padding, alignment, and an anchor.
+
+## Declaration
+
+```ts
+export class Column extends UIObject { ... }
+```
+
+**Extends:** `UIObject`
+
+## Constructors
+
+```ts
+constructor(position: Position2d);
+```
+
+```ts
+constructor(
+            children: UIObject[],
+            spacing: number,
+            padding: Size2d,
+            position: Position2d,
+        );
+```
+
+## Properties
+
+### `spacing`
+
+```ts
+spacing: number;
+```
+
+### `maxSize`
+
+```ts
+maxSize: Size2d;
+```
+
+### `padding`
+
+```ts
+padding: Size2d;
+```
+
+### `children`
+
+```ts
+children: UIObject[];
+```
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `alignment`
+
+```ts
+alignment: ElementAlignment;
+```
+
+### `anchor`
+
+```ts
+anchor: LayoutAnchor;
+```
+
+### `style`
+
+```ts
+style: UIStyle;
+```
+
+## Methods
+
+### `addChild`
+
+Appends a child element to the layout.
+
+```ts
+addChild(child: UIObject): void;
+```
+
+### `setChildren`
+
+Replaces the layout's child elements.
+
+```ts
+setChildren(children: UIObject[]): void;
+```
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+override getSize(): Size2d;
+```
+
+### `getScreenPosition`
+
+Returns the UI element's screen-space position.
+
+```ts
+override getScreenPosition(): Position2d;
+```
+
+### `setScreenPosition`
+
+Sets the UI element's screen-space position.
+
+```ts
+override setScreenPosition(position: Position2d): void;
+```
+
+### `setStyle`
+
+Applies a style to the element.
+
+```ts
+setStyle(style: UIStyle): Column;
+```
+

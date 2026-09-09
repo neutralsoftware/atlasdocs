@@ -1,0 +1,62 @@
+---
+title: "VehicleSettings"
+description: "Vehicle axes, wheel configurations, controller settings, and stability limits."
+---
+**Module:** `bezel`
+
+Vehicle axes, wheel configurations, controller settings, and stability limits.
+
+## Declaration
+
+```ts
+export type VehicleSettings = {
+        up: Normal3d;
+        forward: Normal3d;
+
+        maxPitchRollAngleDeg: number;
+
+        wheels: VehicleWheelSettings[];
+        controller: VehicleControllerSettings;
+
+        maxSlopAngleDeg: number;
+    };
+```
+
+## Properties
+
+### `up`
+
+```ts
+up: Normal3d;
+```
+
+### `forward`
+
+```ts
+forward: Normal3d;
+```
+
+### `maxPitchRollAngleDeg`
+
+```ts
+maxPitchRollAngleDeg: number;
+```
+
+### `wheels`
+
+```ts
+wheels: VehicleWheelSettings[];
+```
+
+### `controller`
+
+```ts
+controller: VehicleControllerSettings;
+```
+
+### `maxSlopAngleDeg`
+
+```ts
+maxSlopAngleDeg: number;
+```
+

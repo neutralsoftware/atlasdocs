@@ -1,0 +1,46 @@
+---
+title: "WorleyNoise3D"
+description: "Three-dimensional cellular noise with helpers producing texture handles."
+---
+**Module:** `hydra`
+
+Three-dimensional cellular noise with helpers producing texture handles.
+
+## Declaration
+
+```ts
+export class WorleyNoise3D { ... }
+```
+
+## Constructors
+
+```ts
+constructor(frequency: number, numDivisions: number);
+```
+
+## Methods
+
+### `getValue`
+
+```ts
+getValue(x: number, y: number, z: number): number;
+```
+
+### `get3dTexture`
+
+```ts
+get3dTexture(size: number): number;
+```
+
+### `getDetailTexture`
+
+```ts
+getDetailTexture(size: number): number;
+```
+
+### `get3dTextureAtAllChannels`
+
+```ts
+get3dTextureAtAllChannels(size: number): number;
+```
+

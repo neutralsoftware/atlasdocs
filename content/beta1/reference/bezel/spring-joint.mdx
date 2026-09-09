@@ -1,0 +1,70 @@
+---
+title: "SpringJoint"
+description: "Distance constraint with spring behavior and optional length limits."
+---
+**Module:** `bezel`
+
+Distance constraint with spring behavior and optional length limits.
+
+## Declaration
+
+```ts
+export class SpringJoint extends Joint { ... }
+```
+
+**Extends:** `Joint`
+
+## Properties
+
+### `anchorB`
+
+```ts
+anchorB: Position3d;
+```
+
+### `restLength`
+
+```ts
+restLength: number;
+```
+
+### `useLimits`
+
+```ts
+useLimits: boolean;
+```
+
+### `minLength`
+
+```ts
+minLength: number;
+```
+
+### `maxLength`
+
+```ts
+maxLength: number;
+```
+
+### `spring`
+
+```ts
+spring: Spring;
+```
+
+## Methods
+
+### `beforePhysics`
+
+```ts
+override beforePhysics(): void;
+```
+
+### `breakJoint`
+
+Breaks the physical constraint between the joint members.
+
+```ts
+override breakJoint(): void;
+```
+

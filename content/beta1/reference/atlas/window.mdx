@@ -1,0 +1,399 @@
+---
+title: "Window"
+description: "Active runtime window: scene objects, input, audio, display configuration, and frame timing."
+---
+**Module:** `atlas`
+
+Active runtime window: scene objects, input, audio, display configuration, and frame timing.
+
+## Declaration
+
+```ts
+export class Window { ... }
+```
+
+## Properties
+
+### `title`
+
+```ts
+title: string;
+```
+
+### `width`
+
+```ts
+width: number;
+```
+
+### `height`
+
+```ts
+height: number;
+```
+
+### `currentFrame`
+
+```ts
+currentFrame: number;
+```
+
+### `audioEngine`
+
+```ts
+audioEngine: AudioEngine;
+```
+
+### `main`
+
+```ts
+main: Window;
+```
+
+### `gravity`
+
+```ts
+gravity: number;
+```
+
+### `usesDeferred`
+
+```ts
+usesDeferred: boolean;
+```
+
+## Methods
+
+### `setClearColor`
+
+```ts
+setClearColor(color: Color): void;
+```
+
+### `close`
+
+```ts
+close(): void;
+```
+
+### `setFullscreen`
+
+```ts
+setFullscreen(enabled: boolean): void;
+```
+
+```ts
+setFullscreen(monitor: Monitor): void;
+```
+
+### `setWindowed`
+
+```ts
+setWindowed(config: WindowConfiguration): void;
+```
+
+### `enumerateMonitors`
+
+```ts
+enumerateMonitors(): Monitor[];
+```
+
+### `getControllers`
+
+```ts
+getControllers(): ControllerID[];
+```
+
+### `getController`
+
+```ts
+getController(id: ControllerID): Controller | null;
+```
+
+### `getJoystick`
+
+```ts
+getJoystick(id: ControllerID): Joystick | null;
+```
+
+### `instantiate`
+
+Adds an object to the runtime window.
+
+```ts
+instantiate(object: GameObject): void;
+```
+
+### `destroy`
+
+Removes an object from the runtime window.
+
+```ts
+destroy(object: GameObject): void;
+```
+
+### `addUIObject`
+
+Adds a UI element to the window.
+
+```ts
+addUIObject(object: UIObject): void;
+```
+
+### `setCamera`
+
+```ts
+setCamera(camera: Camera): void;
+```
+
+### `setScene`
+
+```ts
+setScene(scene: Scene): void;
+```
+
+### `getTime`
+
+```ts
+getTime(): number;
+```
+
+### `isKeyActive`
+
+```ts
+isKeyActive(key: Key): boolean;
+```
+
+### `isMouseButtonActive`
+
+```ts
+isMouseButtonActive(button: MouseButton): boolean;
+```
+
+### `isMouseButtonPressed`
+
+```ts
+isMouseButtonPressed(button: MouseButton): boolean;
+```
+
+### `getTextInput`
+
+Returns text collected by the runtime's text input system.
+
+```ts
+getTextInput(): string;
+```
+
+### `startTextInput`
+
+Enables text input collection.
+
+```ts
+startTextInput(): void;
+```
+
+### `stopTextInput`
+
+Disables text input collection.
+
+```ts
+stopTextInput(): void;
+```
+
+### `isTextInputActive`
+
+Reports whether text input collection is enabled.
+
+```ts
+isTextInputActive(): boolean;
+```
+
+### `isControllerButtonPressed`
+
+```ts
+isControllerButtonPressed(
+            controllerID: number,
+            buttonIndex: number,
+        ): boolean;
+```
+
+### `getControllerAxisValue`
+
+```ts
+getControllerAxisValue(controllerID: number, axisIndex: number): number;
+```
+
+### `getControllerAxisPairValue`
+
+```ts
+getControllerAxisPairValue(
+            controllerID: number,
+            axisIndexX: number,
+            axisIndexY: number,
+        ): Position2d;
+```
+
+### `releaseMouse`
+
+Releases mouse capture.
+
+```ts
+releaseMouse(): void;
+```
+
+### `captureMouse`
+
+Captures the mouse for relative input.
+
+```ts
+captureMouse(): void;
+```
+
+### `getCursorPosition`
+
+```ts
+getCursorPosition(): Position2d;
+```
+
+### `getCurrentScene`
+
+```ts
+getCurrentScene(): Scene;
+```
+
+### `getCamera`
+
+Returns the active camera.
+
+```ts
+getCamera(): Camera;
+```
+
+### `addRenderTarget`
+
+```ts
+addRenderTarget(): RenderTarget;
+```
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+getSize(): Size2d;
+```
+
+### `activateDebug`
+
+```ts
+activateDebug(): void;
+```
+
+### `desactivateDebug`
+
+Disables the debug display. The method name retains the spelling used by this declaration.
+
+```ts
+desactivateDebug(): void;
+```
+
+### `getDeltaTime`
+
+```ts
+getDeltaTime(): number;
+```
+
+### `getFramesPerSecond`
+
+```ts
+getFramesPerSecond(): number;
+```
+
+### `useAtlasTracer`
+
+```ts
+useAtlasTracer(enabled: boolean): void;
+```
+
+### `setLogOutput`
+
+```ts
+setLogOutput(
+            showLogs: boolean,
+            showWarnings: boolean,
+            showErrors: boolean,
+        ): void;
+```
+
+### `getRenderScale`
+
+```ts
+getRenderScale(): number;
+```
+
+### `useMetalUpscaling`
+
+```ts
+useMetalUpscaling(ratio: number): void;
+```
+
+### `isMetalUpscalingEnabled`
+
+```ts
+isMetalUpscalingEnabled(): boolean;
+```
+
+### `getMetalUpscalingRatio`
+
+```ts
+getMetalUpscalingRatio(): number;
+```
+
+### `getSSAORenderScale`
+
+```ts
+getSSAORenderScale(): number;
+```
+
+### `addInputAction`
+
+Registers a named input action for later polling.
+
+```ts
+addInputAction(action: InputAction): void;
+```
+
+### `resetInputActions`
+
+Clears the registered input actions.
+
+```ts
+resetInputActions(): void;
+```
+
+### `getInputAction`
+
+Returns the registered action with this name, or null if it is missing.
+
+```ts
+getInputAction(name: string): InputAction | null;
+```
+
+### `isActionTriggered`
+
+```ts
+isActionTriggered(name: string): boolean;
+```
+
+### `isActionCurrentlyActive`
+
+```ts
+isActionCurrentlyActive(name: string): boolean;
+```
+
+### `getActionAxisValue`
+
+```ts
+getActionAxisValue(name: string): AxisPacket;
+```
+

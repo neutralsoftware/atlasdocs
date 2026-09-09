@@ -1,0 +1,112 @@
+---
+title: "AxisTrigger"
+description: "Axis binding built from mouse motion, four directional keys, or one or two controller axes."
+---
+**Module:** `atlas/input`
+
+Axis binding built from mouse motion, four directional keys, or one or two controller axes.
+
+## Declaration
+
+```ts
+export class AxisTrigger { ... }
+```
+
+## Properties
+
+### `type`
+
+```ts
+type: AxisTriggerType;
+```
+
+### `positiveX`
+
+```ts
+positiveX: Trigger;
+```
+
+### `negativeX`
+
+```ts
+negativeX: Trigger;
+```
+
+### `positiveY`
+
+```ts
+positiveY: Trigger;
+```
+
+### `negativeY`
+
+```ts
+negativeY: Trigger;
+```
+
+### `controllerId`
+
+```ts
+controllerId?: number;
+```
+
+### `controllerAxisSingle`
+
+```ts
+controllerAxisSingle: boolean;
+```
+
+### `axisIndex`
+
+```ts
+axisIndex?: number;
+```
+
+### `axisIndexY`
+
+```ts
+axisIndexY: number;
+```
+
+### `isJoystick`
+
+```ts
+isJoystick: boolean;
+```
+
+## Methods
+
+### `fromMouse`
+
+Creates an axis binding driven by mouse motion.
+
+```ts
+static fromMouse(): AxisTrigger;
+```
+
+### `fromKeys`
+
+Creates a two-axis binding; arguments are positive X, negative X, positive Y, then negative Y.
+
+```ts
+static fromKeys(
+            positiveX: Key,
+            negativeX: Key,
+            positiveY: Key,
+            negativeY: Key,
+        ): AxisTrigger;
+```
+
+### `fromControllerAxis`
+
+Binds a controller axis or pair; single selects one axis, otherwise axisIndexY supplies the second axis.
+
+```ts
+static fromControllerAxis(
+            controllerId: number,
+            axisIndex: number,
+            single: boolean,
+            axisIndexY?: number,
+        ): AxisTrigger;
+```
+

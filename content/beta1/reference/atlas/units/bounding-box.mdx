@@ -1,0 +1,58 @@
+---
+title: "BoundingBox"
+description: "Axis-aligned bounds with inclusive point containment and intersection checks."
+---
+**Module:** `atlas/units`
+
+Axis-aligned bounds with inclusive point containment and intersection checks.
+
+## Declaration
+
+```ts
+export class BoundingBox { ... }
+```
+
+## Constructors
+
+```ts
+constructor(min: Position3d, max: Position3d);
+```
+
+## Properties
+
+### `min`
+
+```ts
+min: Position3d;
+```
+
+### `max`
+
+```ts
+max: Position3d;
+```
+
+## Methods
+
+### `toString`
+
+```ts
+toString(): string;
+```
+
+### `contains`
+
+Tests whether the point lies inside or on the bounds.
+
+```ts
+contains(point: Position3d): boolean;
+```
+
+### `intersects`
+
+Tests whether the bounds overlap or touch.
+
+```ts
+intersects(other: BoundingBox): boolean;
+```
+

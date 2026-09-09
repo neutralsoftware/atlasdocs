@@ -1,0 +1,111 @@
+---
+title: "Image"
+description: "Textured UI element with size, tint, and styling."
+---
+**Module:** `graphite`
+
+Textured UI element with size, tint, and styling.
+
+## Declaration
+
+```ts
+export class Image extends UIObject { ... }
+```
+
+**Extends:** `UIObject`
+
+## Constructors
+
+```ts
+constructor();
+```
+
+```ts
+constructor(
+            texture: Texture,
+            size: Size2d,
+            position: Position2d,
+            tint: Color,
+        );
+```
+
+## Properties
+
+### `texture`
+
+```ts
+texture: Texture;
+```
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `size`
+
+```ts
+size: Size2d;
+```
+
+### `tint`
+
+```ts
+tint: Color;
+```
+
+## Methods
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+override getSize(): Size2d;
+```
+
+### `getScreenPosition`
+
+Returns the UI element's screen-space position.
+
+```ts
+override getScreenPosition(): Position2d;
+```
+
+### `setScreenPosition`
+
+Sets the UI element's screen-space position.
+
+```ts
+override setScreenPosition(position: Position2d): void;
+```
+
+### `style`
+
+Returns the element's style.
+
+```ts
+style(): UIStyle;
+```
+
+### `setStyle`
+
+Applies a style to the element.
+
+```ts
+setStyle(style: UIStyle): Image;
+```
+
+### `setTexture`
+
+```ts
+setTexture(texture: Texture): void;
+```
+
+### `setSize`
+
+```ts
+setSize(size: Size2d): void;
+```
+

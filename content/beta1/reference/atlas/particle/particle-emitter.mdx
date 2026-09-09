@@ -1,0 +1,208 @@
+---
+title: "ParticleEmitter"
+description: "Particle system with a fixed capacity, configurable spawning, and optional texturing."
+---
+**Module:** `atlas/particle`
+
+Particle system with a fixed capacity, configurable spawning, and optional texturing.
+
+## Declaration
+
+```ts
+export class ParticleEmitter extends GameObject { ... }
+```
+
+**Extends:** `GameObject`
+
+## Constructors
+
+```ts
+constructor(maxParticles: number);
+```
+
+## Properties
+
+### `settings`
+
+```ts
+settings: ParticleSettings;
+```
+
+## Methods
+
+### `attachTexture`
+
+Attaches a texture to this object.
+
+```ts
+override attachTexture(texture: Texture): void;
+```
+
+### `setColor`
+
+Updates the color used by this object.
+
+```ts
+setColor(color: Color): void;
+```
+
+### `enableTexture`
+
+```ts
+enableTexture(): void;
+```
+
+### `disableTexture`
+
+```ts
+disableTexture(): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+override setPosition(position: Position3d): void;
+```
+
+### `move`
+
+Translates by the supplied offset.
+
+```ts
+override move(position: Position3d): void;
+```
+
+### `getPosition`
+
+```ts
+getPosition(): Position3d;
+```
+
+### `setEmissionType`
+
+```ts
+setEmissionType(type: ParticleEmissionType): void;
+```
+
+### `setDirection`
+
+Sets the particle emission direction.
+
+```ts
+setDirection(direction: Magnitude3d): void;
+```
+
+### `setSpawnRadius`
+
+```ts
+setSpawnRadius(radius: number): void;
+```
+
+### `setSpawnRate`
+
+```ts
+setSpawnRate(rate: number): void;
+```
+
+### `setParticleSettings`
+
+Replaces the emitter's particle settings and sends them to the runtime.
+
+```ts
+setParticleSettings(settings: ParticleSettings): void;
+```
+
+### `emitOnce`
+
+```ts
+emitOnce(): void;
+```
+
+### `emitContinuous`
+
+```ts
+emitContinuous(): void;
+```
+
+### `startEmission`
+
+Starts particle emission.
+
+```ts
+startEmission(): void;
+```
+
+### `stopEmission`
+
+Stops spawning new particles.
+
+```ts
+stopEmission(): void;
+```
+
+### `emitBurst`
+
+Requests emission of the specified number of particles.
+
+```ts
+emitBurst(count: number): void;
+```
+
+### `setRotation`
+
+Unsupported for particle emitters; the runtime method does nothing.
+
+```ts
+override setRotation(rotation: Rotation3d): void;
+```
+
+### `setScale`
+
+Unsupported for particle emitters; the runtime method does nothing.
+
+```ts
+override setScale(scale: Scale3d): void;
+```
+
+### `lookAt`
+
+Unsupported for particle emitters; the runtime method does nothing.
+
+```ts
+override lookAt(target: Position3d, up?: Normal3d): void;
+```
+
+### `rotate`
+
+Unsupported for particle emitters; the runtime method does nothing.
+
+```ts
+override rotate(rotation: Rotation3d): void;
+```
+
+### `scaleBy`
+
+Unsupported for particle emitters; the runtime method does nothing.
+
+```ts
+override scaleBy(scale: Scale3d): void;
+```
+
+### `show`
+
+Makes the object visible.
+
+```ts
+override show(): void;
+```
+
+### `hide`
+
+Makes the object invisible.
+
+```ts
+override hide(): void;
+```
+

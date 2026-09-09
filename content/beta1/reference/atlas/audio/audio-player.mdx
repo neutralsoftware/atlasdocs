@@ -1,0 +1,106 @@
+---
+title: "AudioPlayer"
+description: "Component that plays an audio source and supports positional audio."
+---
+**Module:** `atlas/audio`
+
+Component that plays an audio source and supports positional audio.
+
+## Declaration
+
+```ts
+export class AudioPlayer extends Component { ... }
+```
+
+**Extends:** `Component`
+
+## Constructors
+
+```ts
+constructor();
+```
+
+## Properties
+
+### `source`
+
+```ts
+source: AudioSource;
+```
+
+## Methods
+
+### `init`
+
+```ts
+override init(): void;
+```
+
+### `play`
+
+Starts or resumes playback.
+
+```ts
+play(): void;
+```
+
+### `pause`
+
+Pauses playback.
+
+```ts
+pause(): void;
+```
+
+### `stop`
+
+Stops playback.
+
+```ts
+stop(): void;
+```
+
+### `setVolume`
+
+```ts
+setVolume(volume: number): void;
+```
+
+### `setLoop`
+
+Enables or disables repeated playback.
+
+```ts
+setLoop(loop: boolean): void;
+```
+
+### `setSource`
+
+Loads the audio resource for playback.
+
+```ts
+setSource(resource: Resource): void;
+```
+
+### `update`
+
+```ts
+override update(dt: number): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+setPosition(position: Position3d): void;
+```
+
+### `useSpatialAudio`
+
+Enables or disables positional audio for this player.
+
+```ts
+useSpatialAudio(enabled: boolean): void;
+```
+

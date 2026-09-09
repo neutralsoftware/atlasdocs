@@ -1,0 +1,45 @@
+---
+title: "VehicleControllerSettings"
+description: "Engine, transmission, and differential configuration for a vehicle."
+---
+**Module:** `bezel`
+
+Engine, transmission, and differential configuration for a vehicle.
+
+## Declaration
+
+```ts
+export type VehicleControllerSettings = {
+        engine: VehicleEngine;
+        transmission: VehicleTransmission;
+        differentials: VehicleDifferential[];
+        differentialLimitedSlipRatio: number;
+    };
+```
+
+## Properties
+
+### `engine`
+
+```ts
+engine: VehicleEngine;
+```
+
+### `transmission`
+
+```ts
+transmission: VehicleTransmission;
+```
+
+### `differentials`
+
+```ts
+differentials: VehicleDifferential[];
+```
+
+### `differentialLimitedSlipRatio`
+
+```ts
+differentialLimitedSlipRatio: number;
+```
+

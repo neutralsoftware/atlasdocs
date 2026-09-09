@@ -1,0 +1,62 @@
+---
+title: "Resource"
+description: "Reference to a named asset and its resource type."
+---
+**Module:** `atlas`
+
+Reference to a named asset and its resource type.
+
+## Declaration
+
+```ts
+export class Resource { ... }
+```
+
+## Constructors
+
+```ts
+constructor(type: ResourceType, path: string, name: string);
+```
+
+## Properties
+
+### `type`
+
+```ts
+type: ResourceType;
+```
+
+### `path`
+
+```ts
+path: string;
+```
+
+### `name`
+
+```ts
+name: string;
+```
+
+## Methods
+
+### `fromAssetPath`
+
+Creates a resource reference from an asset path, type, and optional name.
+
+```ts
+static fromAssetPath(
+            path: string,
+            type: ResourceType,
+            name?: string,
+        ): Resource;
+```
+
+### `fromName`
+
+Looks up a resource by name and type; returns null if no matching resource is found.
+
+```ts
+static fromName(name: string, type: ResourceType): Resource | null;
+```
+

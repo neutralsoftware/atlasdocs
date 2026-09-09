@@ -1,0 +1,66 @@
+---
+title: "Particle"
+description: "Particle simulation state including remaining lifetime, velocity, appearance, and activity."
+---
+**Module:** `atlas/particle`
+
+Particle simulation state including remaining lifetime, velocity, appearance, and activity.
+
+## Declaration
+
+```ts
+export type Particle = {
+        position: Position3d;
+        velocity: Magnitude3d;
+        color: Color;
+        lifetime: number;
+        maxLifetime: number;
+        size: number;
+        active: boolean;
+    };
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `velocity`
+
+```ts
+velocity: Magnitude3d;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+### `lifetime`
+
+```ts
+lifetime: number;
+```
+
+### `maxLifetime`
+
+```ts
+maxLifetime: number;
+```
+
+### `size`
+
+```ts
+size: number;
+```
+
+### `active`
+
+```ts
+active: boolean;
+```
+

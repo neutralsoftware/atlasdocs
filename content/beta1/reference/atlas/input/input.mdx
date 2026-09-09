@@ -1,0 +1,193 @@
+---
+title: "Input"
+description: "Global input polling, text input, mouse capture, and named action registration."
+---
+**Module:** `atlas/input`
+
+Global input polling, text input, mouse capture, and named action registration.
+
+## Declaration
+
+```ts
+export const Input: {
+        /** Registers an input action and returns the registered action. */
+        addAction(action: InputAction): InputAction;
+        /** Clears the registered input actions. */
+        resetActions(): void;
+
+        isKeyActive(key: Key): boolean;
+        isKeyPressed(key: Key): boolean;
+        isMouseButtonActive(button: MouseButton): boolean;
+        isMouseButtonPressed(button: MouseButton): boolean;
+
+        /** Returns text collected by the runtime's text input system. */
+        getTextInput(): string;
+        /** Enables text input collection. */
+        startTextInput(): void;
+        /** Disables text input collection. */
+        stopTextInput(): void;
+        /** Reports whether text input collection is enabled. */
+        isTextInputActive(): boolean;
+
+        isControllerButtonPressed(
+            controllerID: number,
+            buttonIndex: number,
+        ): boolean;
+        getControllerAxisValue(controllerID: number, axisIndex: number): number;
+        getControllerAxisPairValue(
+            controllerID: number,
+            axisIndexX: number,
+            axisIndexY: number,
+        ): Position2d;
+
+        /** Captures the mouse for relative input. */
+        captureMouse(): void;
+        /** Releases mouse capture. */
+        releaseMouse(): void;
+        getMousePosition(): Position2d;
+
+        isActionTriggered(name: string): boolean;
+        isActionCurrentlyActive(name: string): boolean;
+        getAxisActionValue(name: string): AxisPacket;
+    };
+```
+
+## Methods
+
+### `addAction`
+
+Registers an input action and returns the registered action.
+
+```ts
+addAction(action: InputAction): InputAction;
+```
+
+### `resetActions`
+
+Clears the registered input actions.
+
+```ts
+resetActions(): void;
+```
+
+### `isKeyActive`
+
+```ts
+isKeyActive(key: Key): boolean;
+```
+
+### `isKeyPressed`
+
+```ts
+isKeyPressed(key: Key): boolean;
+```
+
+### `isMouseButtonActive`
+
+```ts
+isMouseButtonActive(button: MouseButton): boolean;
+```
+
+### `isMouseButtonPressed`
+
+```ts
+isMouseButtonPressed(button: MouseButton): boolean;
+```
+
+### `getTextInput`
+
+Returns text collected by the runtime's text input system.
+
+```ts
+getTextInput(): string;
+```
+
+### `startTextInput`
+
+Enables text input collection.
+
+```ts
+startTextInput(): void;
+```
+
+### `stopTextInput`
+
+Disables text input collection.
+
+```ts
+stopTextInput(): void;
+```
+
+### `isTextInputActive`
+
+Reports whether text input collection is enabled.
+
+```ts
+isTextInputActive(): boolean;
+```
+
+### `isControllerButtonPressed`
+
+```ts
+isControllerButtonPressed(
+            controllerID: number,
+            buttonIndex: number,
+        ): boolean;
+```
+
+### `getControllerAxisValue`
+
+```ts
+getControllerAxisValue(controllerID: number, axisIndex: number): number;
+```
+
+### `getControllerAxisPairValue`
+
+```ts
+getControllerAxisPairValue(
+            controllerID: number,
+            axisIndexX: number,
+            axisIndexY: number,
+        ): Position2d;
+```
+
+### `captureMouse`
+
+Captures the mouse for relative input.
+
+```ts
+captureMouse(): void;
+```
+
+### `releaseMouse`
+
+Releases mouse capture.
+
+```ts
+releaseMouse(): void;
+```
+
+### `getMousePosition`
+
+```ts
+getMousePosition(): Position2d;
+```
+
+### `isActionTriggered`
+
+```ts
+isActionTriggered(name: string): boolean;
+```
+
+### `isActionCurrentlyActive`
+
+```ts
+isActionCurrentlyActive(name: string): boolean;
+```
+
+### `getAxisActionValue`
+
+```ts
+getAxisActionValue(name: string): AxisPacket;
+```
+

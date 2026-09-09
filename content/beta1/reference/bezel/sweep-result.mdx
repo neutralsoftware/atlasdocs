@@ -1,0 +1,45 @@
+---
+title: "SweepResult"
+description: "Movement sweep contacts, nearest contact, and resulting end position."
+---
+**Module:** `bezel`
+
+Movement sweep contacts, nearest contact, and resulting end position.
+
+## Declaration
+
+```ts
+export type SweepResult = {
+        hits: SweepHit[];
+        closest: SweepHit | null;
+        hitAny: boolean;
+        endPosition: Position3d;
+    };
+```
+
+## Properties
+
+### `hits`
+
+```ts
+hits: SweepHit[];
+```
+
+### `closest`
+
+```ts
+closest: SweepHit | null;
+```
+
+### `hitAny`
+
+```ts
+hitAny: boolean;
+```
+
+### `endPosition`
+
+```ts
+endPosition: Position3d;
+```
+

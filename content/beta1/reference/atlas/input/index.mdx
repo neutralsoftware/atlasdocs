@@ -1,0 +1,33 @@
+---
+title: "atlas/input"
+description: "Input devices, bindings, action polling, and interaction callbacks."
+---
+`declare module "atlas/input"`
+
+Input devices, bindings, action polling, and interaction callbacks.
+
+## Enums
+
+- [`Key`](./key) — Keyboard identifiers used by input polling and trigger bindings.
+- [`MouseButton`](./mouse-button) — Mouse button identifiers used by input polling and trigger bindings.
+- [`TriggerType`](./trigger-type) — Discriminator selecting the active field of a button trigger.
+- [`AxisTriggerType`](./axis-trigger-type) — Source of axis input: mouse motion, directional keys, or controller axes.
+
+## Types
+
+- [`ControllerButtonTrigger`](./controller-button-trigger) — Controller identifier and device button index for a button binding.
+- [`AxisPacket`](./axis-packet) — Axis action sample containing value-based input and motion deltas with flags identifying the available sources.
+- [`MousePacket`](./mouse-packet) — Mouse position and motion offsets passed to interactive callbacks.
+- [`MouseScrollPacket`](./mouse-scroll-packet) — Horizontal and vertical scroll offsets.
+
+## Classes
+
+- [`Trigger`](./trigger) — Digital input binding. Use a factory to populate the fields corresponding to its type.
+- [`AxisTrigger`](./axis-trigger) — Axis binding built from mouse motion, four directional keys, or one or two controller axes.
+- [`InputAction`](./input-action) — Named button or axis mapping. Register it before querying it.
+- [`Interactive`](./interactive) — Callback interface for keyboard, mouse, scroll, and per-frame interaction.
+
+## Values
+
+- [`Input`](./input) — Global input polling, text input, mouse capture, and named action registration.
+

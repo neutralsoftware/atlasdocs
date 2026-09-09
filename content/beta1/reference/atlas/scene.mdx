@@ -1,0 +1,110 @@
+---
+title: "Scene"
+description: "Access to the active scene, its lighting, atmosphere, camera, and window."
+---
+**Module:** `atlas`
+
+Access to the active scene, its lighting, atmosphere, camera, and window.
+
+## Declaration
+
+```ts
+export class Scene { ... }
+```
+
+## Properties
+
+### `name`
+
+```ts
+name: string;
+```
+
+### `atmosphere`
+
+```ts
+atmosphere: Atmosphere;
+```
+
+## Methods
+
+### `setAmbientIntensity`
+
+```ts
+setAmbientIntensity(intensity: number): void;
+```
+
+```ts
+setAmbientIntensity(intensity: number): void;
+```
+
+### `setAutomaticAmbient`
+
+```ts
+setAutomaticAmbient(enabled: boolean): void;
+```
+
+### `setSkybox`
+
+```ts
+setSkybox(skybox: Skybox): void;
+```
+
+### `useAtmosphereSkybox`
+
+```ts
+useAtmosphereSkybox(enabled: boolean): void;
+```
+
+### `setEnvironment`
+
+```ts
+setEnvironment(environment: Environment): void;
+```
+
+### `setAmbientColor`
+
+```ts
+setAmbientColor(color: Color): void;
+```
+
+### `addDirectionalLight`
+
+```ts
+addDirectionalLight(light: DirectionalLight): void;
+```
+
+### `addLight`
+
+```ts
+addLight(light: Light): void;
+```
+
+### `addSpotLight`
+
+```ts
+addSpotLight(light: SpotLight): void;
+```
+
+### `addAreaLight`
+
+```ts
+addAreaLight(light: AreaLight): void;
+```
+
+### `getCamera`
+
+Returns the active camera.
+
+```ts
+getCamera(): Camera;
+```
+
+### `getWindow`
+
+Returns the active runtime window.
+
+```ts
+getWindow(): Window;
+```
+

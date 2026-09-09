@@ -1,0 +1,16 @@
+---
+title: "Effect"
+description: "A built-in effect name or an effect descriptor containing its parameters."
+---
+**Module:** `atlas/graphics`
+
+A built-in effect name or an effect descriptor containing its parameters.
+
+## Declaration
+
+```ts
+export type Effect =
+        | keyof typeof Effects
+        | (typeof Effects)[keyof typeof Effects];
+```
+

@@ -1,0 +1,58 @@
+---
+title: "HingeJoint"
+description: "Constraint allowing rotation about a hinge axis, with optional limits and motor."
+---
+**Module:** `bezel`
+
+Constraint allowing rotation about a hinge axis, with optional limits and motor.
+
+## Declaration
+
+```ts
+export class HingeJoint extends Joint { ... }
+```
+
+**Extends:** `Joint`
+
+## Properties
+
+### `axis1`
+
+```ts
+axis1: Normal3d;
+```
+
+### `axis2`
+
+```ts
+axis2: Normal3d;
+```
+
+### `angleLimits`
+
+```ts
+angleLimits: AngleLimits;
+```
+
+### `motor`
+
+```ts
+motor: Motor;
+```
+
+## Methods
+
+### `beforePhysics`
+
+```ts
+override beforePhysics(): void;
+```
+
+### `breakJoint`
+
+Breaks the physical constraint between the joint members.
+
+```ts
+override breakJoint(): void;
+```
+

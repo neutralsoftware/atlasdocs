@@ -1,0 +1,69 @@
+---
+title: "DirectionalLight"
+description: "Light with a direction and no positional origin, suitable for sunlight."
+---
+**Module:** `atlas/graphics`
+
+Light with a direction and no positional origin, suitable for sunlight.
+
+## Declaration
+
+```ts
+export class DirectionalLight { ... }
+```
+
+## Constructors
+
+```ts
+constructor(
+            direction?: Magnitude3d,
+            color?: Color,
+            shineColor?: Color,
+            intensity?: number,
+        );
+```
+
+## Properties
+
+### `direction`
+
+```ts
+direction: Magnitude3d;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+### `shineColor`
+
+```ts
+shineColor: Color;
+```
+
+### `intensity`
+
+```ts
+intensity: number;
+```
+
+## Methods
+
+### `setColor`
+
+Updates the color used by this object.
+
+```ts
+setColor(color: Color): void;
+```
+
+### `castShadows`
+
+Enables shadow casting with the requested shadow-map resolution.
+
+```ts
+castShadows(resolution: number): void;
+```
+

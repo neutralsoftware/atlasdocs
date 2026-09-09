@@ -1,0 +1,184 @@
+---
+title: "Terrain"
+description: "Terrain object created from a heightmap or procedural generator, with biome support."
+---
+**Module:** `aurora`
+
+Terrain object created from a heightmap or procedural generator, with biome support.
+
+## Declaration
+
+```ts
+export class Terrain extends GameObject { ... }
+```
+
+**Extends:** `GameObject`
+
+## Properties
+
+### `heightmap`
+
+```ts
+heightmap: Resource;
+```
+
+### `moistureTexture`
+
+```ts
+moistureTexture: Texture;
+```
+
+### `temperatureTexture`
+
+```ts
+temperatureTexture: Texture;
+```
+
+### `generator`
+
+```ts
+generator: TerrainGenerator;
+```
+
+### `createdWithMap`
+
+```ts
+createdWithMap: boolean;
+```
+
+### `width`
+
+```ts
+width: number;
+```
+
+### `length`
+
+```ts
+length: number;
+```
+
+### `height`
+
+```ts
+height: number;
+```
+
+### `maxPeak`
+
+```ts
+maxPeak: number;
+```
+
+### `seaLevel`
+
+```ts
+seaLevel: number;
+```
+
+## Methods
+
+### `attachTexture`
+
+Attaches a texture to this object.
+
+```ts
+attachTexture(texture: Texture): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+setPosition(position: Position3d): void;
+```
+
+### `move`
+
+Translates by the supplied offset.
+
+```ts
+move(position: Position3d): void;
+```
+
+### `setRotation`
+
+Replaces the rotation.
+
+```ts
+setRotation(rotation: Rotation3d): void;
+```
+
+### `lookAt`
+
+Orients toward the target position.
+
+```ts
+lookAt(target: Position3d, up?: Normal3d): void;
+```
+
+### `rotate`
+
+Applies an incremental rotation.
+
+```ts
+rotate(rotation: Rotation3d): void;
+```
+
+### `setScale`
+
+Replaces the scale factors.
+
+```ts
+setScale(scale: Scale3d): void;
+```
+
+### `scaleBy`
+
+Multiplies the current scale component-wise by the supplied factors.
+
+```ts
+scaleBy(scale: Scale3d): void;
+```
+
+### `show`
+
+Makes the object visible.
+
+```ts
+show(): void;
+```
+
+### `hide`
+
+Makes the object invisible.
+
+```ts
+hide(): void;
+```
+
+### `addBiome`
+
+Adds a biome to the terrain.
+
+```ts
+addBiome(biome: Biome): void;
+```
+
+### `fromGenerator`
+
+Creates terrain using the supplied height generator.
+
+```ts
+static fromGenerator<T extends TerrainGenerator>(generator: T): Terrain;
+```
+
+### `fromHeightmap`
+
+Creates terrain from a heightmap resource.
+
+```ts
+static fromHeightmap(heightmap: Resource): Terrain;
+```
+

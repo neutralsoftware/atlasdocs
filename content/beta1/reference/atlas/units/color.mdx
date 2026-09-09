@@ -1,0 +1,220 @@
+---
+title: "Color"
+description: "RGBA color, conventionally using 0–1 channels. Arithmetic returns new colors and includes alpha without clamping."
+---
+**Module:** `atlas/units`
+
+RGBA color, conventionally using 0–1 channels. Arithmetic returns new colors and includes alpha without clamping.
+
+## Declaration
+
+```ts
+export class Color { ... }
+```
+
+## Constructors
+
+```ts
+constructor(r: number, g: number, b: number, a?: number);
+```
+
+## Properties
+
+### `r`
+
+```ts
+r: number;
+```
+
+### `g`
+
+```ts
+g: number;
+```
+
+### `b`
+
+```ts
+b: number;
+```
+
+### `a`
+
+Alpha channel; the constructor defaults to 1 (opaque).
+
+```ts
+a: number;
+```
+
+## Methods
+
+### `add`
+
+Returns a new value by adding the operand component-wise; a numeric operand applies to every component.
+
+```ts
+add(other: Color | number): Color;
+```
+
+### `subtract`
+
+Returns a new value by subtracting the operand component-wise; a numeric operand applies to every component.
+
+```ts
+subtract(other: Color | number): Color;
+```
+
+### `multiply`
+
+Returns a new value by multiplying by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+multiply(other: Color | number): Color;
+```
+
+### `divide`
+
+Returns a new value by dividing by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+divide(other: Color | number): Color;
+```
+
+### `is`
+
+Tests exact equality of all components.
+
+```ts
+is(other: Color): boolean;
+```
+
+### `white`
+
+```ts
+static white(): Color;
+```
+
+### `black`
+
+```ts
+static black(): Color;
+```
+
+### `red`
+
+```ts
+static red(): Color;
+```
+
+### `green`
+
+```ts
+static green(): Color;
+```
+
+### `blue`
+
+```ts
+static blue(): Color;
+```
+
+### `transparent`
+
+```ts
+static transparent(): Color;
+```
+
+### `yellow`
+
+```ts
+static yellow(): Color;
+```
+
+### `cyan`
+
+```ts
+static cyan(): Color;
+```
+
+### `magenta`
+
+```ts
+static magenta(): Color;
+```
+
+### `gray`
+
+```ts
+static gray(): Color;
+```
+
+### `orange`
+
+```ts
+static orange(): Color;
+```
+
+### `purple`
+
+```ts
+static purple(): Color;
+```
+
+### `brown`
+
+```ts
+static brown(): Color;
+```
+
+### `pink`
+
+```ts
+static pink(): Color;
+```
+
+### `lime`
+
+```ts
+static lime(): Color;
+```
+
+### `navy`
+
+```ts
+static navy(): Color;
+```
+
+### `teal`
+
+```ts
+static teal(): Color;
+```
+
+### `olive`
+
+```ts
+static olive(): Color;
+```
+
+### `maroon`
+
+```ts
+static maroon(): Color;
+```
+
+### `fromHex`
+
+Creates an opaque color from RGB or RRGGBB hexadecimal text, with an optional leading #.
+
+```ts
+static fromHex(hex: string): Color;
+```
+
+### `mix`
+
+Linearly interpolates all RGBA channels; t = 0 selects color1 and t = 1 selects color2. The factor is not clamped.
+
+```ts
+static mix(color1: Color, color2: Color, t: number): Color;
+```
+

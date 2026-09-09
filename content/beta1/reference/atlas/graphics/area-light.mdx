@@ -1,0 +1,148 @@
+---
+title: "AreaLight"
+description: "Oriented area light with dimensions, emission range, and optional two-sided emission."
+---
+**Module:** `atlas/graphics`
+
+Oriented area light with dimensions, emission range, and optional two-sided emission.
+
+## Declaration
+
+```ts
+export class AreaLight { ... }
+```
+
+## Constructors
+
+```ts
+constructor(
+            position?: Position3d,
+            right?: Magnitude3d,
+            up?: Magnitude3d,
+            size?: Size2d,
+            color?: Color,
+            shineColor?: Color,
+            intensity?: number,
+            range?: number,
+            angle?: number,
+            castsBothSides?: boolean,
+            rotation?: Rotation3d,
+        );
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `right`
+
+```ts
+right: Magnitude3d;
+```
+
+### `up`
+
+```ts
+up: Magnitude3d;
+```
+
+### `size`
+
+```ts
+size: Size2d;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+### `shineColor`
+
+```ts
+shineColor: Color;
+```
+
+### `intensity`
+
+```ts
+intensity: number;
+```
+
+### `range`
+
+```ts
+range: number;
+```
+
+### `angle`
+
+```ts
+angle: number;
+```
+
+### `castsBothSides`
+
+```ts
+castsBothSides: boolean;
+```
+
+### `rotation`
+
+```ts
+rotation: Rotation3d;
+```
+
+## Methods
+
+### `getNormal`
+
+```ts
+getNormal(): Magnitude3d;
+```
+
+### `setColor`
+
+Updates the color used by this object.
+
+```ts
+setColor(color: Color): void;
+```
+
+### `setRotation`
+
+Replaces the rotation.
+
+```ts
+setRotation(rotation: Rotation3d): void;
+```
+
+### `rotate`
+
+Applies an incremental rotation.
+
+```ts
+rotate(delta: Rotation3d): void;
+```
+
+### `createDebugObject`
+
+Creates a visual representation of the light for debugging.
+
+```ts
+createDebugObject(): void;
+```
+
+### `castShadows`
+
+Enables shadow casting with the requested shadow-map resolution.
+
+```ts
+castShadows(resolution: number): void;
+```
+

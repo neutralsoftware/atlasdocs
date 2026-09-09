@@ -1,0 +1,38 @@
+---
+title: "RaycastResult"
+description: "Ray query hits and nearest-hit information; hit is null when no closest hit exists."
+---
+**Module:** `bezel`
+
+Ray query hits and nearest-hit information; hit is null when no closest hit exists.
+
+## Declaration
+
+```ts
+export type RaycastResult = {
+        hits: RaycastHit[];
+        hit: RaycastHit | null;
+        closestDistance: number;
+    };
+```
+
+## Properties
+
+### `hits`
+
+```ts
+hits: RaycastHit[];
+```
+
+### `hit`
+
+```ts
+hit: RaycastHit | null;
+```
+
+### `closestDistance`
+
+```ts
+closestDistance: number;
+```
+

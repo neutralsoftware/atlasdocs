@@ -1,0 +1,51 @@
+---
+title: "bezel"
+description: "Physics bodies, constraints, vehicles, and spatial query results."
+---
+`declare module "bezel"`
+
+Physics bodies, constraints, vehicles, and spatial query results.
+
+## Types
+
+- [`RaycastHit`](./raycast-hit) — Ray intersection information, including the hit object and surface normal.
+- [`RaycastResult`](./raycast-result) — Ray query hits and nearest-hit information; hit is null when no closest hit exists.
+- [`OverlapHit`](./overlap-hit) — Overlap contact information. penerationAxis retains the spelling used by this API.
+- [`OverlapResult`](./overlap-result) — Overlap contacts and a flag indicating whether any were found.
+- [`SweepHit`](./sweep-hit) — Contact encountered while sweeping a collider along a movement path.
+- [`SweepResult`](./sweep-result) — Movement sweep contacts, nearest contact, and resulting end position.
+- [`QueryResult`](./query-result) — Physics query payload. Inspect operation before reading the corresponding result field.
+- [`WorldBody`](./world-body) — World attachment marker type used as a joint endpoint.
+- [`JointMember`](./joint-member) — An object or world attachment used as one endpoint of a joint.
+- [`Spring`](./spring) — Optional spring behavior with parameters interpreted according to mode.
+- [`AngleLimits`](./angle-limits) — Optional minimum and maximum joint angles.
+- [`Motor`](./motor) — Optional joint motor with force and torque limits.
+- [`VehicleWheelSettings`](./vehicle-wheel-settings) — Wheel geometry, suspension, steering, and braking parameters.
+- [`VehicleDifferential`](./vehicle-differential) — Torque distribution and differential settings for a pair of wheel indices.
+- [`VehicleEngine`](./vehicle-engine) — Engine torque, RPM limits, inertia, and angular damping.
+- [`VehicleTransmission`](./vehicle-transmission) — Forward/reverse gear ratios, clutch behavior, and shift timing.
+- [`VehicleControllerSettings`](./vehicle-controller-settings) — Engine, transmission, and differential configuration for a vehicle.
+- [`VehicleSettings`](./vehicle-settings) — Vehicle axes, wheel configurations, controller settings, and stability limits.
+- [`CapsuleCollider`](./capsule-collider) — Capsule collision shape specified by radius and height.
+- [`BoxCollider`](./box-collider) — Box collision shape specified by its three-dimensional size.
+- [`SphereCollider`](./sphere-collider) — Sphere collision shape specified by radius.
+- [`MeshCollider`](./mesh-collider) — Mesh collision shape descriptor.
+- [`Collider`](./collider) — Supported collision shape descriptors for rigidbodies and physics queries.
+
+## Enums
+
+- [`QueryOperation`](./query-operation) — Identifies the physics query represented by a QueryResult.
+- [`SpringMode`](./spring-mode) — Selects frequency/damping-ratio or stiffness/damping spring configuration.
+- [`Space`](./space) — Coordinate space used for joint configuration.
+- [`VehicleTransmissionMode`](./vehicle-transmission-mode) — Automatic or manual vehicle gear selection.
+
+## Classes
+
+- [`Joint`](./joint) — Base component for a physical constraint between two joint members.
+- [`FixedJoint`](./fixed-joint) — Constraint that fixes the relative transform of its two members.
+- [`HingeJoint`](./hinge-joint) — Constraint allowing rotation about a hinge axis, with optional limits and motor.
+- [`SpringJoint`](./spring-joint) — Distance constraint with spring behavior and optional length limits.
+- [`Vehicle`](./vehicle) — Physics vehicle component with driving inputs and configurable wheels and drivetrain.
+- [`Rigidbody`](./rigidbody) — Physics component providing colliders, forces, velocities, tags, and spatial queries.
+- [`Sensor`](./sensor) — Rigidbody initialized as a sensor for detecting contacts and sending signals.
+

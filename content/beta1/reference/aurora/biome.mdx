@@ -1,0 +1,103 @@
+---
+title: "Biome"
+description: "Terrain appearance and height, moisture, and temperature selection settings."
+---
+**Module:** `aurora`
+
+Terrain appearance and height, moisture, and temperature selection settings.
+
+## Declaration
+
+```ts
+export class Biome { ... }
+```
+
+## Constructors
+
+```ts
+constructor(
+            name: string,
+            texture: Texture,
+            color: Color,
+            useTexture: boolean,
+        );
+```
+
+## Properties
+
+### `name`
+
+```ts
+name: string;
+```
+
+### `texture`
+
+```ts
+texture: Texture;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+### `useTexture`
+
+```ts
+useTexture: boolean;
+```
+
+### `minHeight`
+
+```ts
+minHeight: number;
+```
+
+### `maxHeight`
+
+```ts
+maxHeight: number;
+```
+
+### `minMoisture`
+
+```ts
+minMoisture: number;
+```
+
+### `maxMoisture`
+
+```ts
+maxMoisture: number;
+```
+
+### `minTemperature`
+
+```ts
+minTemperature: number;
+```
+
+### `maxTemperature`
+
+```ts
+maxTemperature: number;
+```
+
+### `condition`
+
+```ts
+condition: BiomeFunction;
+```
+
+## Methods
+
+### `attachTexture`
+
+Attaches a texture to this object.
+
+```ts
+attachTexture(texture: Texture): void;
+```
+

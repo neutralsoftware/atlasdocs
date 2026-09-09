@@ -1,0 +1,123 @@
+---
+title: "Texture"
+description: "GPU texture loaded from a resource or created procedurally."
+---
+**Module:** `atlas/graphics`
+
+GPU texture loaded from a resource or created procedurally.
+
+## Declaration
+
+```ts
+export class Texture { ... }
+```
+
+## Properties
+
+### `type`
+
+```ts
+type: TextureType;
+```
+
+### `resource`
+
+```ts
+resource: Resource;
+```
+
+### `width`
+
+```ts
+width: number;
+```
+
+### `height`
+
+```ts
+height: number;
+```
+
+### `channels`
+
+```ts
+channels: number;
+```
+
+### `id`
+
+```ts
+id: number;
+```
+
+### `borderColor`
+
+```ts
+borderColor: Color;
+```
+
+## Methods
+
+### `fromResource`
+
+```ts
+static fromResource(
+            resource: Resource | string,
+            type: TextureType,
+        ): Texture;
+```
+
+### `createEmpty`
+
+```ts
+static createEmpty(
+            width: number,
+            height: number,
+            type: TextureType,
+            borderColor?: Color,
+        ): Texture;
+```
+
+### `createColor`
+
+```ts
+static createColor(
+            color: Color,
+            type: TextureType,
+            width: number,
+            height: number,
+        ): Texture;
+```
+
+### `createCheckerboard`
+
+```ts
+createCheckerboard(
+            width: number,
+            height: number,
+            checkSize: number,
+            color1: Color,
+            color2: Color,
+        ): void;
+```
+
+### `createDoubleCheckerboard`
+
+```ts
+createDoubleCheckerboard(
+            width: number,
+            height: number,
+            checkSizeBig: number,
+            checkSizeSmall: number,
+            color1: Color,
+            color2: Color,
+            color3: Color,
+        ): void;
+```
+
+### `displayToWindow`
+
+```ts
+displayToWindow(): void;
+```
+

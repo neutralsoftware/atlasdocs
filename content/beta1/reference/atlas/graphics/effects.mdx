@@ -1,0 +1,136 @@
+---
+title: "Effects"
+description: "Built-in post-processing effect descriptors. Copy a descriptor to customize its parameters."
+---
+**Module:** `atlas/graphics`
+
+Built-in post-processing effect descriptors. Copy a descriptor to customize its parameters.
+
+## Declaration
+
+```ts
+export const Effects: {
+        Inversion: { type: "Inversion" };
+        Grayscale: { type: "Grayscale" };
+        Sharpen: { type: "Sharpen" };
+        Blur: { type: "Blur"; magnitude: number };
+        EdgeDetection: { type: "EdgeDetection" };
+        ColorCorrection: {
+            type: "ColorCorrection";
+            exposure: number;
+            contrast: number;
+            saturation: number;
+            gamma: number;
+            temperature: number;
+            tint: number;
+        };
+        MotionBlur: { type: "MotionBlur"; size: number; separation: number };
+        ChromaticAberration: {
+            type: "ChromaticAberration";
+            red: number;
+            green: number;
+            blue: number;
+            direction: Magnitude2d;
+        };
+        Posterization: { type: "Posterization"; levels: number };
+        Pixelation: { type: "Pixelation"; pixelSize: number };
+        Dialation: { type: "Dilation"; size: number; separation: number };
+        Dilation: { type: "Dilation"; size: number; separation: number };
+        FilmGrain: { type: "FilmGrain"; amount: number };
+    };
+```
+
+## Properties
+
+### `Inversion`
+
+```ts
+Inversion: { type: "Inversion" };
+```
+
+### `Grayscale`
+
+```ts
+Grayscale: { type: "Grayscale" };
+```
+
+### `Sharpen`
+
+```ts
+Sharpen: { type: "Sharpen" };
+```
+
+### `Blur`
+
+```ts
+Blur: { type: "Blur"; magnitude: number };
+```
+
+### `EdgeDetection`
+
+```ts
+EdgeDetection: { type: "EdgeDetection" };
+```
+
+### `ColorCorrection`
+
+```ts
+ColorCorrection: {
+            type: "ColorCorrection";
+            exposure: number;
+            contrast: number;
+            saturation: number;
+            gamma: number;
+            temperature: number;
+            tint: number;
+        };
+```
+
+### `MotionBlur`
+
+```ts
+MotionBlur: { type: "MotionBlur"; size: number; separation: number };
+```
+
+### `ChromaticAberration`
+
+```ts
+ChromaticAberration: {
+            type: "ChromaticAberration";
+            red: number;
+            green: number;
+            blue: number;
+            direction: Magnitude2d;
+        };
+```
+
+### `Posterization`
+
+```ts
+Posterization: { type: "Posterization"; levels: number };
+```
+
+### `Pixelation`
+
+```ts
+Pixelation: { type: "Pixelation"; pixelSize: number };
+```
+
+### `Dialation`
+
+```ts
+Dialation: { type: "Dilation"; size: number; separation: number };
+```
+
+### `Dilation`
+
+```ts
+Dilation: { type: "Dilation"; size: number; separation: number };
+```
+
+### `FilmGrain`
+
+```ts
+FilmGrain: { type: "FilmGrain"; amount: number };
+```
+

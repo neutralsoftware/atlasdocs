@@ -1,0 +1,32 @@
+---
+title: "PlainGenerator"
+description: "Procedural plain height generator configured by scale and amplitude."
+---
+**Module:** `aurora`
+
+Procedural plain height generator configured by scale and amplitude.
+
+## Declaration
+
+```ts
+export class PlainGenerator extends TerrainGenerator { ... }
+```
+
+**Extends:** `TerrainGenerator`
+
+## Constructors
+
+```ts
+constructor(scale: number, amplitude: number);
+```
+
+## Methods
+
+### `generateHeight`
+
+Samples the procedural terrain height at the supplied coordinates.
+
+```ts
+override generateHeight(x: number, y: number): number;
+```
+

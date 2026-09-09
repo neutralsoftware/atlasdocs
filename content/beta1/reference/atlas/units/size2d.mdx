@@ -1,0 +1,88 @@
+---
+title: "Size2d"
+description: "Width and height value with component-wise arithmetic returning new values."
+---
+**Module:** `atlas/units`
+
+Width and height value with component-wise arithmetic returning new values.
+
+## Declaration
+
+```ts
+export class Size2d { ... }
+```
+
+## Constructors
+
+```ts
+constructor(width: number, height: number);
+```
+
+## Properties
+
+### `width`
+
+```ts
+width: number;
+```
+
+### `height`
+
+```ts
+height: number;
+```
+
+## Methods
+
+### `zero`
+
+```ts
+static zero(): Size2d;
+```
+
+### `toString`
+
+```ts
+toString(): string;
+```
+
+### `add`
+
+Returns a new value by adding the operand component-wise; a numeric operand applies to every component.
+
+```ts
+add(other: Size2d | number): Size2d;
+```
+
+### `subtract`
+
+Returns a new value by subtracting the operand component-wise; a numeric operand applies to every component.
+
+```ts
+subtract(other: Size2d | number): Size2d;
+```
+
+### `multiply`
+
+Returns a new value by multiplying by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+multiply(other: Size2d | number): Size2d;
+```
+
+### `divide`
+
+Returns a new value by dividing by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+divide(other: Size2d | number): Size2d;
+```
+
+### `is`
+
+Tests exact equality of all components.
+
+```ts
+is(other: Size2d): boolean;
+```
+

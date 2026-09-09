@@ -1,0 +1,45 @@
+---
+title: "QueryResult"
+description: "Physics query payload. Inspect operation before reading the corresponding result field."
+---
+**Module:** `bezel`
+
+Physics query payload. Inspect operation before reading the corresponding result field.
+
+## Declaration
+
+```ts
+export type QueryResult = {
+        operation: QueryOperation;
+        raycastResult?: RaycastResult;
+        overlapResult?: OverlapResult;
+        sweepResult?: SweepResult;
+    };
+```
+
+## Properties
+
+### `operation`
+
+```ts
+operation: QueryOperation;
+```
+
+### `raycastResult`
+
+```ts
+raycastResult?: RaycastResult;
+```
+
+### `overlapResult`
+
+```ts
+overlapResult?: OverlapResult;
+```
+
+### `sweepResult`
+
+```ts
+sweepResult?: SweepResult;
+```
+

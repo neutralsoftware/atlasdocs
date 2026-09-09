@@ -1,0 +1,42 @@
+---
+title: "UIObject"
+description: "Base class for UI elements with screen-space positioning and measured size."
+---
+**Module:** `atlas`
+
+Base class for UI elements with screen-space positioning and measured size.
+
+## Declaration
+
+```ts
+export abstract class UIObject extends GameObject { ... }
+```
+
+**Extends:** `GameObject`
+
+## Methods
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+getSize(): Size2d;
+```
+
+### `getScreenPosition`
+
+Returns the UI element's screen-space position.
+
+```ts
+getScreenPosition(): Position2d;
+```
+
+### `setScreenPosition`
+
+Sets the UI element's screen-space position.
+
+```ts
+abstract setScreenPosition(position: Position2d): void;
+```
+

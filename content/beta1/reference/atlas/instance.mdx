@@ -1,0 +1,90 @@
+---
+title: "Instance"
+description: "A transform for an instance of a CoreObject. Transform methods commit changes to the runtime."
+---
+**Module:** `atlas`
+
+A transform for an instance of a CoreObject. Transform methods commit changes to the runtime.
+
+## Declaration
+
+```ts
+export class Instance { ... }
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `rotation`
+
+```ts
+rotation: Rotation3d;
+```
+
+### `scale`
+
+```ts
+scale: Scale3d;
+```
+
+## Methods
+
+### `move`
+
+Translates by the supplied offset.
+
+```ts
+move(position: Position3d): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+setPosition(position: Position3d): void;
+```
+
+### `setRotation`
+
+Replaces the rotation.
+
+```ts
+setRotation(rotation: Rotation3d): void;
+```
+
+### `rotate`
+
+Applies an incremental rotation.
+
+```ts
+rotate(rotation: Rotation3d): void;
+```
+
+### `setScale`
+
+Replaces the scale factors.
+
+```ts
+setScale(scale: Scale3d): void;
+```
+
+### `scaleBy`
+
+Multiplies the current scale component-wise by the supplied factors.
+
+```ts
+scaleBy(scale: Scale3d): void;
+```
+
+### `equals`
+
+```ts
+equals(other: Instance): boolean;
+```
+

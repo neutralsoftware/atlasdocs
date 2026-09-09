@@ -1,0 +1,64 @@
+---
+title: "Quaternion"
+description: "Four-component orientation with conversion to and from Euler rotations."
+---
+**Module:** `atlas/units`
+
+Four-component orientation with conversion to and from Euler rotations.
+
+## Declaration
+
+```ts
+export class Quaternion { ... }
+```
+
+## Constructors
+
+```ts
+constructor(x: number, y: number, z: number, w: number);
+```
+
+```ts
+constructor(rotation: Rotation3d);
+```
+
+## Properties
+
+### `x`
+
+```ts
+x: number;
+```
+
+### `y`
+
+```ts
+y: number;
+```
+
+### `z`
+
+```ts
+z: number;
+```
+
+### `w`
+
+```ts
+w: number;
+```
+
+## Methods
+
+### `toEuler`
+
+```ts
+toEuler(): Rotation3d;
+```
+
+### `fromEuler`
+
+```ts
+static fromEuler(rotation: Rotation3d): Quaternion;
+```
+

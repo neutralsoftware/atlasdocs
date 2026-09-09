@@ -1,0 +1,32 @@
+---
+title: "FixedJoint"
+description: "Constraint that fixes the relative transform of its two members."
+---
+**Module:** `bezel`
+
+Constraint that fixes the relative transform of its two members.
+
+## Declaration
+
+```ts
+export class FixedJoint extends Joint { ... }
+```
+
+**Extends:** `Joint`
+
+## Methods
+
+### `beforePhysics`
+
+```ts
+override beforePhysics(): void;
+```
+
+### `breakJoint`
+
+Breaks the physical constraint between the joint members.
+
+```ts
+override breakJoint(): void;
+```
+

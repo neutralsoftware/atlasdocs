@@ -1,0 +1,52 @@
+---
+title: "Interactive"
+description: "Callback interface for keyboard, mouse, scroll, and per-frame interaction."
+---
+**Module:** `atlas/input`
+
+Callback interface for keyboard, mouse, scroll, and per-frame interaction.
+
+## Declaration
+
+```ts
+export abstract class Interactive { ... }
+```
+
+## Methods
+
+### `onKeyPress`
+
+```ts
+abstract onKeyPress(key: Key, dt: number): void;
+```
+
+### `onKeyRelease`
+
+```ts
+abstract onKeyRelease(key: Key, dt: number): void;
+```
+
+### `onMouseMove`
+
+```ts
+abstract onMouseMove(packet: MousePacket, dt: number): void;
+```
+
+### `onMouseButtonPress`
+
+```ts
+abstract onMouseButtonPress(button: MouseButton, dt: number): void;
+```
+
+### `onMouseScroll`
+
+```ts
+abstract onMouseScroll(packet: MouseScrollPacket, dt: number): void;
+```
+
+### `onEachFrame`
+
+```ts
+abstract onEachFrame(dt: number): void;
+```
+

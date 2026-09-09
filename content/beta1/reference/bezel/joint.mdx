@@ -1,0 +1,82 @@
+---
+title: "Joint"
+description: "Base component for a physical constraint between two joint members."
+---
+**Module:** `bezel`
+
+Base component for a physical constraint between two joint members.
+
+## Declaration
+
+```ts
+export abstract class Joint extends Component { ... }
+```
+
+**Extends:** `Component`
+
+## Properties
+
+### `parent`
+
+```ts
+parent: JointMember;
+```
+
+### `child`
+
+```ts
+child: JointMember;
+```
+
+### `space`
+
+```ts
+space: Space;
+```
+
+### `anchor`
+
+```ts
+anchor: Position3d;
+```
+
+### `breakForce`
+
+```ts
+breakForce: number;
+```
+
+### `breakTorque`
+
+```ts
+breakTorque: number;
+```
+
+## Methods
+
+### `init`
+
+```ts
+override init(): void;
+```
+
+### `update`
+
+```ts
+override update(deltaTime: number): void;
+```
+
+### `beforePhysics`
+
+```ts
+abstract override beforePhysics(): void;
+```
+
+### `breakJoint`
+
+Breaks the physical constraint between the joint members.
+
+```ts
+abstract breakJoint(): void;
+```
+

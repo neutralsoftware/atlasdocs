@@ -1,0 +1,120 @@
+---
+title: "Fluid"
+description: "Renderable water surface with configurable extent, color, wave motion, and textures."
+---
+**Module:** `hydra`
+
+Renderable water surface with configurable extent, color, wave motion, and textures.
+
+## Declaration
+
+```ts
+export class Fluid extends GameObject { ... }
+```
+
+**Extends:** `GameObject`
+
+## Constructors
+
+```ts
+constructor();
+```
+
+## Properties
+
+### `waveVelocity`
+
+```ts
+waveVelocity: number;
+```
+
+### `normalTexture`
+
+```ts
+normalTexture: Texture;
+```
+
+### `movementTexture`
+
+```ts
+movementTexture: Texture;
+```
+
+## Methods
+
+### `create`
+
+```ts
+create(extent: Size2d, color: Color): void;
+```
+
+### `move`
+
+Translates by the supplied offset.
+
+```ts
+override move(position: Position3d): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+override setPosition(position: Position3d): void;
+```
+
+### `setRotation`
+
+Replaces the rotation.
+
+```ts
+override setRotation(rotation: Rotation3d): void;
+```
+
+### `rotate`
+
+Applies an incremental rotation.
+
+```ts
+override rotate(rotation: Rotation3d): void;
+```
+
+### `setScale`
+
+Replaces the scale factors.
+
+```ts
+override setScale(scale: Scale3d): void;
+```
+
+### `setExtent`
+
+```ts
+setExtent(extent: Size2d): void;
+```
+
+### `setWaveVelocity`
+
+```ts
+setWaveVelocity(velocity: number): void;
+```
+
+### `setWaterColor`
+
+```ts
+setWaterColor(color: Color): void;
+```
+
+### `getPosition`
+
+```ts
+getPosition(): Position3d;
+```
+
+### `getScale`
+
+```ts
+getScale(): Scale3d;
+```
+

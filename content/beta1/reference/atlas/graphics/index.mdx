@@ -1,0 +1,34 @@
+---
+title: "atlas/graphics"
+description: "Textures, render targets, post-processing, and lighting."
+---
+`declare module "atlas/graphics"`
+
+Textures, render targets, post-processing, and lighting.
+
+## Enums
+
+- [`TextureType`](./texture-type) — Texture role used by the renderer, such as albedo, normal, depth, or material data.
+- [`RenderTargetType`](./render-target-type) — Framebuffer purpose and attachment configuration.
+- [`RenderPassType`](./render-pass-type) — Rendering pipeline pass to enqueue for a render target.
+
+## Classes
+
+- [`Texture`](./texture) — GPU texture loaded from a resource or created procedurally.
+- [`Cubemap`](./cubemap) — Cube texture assembled from face resources, with helpers for updating face colors.
+- [`RenderTarget`](./render-target) — Offscreen rendering destination with output textures, render passes, and post-processing effects.
+- [`Skybox`](./skybox) — Scene background rendered from a cubemap.
+- [`AmbientLight`](./ambient-light) — Uniform ambient illumination described by color and intensity.
+- [`Light`](./light) — Point light with position, range, diffuse color, and specular shine color.
+- [`DirectionalLight`](./directional-light) — Light with a direction and no positional origin, suitable for sunlight.
+- [`SpotLight`](./spot-light) — Positioned cone light with inner and outer cutoffs, direction, and range.
+- [`AreaLight`](./area-light) — Oriented area light with dimensions, emission range, and optional two-sided emission.
+
+## Values
+
+- [`Effects`](./effects) — Built-in post-processing effect descriptors. Copy a descriptor to customize its parameters.
+
+## Types
+
+- [`Effect`](./effect) — A built-in effect name or an effect descriptor containing its parameters.
+

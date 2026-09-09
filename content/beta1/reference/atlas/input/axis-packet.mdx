@@ -1,0 +1,87 @@
+---
+title: "AxisPacket"
+description: "Axis action sample containing value-based input and motion deltas with flags identifying the available sources."
+---
+**Module:** `atlas/input`
+
+Axis action sample containing value-based input and motion deltas with flags identifying the available sources.
+
+## Declaration
+
+```ts
+export type AxisPacket = {
+        deltaX: number;
+        deltaY: number;
+        x: number;
+        y: number;
+        valueX: number;
+        valueY: number;
+        inputDeltaX: number;
+        inputDeltaY: number;
+        hasValueInput: boolean;
+        hasDeltaInput: boolean;
+    };
+```
+
+## Properties
+
+### `deltaX`
+
+```ts
+deltaX: number;
+```
+
+### `deltaY`
+
+```ts
+deltaY: number;
+```
+
+### `x`
+
+```ts
+x: number;
+```
+
+### `y`
+
+```ts
+y: number;
+```
+
+### `valueX`
+
+```ts
+valueX: number;
+```
+
+### `valueY`
+
+```ts
+valueY: number;
+```
+
+### `inputDeltaX`
+
+```ts
+inputDeltaX: number;
+```
+
+### `inputDeltaY`
+
+```ts
+inputDeltaY: number;
+```
+
+### `hasValueInput`
+
+```ts
+hasValueInput: boolean;
+```
+
+### `hasDeltaInput`
+
+```ts
+hasDeltaInput: boolean;
+```
+

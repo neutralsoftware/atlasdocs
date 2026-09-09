@@ -1,0 +1,50 @@
+---
+title: "ResourceGroup"
+description: "Named collection of resources with lookup by resource name."
+---
+**Module:** `atlas`
+
+Named collection of resources with lookup by resource name.
+
+## Declaration
+
+```ts
+export class ResourceGroup { ... }
+```
+
+## Constructors
+
+```ts
+constructor(resources: Resource[], name: string);
+```
+
+## Properties
+
+### `resources`
+
+```ts
+resources: Resource[];
+```
+
+### `name`
+
+```ts
+name: string;
+```
+
+## Methods
+
+### `addResource`
+
+```ts
+addResource(resource: Resource): void;
+```
+
+### `getResourceByName`
+
+Returns the first resource with this name, or null if none exists.
+
+```ts
+getResourceByName(name: string): Resource | null;
+```
+

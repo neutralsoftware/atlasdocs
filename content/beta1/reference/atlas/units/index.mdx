@@ -1,0 +1,39 @@
+---
+title: "atlas/units"
+description: "Value types for coordinates, dimensions, rotations, and colors."
+---
+`declare module "atlas/units"`
+
+Value types for coordinates, dimensions, rotations, and colors.
+
+## Classes
+
+- [`Position3d`](./position3d) — Three-component value. Arithmetic returns new values; up is +Y and forward is +Z.
+- [`BoundingBox`](./bounding-box) — Axis-aligned bounds with inclusive point containment and intersection checks.
+- [`Quaternion`](./quaternion) — Four-component orientation with conversion to and from Euler rotations.
+- [`Color`](./color) — RGBA color, conventionally using 0–1 channels. Arithmetic returns new colors and includes alpha without clamping.
+- [`Position2d`](./position2d) — Two-component value. Arithmetic returns new values; up is +Y.
+- [`Radians`](./radians) — Angle stored in radians, with degree conversion and arithmetic returning new values.
+- [`Size2d`](./size2d) — Width and height value with component-wise arithmetic returning new values.
+
+## Types
+
+- [`Scale3d`](./scale3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Size3d`](./size3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Point3d`](./point3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Normal3d`](./normal3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Magnitude3d`](./magnitude3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Impulse3d`](./impulse3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Force3d`](./force3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Vector3d`](./vector3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Velocity3d`](./velocity3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Rotation3d`](./rotation3d) — Semantic type alias for Position3d; it does not introduce a distinct value type.
+- [`Scale2d`](./scale2d) — Semantic type alias for Position2d; it does not introduce a distinct value type.
+- [`Point2d`](./point2d) — Semantic type alias for Position2d; it does not introduce a distinct value type.
+- [`Movement2d`](./movement2d) — Semantic type alias for Position2d; it does not introduce a distinct value type.
+- [`Magnitude2d`](./magnitude2d) — Semantic type alias for Position2d; it does not introduce a distinct value type.
+
+## Enums
+
+- [`Direction3d`](./direction3d) — Named directions along the three coordinate axes.
+

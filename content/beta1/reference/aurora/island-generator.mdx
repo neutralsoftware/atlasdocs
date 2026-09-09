@@ -1,0 +1,32 @@
+---
+title: "IslandGenerator"
+description: "Procedural island height generator configured by feature count and scale."
+---
+**Module:** `aurora`
+
+Procedural island height generator configured by feature count and scale.
+
+## Declaration
+
+```ts
+export class IslandGenerator extends TerrainGenerator { ... }
+```
+
+**Extends:** `TerrainGenerator`
+
+## Constructors
+
+```ts
+constructor(numFeatures: number, scale: number);
+```
+
+## Methods
+
+### `generateHeight`
+
+Samples the procedural terrain height at the supplied coordinates.
+
+```ts
+override generateHeight(x: number, y: number): number;
+```
+

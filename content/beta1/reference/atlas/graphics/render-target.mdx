@@ -1,0 +1,70 @@
+---
+title: "RenderTarget"
+description: "Offscreen rendering destination with output textures, render passes, and post-processing effects."
+---
+**Module:** `atlas/graphics`
+
+Offscreen rendering destination with output textures, render passes, and post-processing effects.
+
+## Declaration
+
+```ts
+export class RenderTarget { ... }
+```
+
+## Constructors
+
+```ts
+constructor(type: RenderTargetType, resolution: number);
+```
+
+## Properties
+
+### `type`
+
+```ts
+type: RenderTargetType;
+```
+
+### `resolution`
+
+```ts
+resolution: number;
+```
+
+### `outTextures`
+
+```ts
+outTextures: Texture[];
+```
+
+### `depthTexture`
+
+```ts
+depthTexture: Texture | null;
+```
+
+## Methods
+
+### `addEffect`
+
+Adds a post-processing effect by name or configured descriptor.
+
+```ts
+addEffect(effect: Effect): void;
+```
+
+### `addToPassQueue`
+
+Enqueues the selected rendering pass for this target.
+
+```ts
+addToPassQueue(type: RenderPassType): void;
+```
+
+### `display`
+
+```ts
+display(): void;
+```
+

@@ -1,0 +1,80 @@
+---
+title: "VehicleTransmission"
+description: "Forward/reverse gear ratios, clutch behavior, and shift timing."
+---
+**Module:** `bezel`
+
+Forward/reverse gear ratios, clutch behavior, and shift timing.
+
+## Declaration
+
+```ts
+export type VehicleTransmission = {
+        mode: VehicleTransmissionMode;
+        gearRatios: number[];
+        reverseGearRatios: number[];
+        switchTime: number;
+        clutchReleaseTime: number;
+        switchLatency: number;
+        shiftUpRPM: number;
+        shiftDownRPM: number;
+        clutchStrength: number;
+    };
+```
+
+## Properties
+
+### `mode`
+
+```ts
+mode: VehicleTransmissionMode;
+```
+
+### `gearRatios`
+
+```ts
+gearRatios: number[];
+```
+
+### `reverseGearRatios`
+
+```ts
+reverseGearRatios: number[];
+```
+
+### `switchTime`
+
+```ts
+switchTime: number;
+```
+
+### `clutchReleaseTime`
+
+```ts
+clutchReleaseTime: number;
+```
+
+### `switchLatency`
+
+```ts
+switchLatency: number;
+```
+
+### `shiftUpRPM`
+
+```ts
+shiftUpRPM: number;
+```
+
+### `shiftDownRPM`
+
+```ts
+shiftDownRPM: number;
+```
+
+### `clutchStrength`
+
+```ts
+clutchStrength: number;
+```
+

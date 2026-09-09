@@ -1,0 +1,45 @@
+---
+title: "graphite"
+description: "UI elements, layouts, fonts, styles, and themes."
+---
+`declare module "graphite"`
+
+UI elements, layouts, fonts, styles, and themes.
+
+## Classes
+
+- [`Image`](./image) — Textured UI element with size, tint, and styling.
+- [`TextField`](./text-field) — Editable text input with focus, cursor, placeholder, and change callbacks.
+- [`Button`](./button) — Clickable text button with hover, enabled state, and click callback support.
+- [`Checkbox`](./checkbox) — Toggleable checkbox with a label and change callback support.
+- [`Column`](./column) — Vertical layout of UI children with spacing, padding, alignment, and an anchor.
+- [`Row`](./row) — Horizontal layout of UI children with spacing, padding, alignment, and an anchor.
+- [`Stack`](./stack) — Overlapping layout of UI children with horizontal and vertical alignment.
+- [`UIStyleVariant`](./uistyle-variant) — Optional style overrides for one state; setter methods support chaining.
+- [`UIStyle`](./uistyle) — Collection of visual overrides for normal and interactive states.
+- [`Theme`](./theme) — Shared default styles for UI element types, with access to the current theme.
+- [`Font`](./font) — Resource-backed font with atlas texture and size controls.
+- [`Text`](./text) — UI text rendered with a font, color, screen position, and optional style.
+
+## Types
+
+- [`TextFieldChangeEvent`](./text-field-change-event) — Text field state supplied to a change callback.
+- [`ButtonClickEvent`](./button-click-event) — Button label supplied to a click callback.
+- [`CheckboxToggleEvent`](./checkbox-toggle-event) — Checkbox label and checked state supplied to a toggle callback.
+- [`UIStyleStateSnapshot`](./uistyle-state-snapshot) — Current interaction flags used when resolving a UI style.
+- [`UIResolvedStyle`](./uiresolved-style) — Concrete visual properties produced by style resolution.
+- [`Character`](./character) — Glyph dimensions, bearing, advance, and texture atlas UV bounds.
+- [`FontAtlas`](./font-atlas) — Map from character strings to glyph metrics and atlas coordinates.
+
+## Namespaces
+
+- [`TextField`](./text-field-namespace) — Callback types associated with TextField.
+- [`Button`](./button-namespace) — Callback types associated with Button.
+- [`Checkbox`](./checkbox-namespace) — Callback types associated with Checkbox.
+
+## Enums
+
+- [`ElementAlignment`](./element-alignment) — Alignment of children within a layout.
+- [`LayoutAnchor`](./layout-anchor) — Anchor used to place a layout relative to its position.
+- [`UIStyleState`](./uistyle-state) — Interaction state selecting a style variant.
+

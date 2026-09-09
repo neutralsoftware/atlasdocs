@@ -1,0 +1,113 @@
+---
+title: "SpotLight"
+description: "Positioned cone light with inner and outer cutoffs, direction, and range."
+---
+**Module:** `atlas/graphics`
+
+Positioned cone light with inner and outer cutoffs, direction, and range.
+
+## Declaration
+
+```ts
+export class SpotLight { ... }
+```
+
+## Constructors
+
+```ts
+constructor(
+            position?: Position3d,
+            direction?: Magnitude3d,
+            color?: Color,
+            cutOff?: number,
+            outerCutOff?: number,
+            shineColor?: Color,
+            intensity?: number,
+            range?: number,
+        );
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `direction`
+
+```ts
+direction: Magnitude3d;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+### `shineColor`
+
+```ts
+shineColor: Color;
+```
+
+### `range`
+
+```ts
+range: number;
+```
+
+### `cutOff`
+
+```ts
+cutOff: number;
+```
+
+### `outerCutOff`
+
+```ts
+outerCutOff: number;
+```
+
+### `intensity`
+
+```ts
+intensity: number;
+```
+
+## Methods
+
+### `setColor`
+
+Updates the color used by this object.
+
+```ts
+setColor(color: Color): void;
+```
+
+### `createDebugObject`
+
+Creates a visual representation of the light for debugging.
+
+```ts
+createDebugObject(): void;
+```
+
+### `lookAt`
+
+Orients toward the target position.
+
+```ts
+lookAt(target: Position3d): void;
+```
+
+### `castShadows`
+
+Enables shadow casting with the requested shadow-map resolution.
+
+```ts
+castShadows(resolution: number): void;
+```
+

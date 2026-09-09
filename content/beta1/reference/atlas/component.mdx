@@ -1,0 +1,155 @@
+---
+title: "Component"
+description: "Base class for behavior attached to a GameObject. Override lifecycle and event hooks to implement scripts."
+---
+**Module:** `atlas`
+
+Base class for behavior attached to a GameObject. Override lifecycle and event hooks to implement scripts.
+
+## Declaration
+
+```ts
+export abstract class Component { ... }
+```
+
+## Properties
+
+### `parentId`
+
+```ts
+parentId: number;
+```
+
+## Methods
+
+### `init`
+
+Initialization hook for attached script behavior.
+
+```ts
+abstract init(): void;
+```
+
+### `update`
+
+Per-frame update hook.
+
+```ts
+abstract update(deltaTime: number): void;
+```
+
+### `beforePhysics`
+
+Hook called before physics simulation.
+
+```ts
+beforePhysics(): void;
+```
+
+### `atAttach`
+
+Hook called when the component is attached to its parent.
+
+```ts
+atAttach(): void;
+```
+
+### `onCollisionEnter`
+
+Called when contact with another object begins.
+
+```ts
+onCollisionEnter(other: GameObject): void;
+```
+
+### `onCollisionStay`
+
+Called while contact with another object continues.
+
+```ts
+onCollisionStay(other: GameObject): void;
+```
+
+### `onCollisionExit`
+
+Called when contact with another object ends.
+
+```ts
+onCollisionExit(other: GameObject): void;
+```
+
+### `onSignalReceive`
+
+Declared signal callback. The current runtime dispatches the legacy spelling `onSignalRecieve`.
+
+```ts
+onSignalReceive(signal: string, sender: GameObject): void;
+```
+
+### `onSignalEnd`
+
+Called when a signal from the sending object ends.
+
+```ts
+onSignalEnd(signal: string, sender: GameObject): void;
+```
+
+### `onQueryReceive`
+
+Receives a physics query result and the object owning this component.
+
+```ts
+onQueryReceive(query: QueryResult, sender: GameObject): void;
+```
+
+### `getParent`
+
+Returns the parent object.
+
+```ts
+getParent(): GameObject;
+```
+
+```ts
+getParent<T extends Component>(
+            type: new (...args: any[]) => T,
+        ): T | null;
+```
+
+### `getObject`
+
+Looks up a scene object by numeric ID or string name.
+
+```ts
+getObject(identifier: number | string): CoreObject;
+```
+
+### `getScene`
+
+Returns the active scene.
+
+```ts
+getScene(): Scene;
+```
+
+### `getWindow`
+
+Returns the active runtime window.
+
+```ts
+getWindow(): Window;
+```
+
+## Examples
+
+```ts
+import { Component } from "atlas";
+import { Position3d } from "atlas/units";
+class Mover extends Component {
+    init(): void {}
+    update(deltaTime: number): void {
+        this.getParent().move(new Position3d(deltaTime, 0, 0));
+    }
+}
+```
+

@@ -1,0 +1,154 @@
+---
+title: "GameObject"
+description: "Base class for scene objects with a transform, visibility, and attached components."
+---
+**Module:** `atlas`
+
+Base class for scene objects with a transform, visibility, and attached components.
+
+## Declaration
+
+```ts
+export abstract class GameObject { ... }
+```
+
+## Constructors
+
+```ts
+constructor();
+```
+
+## Properties
+
+### `id`
+
+```ts
+id: number;
+```
+
+### `components`
+
+```ts
+components: Component[];
+```
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `rotation`
+
+```ts
+rotation: Rotation3d;
+```
+
+### `scale`
+
+```ts
+scale: Scale3d;
+```
+
+### `name`
+
+```ts
+name: string;
+```
+
+## Methods
+
+### `attachTexture`
+
+Attaches a texture to this object.
+
+```ts
+attachTexture(texture: Texture): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+setPosition(position: Position3d): void;
+```
+
+### `move`
+
+Translates by the supplied offset.
+
+```ts
+move(position: Position3d): void;
+```
+
+### `lookAt`
+
+Orients toward the target position.
+
+```ts
+lookAt(target: Position3d, up?: Normal3d): void;
+```
+
+### `setRotation`
+
+Replaces the rotation.
+
+```ts
+setRotation(rotation: Rotation3d): void;
+```
+
+### `rotate`
+
+Applies an incremental rotation.
+
+```ts
+rotate(rotation: Rotation3d): void;
+```
+
+### `setScale`
+
+Replaces the scale factors.
+
+```ts
+setScale(scale: Scale3d): void;
+```
+
+### `scaleBy`
+
+Multiplies the current scale component-wise by the supplied factors.
+
+```ts
+scaleBy(scale: Scale3d): void;
+```
+
+### `show`
+
+Makes the object visible.
+
+```ts
+show(): void;
+```
+
+### `hide`
+
+Makes the object invisible.
+
+```ts
+hide(): void;
+```
+
+### `as`
+
+```ts
+as<T extends GameObject>(type: new (...args: any[]) => T): T | null;
+```
+
+### `addComponent`
+
+Attaches a component to this object.
+
+```ts
+addComponent<T extends Component>(component: T): void;
+```
+

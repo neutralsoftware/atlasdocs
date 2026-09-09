@@ -1,0 +1,226 @@
+---
+title: "TextField"
+description: "Editable text input with focus, cursor, placeholder, and change callbacks."
+---
+**Module:** `graphite`
+
+Editable text input with focus, cursor, placeholder, and change callbacks.
+
+## Declaration
+
+```ts
+export class TextField extends UIObject { ... }
+```
+
+**Extends:** `UIObject`
+
+## Constructors
+
+```ts
+constructor();
+```
+
+```ts
+constructor(
+            font: Font,
+            maximumWidth: number,
+            position: Position2d,
+            text: string,
+            placeholder: string,
+        );
+```
+
+## Properties
+
+### `text`
+
+```ts
+text: string;
+```
+
+### `placeholder`
+
+```ts
+placeholder: string;
+```
+
+### `font`
+
+```ts
+font: Font;
+```
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `fontSize`
+
+```ts
+fontSize: number;
+```
+
+### `padding`
+
+```ts
+padding: Size2d;
+```
+
+### `maximumWidth`
+
+```ts
+maximumWidth: number;
+```
+
+### `textColor`
+
+```ts
+textColor: Color;
+```
+
+### `placeholderColor`
+
+```ts
+placeholderColor: Color;
+```
+
+### `backgroundColor`
+
+```ts
+backgroundColor: Color;
+```
+
+### `borderColor`
+
+```ts
+borderColor: Color;
+```
+
+### `focusedBorderColor`
+
+```ts
+focusedBorderColor: Color;
+```
+
+### `cursorColor`
+
+```ts
+cursorColor: Color;
+```
+
+## Methods
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+override getSize(): Size2d;
+```
+
+### `getScreenPosition`
+
+Returns the UI element's screen-space position.
+
+```ts
+override getScreenPosition(): Position2d;
+```
+
+### `setScreenPosition`
+
+Sets the UI element's screen-space position.
+
+```ts
+override setScreenPosition(position: Position2d): void;
+```
+
+### `getText`
+
+```ts
+getText(): string;
+```
+
+### `isFocused`
+
+```ts
+isFocused(): boolean;
+```
+
+### `getCursorIndex`
+
+```ts
+getCursorIndex(): number;
+```
+
+### `style`
+
+Returns the element's style.
+
+```ts
+style(): UIStyle;
+```
+
+### `setText`
+
+```ts
+setText(text: string): TextField;
+```
+
+### `setPlaceholder`
+
+```ts
+setPlaceholder(placeholder: string): TextField;
+```
+
+### `setPadding`
+
+```ts
+setPadding(padding: Size2d): TextField;
+```
+
+### `setMaximumWidth`
+
+```ts
+setMaximumWidth(width: number): TextField;
+```
+
+### `setFontSize`
+
+```ts
+setFontSize(size: number): TextField;
+```
+
+### `setStyle`
+
+Applies a style to the element.
+
+```ts
+setStyle(style: UIStyle): TextField;
+```
+
+### `setOnChange`
+
+Registers the text-change callback and returns this text field for chaining.
+
+```ts
+setOnChange(callback: TextField.ChangeCallback): TextField;
+```
+
+### `focus`
+
+Gives keyboard focus to the text field.
+
+```ts
+focus(): void;
+```
+
+### `blur`
+
+Removes keyboard focus from the text field.
+
+```ts
+blur(): void;
+```
+

@@ -1,0 +1,37 @@
+---
+title: "MountainGenerator"
+description: "Layered mountain height generator configured by scale, amplitude, octaves, and persistence."
+---
+**Module:** `aurora`
+
+Layered mountain height generator configured by scale, amplitude, octaves, and persistence.
+
+## Declaration
+
+```ts
+export class MountainGenerator extends TerrainGenerator { ... }
+```
+
+**Extends:** `TerrainGenerator`
+
+## Constructors
+
+```ts
+constructor(
+            scale: number,
+            amplitude: number,
+            octaves: number,
+            persistance: number,
+        );
+```
+
+## Methods
+
+### `generateHeight`
+
+Samples the procedural terrain height at the supplied coordinates.
+
+```ts
+override generateHeight(x: number, y: number): number;
+```
+

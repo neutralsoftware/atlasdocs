@@ -1,0 +1,48 @@
+---
+title: "AudioEngine"
+description: "Audio device controls, master volume, and spatial listener state."
+---
+**Module:** `finewave`
+
+Audio device controls, master volume, and spatial listener state.
+
+## Declaration
+
+```ts
+export class AudioEngine { ... }
+```
+
+## Properties
+
+### `deviceName`
+
+```ts
+deviceName: string;
+```
+
+## Methods
+
+### `setListenerPosition`
+
+```ts
+setListenerPosition(position: Position3d): void;
+```
+
+### `setListenerOrientation`
+
+```ts
+setListenerOrientation(forward: Position3d, up: Position3d): void;
+```
+
+### `setListenerVelocity`
+
+```ts
+setListenerVelocity(velocity: Position3d): void;
+```
+
+### `setMasterVolume`
+
+```ts
+setMasterVolume(volume: number): void;
+```
+

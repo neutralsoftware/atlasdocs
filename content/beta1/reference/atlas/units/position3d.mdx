@@ -1,0 +1,146 @@
+---
+title: "Position3d"
+description: "Three-component value. Arithmetic returns new values; up is +Y and forward is +Z."
+---
+**Module:** `atlas/units`
+
+Three-component value. Arithmetic returns new values; up is +Y and forward is +Z.
+
+## Declaration
+
+```ts
+export class Position3d { ... }
+```
+
+## Constructors
+
+```ts
+constructor(x: number, y: number, z: number);
+```
+
+## Properties
+
+### `x`
+
+```ts
+x: number;
+```
+
+### `y`
+
+```ts
+y: number;
+```
+
+### `z`
+
+```ts
+z: number;
+```
+
+## Methods
+
+### `zero`
+
+```ts
+static zero(): Position3d;
+```
+
+### `down`
+
+```ts
+static down(): Position3d;
+```
+
+### `up`
+
+```ts
+static up(): Position3d;
+```
+
+### `forward`
+
+```ts
+static forward(): Position3d;
+```
+
+### `back`
+
+```ts
+static back(): Position3d;
+```
+
+### `right`
+
+```ts
+static right(): Position3d;
+```
+
+### `left`
+
+```ts
+static left(): Position3d;
+```
+
+### `invalid`
+
+Returns a value whose coordinate components are NaN.
+
+```ts
+static invalid(): Position3d;
+```
+
+### `add`
+
+Returns a new value by adding the operand component-wise; a numeric operand applies to every component.
+
+```ts
+add(other: Position3d | number): Position3d;
+```
+
+### `subtract`
+
+Returns a new value by subtracting the operand component-wise; a numeric operand applies to every component.
+
+```ts
+subtract(other: Position3d | number): Position3d;
+```
+
+### `multiply`
+
+Returns a new value by multiplying by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+multiply(other: Position3d | number): Position3d;
+```
+
+### `divide`
+
+Returns a new value by dividing by the operand component-wise; a numeric operand applies to every component.
+
+```ts
+divide(other: Position3d | number): Position3d;
+```
+
+### `is`
+
+Tests exact equality of all components.
+
+```ts
+is(other: Position3d): boolean;
+```
+
+### `normalized`
+
+Returns a unit-length copy, or a zero vector if the length is zero.
+
+```ts
+normalized(): Position3d;
+```
+
+### `toString`
+
+```ts
+toString(): string;
+```
+

@@ -1,0 +1,154 @@
+---
+title: "VehicleWheelSettings"
+description: "Wheel geometry, suspension, steering, and braking parameters."
+---
+**Module:** `bezel`
+
+Wheel geometry, suspension, steering, and braking parameters.
+
+## Declaration
+
+```ts
+export type VehicleWheelSettings = {
+        position: Position3d;
+        enableSuspensionForcePoint: boolean;
+        suspensionForcePoint: Position3d;
+
+        suspensionDirection: Normal3d;
+        steeringAxis: Normal3d;
+        wheelUp: Normal3d;
+        wheelForward: Normal3d;
+
+        suspensionMinLength: number;
+        suspensionMaxLength: number;
+        suspensionPreloadLength: number;
+        suspensionFrequencyHz: number;
+        suspensionDampingRatio: number;
+
+        radius: number;
+        width: number;
+
+        inertia: number;
+        angularDamping: number;
+        maxSteerAngleDegrees: number;
+        maxBrakeTorque: number;
+        maxHandBrakeTorque: number;
+    };
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `enableSuspensionForcePoint`
+
+```ts
+enableSuspensionForcePoint: boolean;
+```
+
+### `suspensionForcePoint`
+
+```ts
+suspensionForcePoint: Position3d;
+```
+
+### `suspensionDirection`
+
+```ts
+suspensionDirection: Normal3d;
+```
+
+### `steeringAxis`
+
+```ts
+steeringAxis: Normal3d;
+```
+
+### `wheelUp`
+
+```ts
+wheelUp: Normal3d;
+```
+
+### `wheelForward`
+
+```ts
+wheelForward: Normal3d;
+```
+
+### `suspensionMinLength`
+
+```ts
+suspensionMinLength: number;
+```
+
+### `suspensionMaxLength`
+
+```ts
+suspensionMaxLength: number;
+```
+
+### `suspensionPreloadLength`
+
+```ts
+suspensionPreloadLength: number;
+```
+
+### `suspensionFrequencyHz`
+
+```ts
+suspensionFrequencyHz: number;
+```
+
+### `suspensionDampingRatio`
+
+```ts
+suspensionDampingRatio: number;
+```
+
+### `radius`
+
+```ts
+radius: number;
+```
+
+### `width`
+
+```ts
+width: number;
+```
+
+### `inertia`
+
+```ts
+inertia: number;
+```
+
+### `angularDamping`
+
+```ts
+angularDamping: number;
+```
+
+### `maxSteerAngleDegrees`
+
+```ts
+maxSteerAngleDegrees: number;
+```
+
+### `maxBrakeTorque`
+
+```ts
+maxBrakeTorque: number;
+```
+
+### `maxHandBrakeTorque`
+
+```ts
+maxHandBrakeTorque: number;
+```
+

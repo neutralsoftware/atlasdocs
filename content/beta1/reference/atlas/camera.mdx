@@ -1,0 +1,148 @@
+---
+title: "Camera"
+description: "Active camera controls for projection, orientation, movement, and depth of field."
+---
+**Module:** `atlas`
+
+Active camera controls for projection, orientation, movement, and depth of field.
+
+## Declaration
+
+```ts
+export class Camera { ... }
+```
+
+## Constructors
+
+```ts
+constructor();
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `target`
+
+```ts
+target: Point3d;
+```
+
+### `fov`
+
+Perspective field of view in degrees.
+
+```ts
+fov: number;
+```
+
+### `nearClip`
+
+```ts
+nearClip: number;
+```
+
+### `farClip`
+
+```ts
+farClip: number;
+```
+
+### `orthographicSize`
+
+```ts
+orthographicSize: number;
+```
+
+### `movementSpeed`
+
+```ts
+movementSpeed: number;
+```
+
+### `mouseSensitivity`
+
+```ts
+mouseSensitivity: number;
+```
+
+### `controllerLookSensitivity`
+
+```ts
+controllerLookSensitivity: number;
+```
+
+### `lookSmoothness`
+
+```ts
+lookSmoothness: number;
+```
+
+### `useOrthographic`
+
+```ts
+useOrthographic: boolean;
+```
+
+### `focusDepth`
+
+```ts
+focusDepth: number;
+```
+
+### `focusRange`
+
+```ts
+focusRange: number;
+```
+
+## Methods
+
+### `move`
+
+Translates by the supplied offset.
+
+```ts
+move(offset: Position3d): void;
+```
+
+### `setPosition`
+
+Sets the position to an absolute value.
+
+```ts
+setPosition(position: Position3d): void;
+```
+
+### `setPositionKeepingOrientation`
+
+Moves the camera while preserving its viewing orientation.
+
+```ts
+setPositionKeepingOrientation(position: Position3d): void;
+```
+
+### `lookAt`
+
+Orients toward the target position.
+
+```ts
+lookAt(target: Point3d, up?: Normal3d): void;
+```
+
+### `moveTo`
+
+```ts
+moveTo(target: Point3d, speed: number): void;
+```
+
+### `getDirection`
+
+```ts
+getDirection(): Normal3d;
+```
+

@@ -1,0 +1,92 @@
+---
+title: "Material"
+description: "Physically based surface properties. Defaults include white albedo, metallic 0, roughness 0.5, and AO 1."
+---
+**Module:** `atlas`
+
+Physically based surface properties. Defaults include white albedo, metallic 0, roughness 0.5, and AO 1.
+
+## Declaration
+
+```ts
+export class Material { ... }
+```
+
+## Constructors
+
+```ts
+constructor();
+```
+
+## Properties
+
+### `albedo`
+
+```ts
+albedo: Color;
+```
+
+### `metallic`
+
+```ts
+metallic: number;
+```
+
+### `roughness`
+
+```ts
+roughness: number;
+```
+
+### `ao`
+
+Ambient occlusion factor; defaults to 1.
+
+```ts
+ao: number;
+```
+
+### `reflectivity`
+
+```ts
+reflectivity: number;
+```
+
+### `emissiveColor`
+
+```ts
+emissiveColor: Color;
+```
+
+### `emissiveIntensity`
+
+```ts
+emissiveIntensity: number;
+```
+
+### `normalMapStrength`
+
+```ts
+normalMapStrength: number;
+```
+
+### `useNormalMap`
+
+```ts
+useNormalMap: boolean;
+```
+
+### `transmittance`
+
+```ts
+transmittance: number;
+```
+
+### `ior`
+
+Index of refraction; defaults to 1.
+
+```ts
+ior: number;
+```
+

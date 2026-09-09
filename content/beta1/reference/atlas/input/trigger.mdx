@@ -1,0 +1,63 @@
+---
+title: "Trigger"
+description: "Digital input binding. Use a factory to populate the fields corresponding to its type."
+---
+**Module:** `atlas/input`
+
+Digital input binding. Use a factory to populate the fields corresponding to its type.
+
+## Declaration
+
+```ts
+export class Trigger { ... }
+```
+
+## Properties
+
+### `type`
+
+```ts
+type: TriggerType;
+```
+
+### `mouseButton`
+
+```ts
+mouseButton?: MouseButton;
+```
+
+### `key`
+
+```ts
+key?: Key;
+```
+
+### `controllerButton`
+
+```ts
+controllerButton?: ControllerButtonTrigger;
+```
+
+## Methods
+
+### `fromKey`
+
+```ts
+static fromKey(key: Key): Trigger;
+```
+
+### `fromMouseButton`
+
+```ts
+static fromMouseButton(mouseButton: MouseButton): Trigger;
+```
+
+### `fromControllerButton`
+
+```ts
+static fromControllerButton(
+            controllerID: number,
+            buttonIndex: number,
+        ): Trigger;
+```
+

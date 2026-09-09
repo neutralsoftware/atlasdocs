@@ -1,0 +1,84 @@
+---
+title: "Light"
+description: "Point light with position, range, diffuse color, and specular shine color."
+---
+**Module:** `atlas/graphics`
+
+Point light with position, range, diffuse color, and specular shine color.
+
+## Declaration
+
+```ts
+export class Light { ... }
+```
+
+## Constructors
+
+```ts
+constructor(
+            position?: Position3d,
+            color?: Color,
+            distance?: number,
+            shineColor?: Color,
+            intensity?: number,
+        );
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+### `shineColor`
+
+```ts
+shineColor: Color;
+```
+
+### `intensity`
+
+```ts
+intensity: number;
+```
+
+### `distance`
+
+```ts
+distance: number;
+```
+
+## Methods
+
+### `setColor`
+
+Updates the color used by this object.
+
+```ts
+setColor(color: Color): void;
+```
+
+### `createDebugObject`
+
+Creates a visual representation of the light for debugging.
+
+```ts
+createDebugObject(): void;
+```
+
+### `castShadows`
+
+Enables shadow casting with the requested shadow-map resolution.
+
+```ts
+castShadows(resolution: number): void;
+```
+

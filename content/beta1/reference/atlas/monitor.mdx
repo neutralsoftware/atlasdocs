@@ -1,0 +1,68 @@
+---
+title: "Monitor"
+description: "Connected display information and supported video modes."
+---
+**Module:** `atlas`
+
+Connected display information and supported video modes.
+
+## Declaration
+
+```ts
+export class Monitor { ... }
+```
+
+## Properties
+
+### `monitorId`
+
+```ts
+monitorId: number;
+```
+
+### `primary`
+
+```ts
+primary: boolean;
+```
+
+## Methods
+
+### `queryVideoModes`
+
+```ts
+queryVideoModes(): VideoMode[];
+```
+
+### `getCurrentVideoMode`
+
+```ts
+getCurrentVideoMode(): VideoMode;
+```
+
+### `getPhysicalSize`
+
+Returns the physical display dimensions in millimeters.
+
+```ts
+getPhysicalSize(): Size2d;
+```
+
+### `getPosition`
+
+```ts
+getPosition(): Position2d;
+```
+
+### `getContentScale`
+
+```ts
+getContentScale(): number;
+```
+
+### `getName`
+
+```ts
+getName(): string;
+```
+

@@ -1,0 +1,54 @@
+---
+title: "Cubemap"
+description: "Cube texture assembled from face resources, with helpers for updating face colors."
+---
+**Module:** `atlas/graphics`
+
+Cube texture assembled from face resources, with helpers for updating face colors.
+
+## Declaration
+
+```ts
+export class Cubemap { ... }
+```
+
+## Constructors
+
+```ts
+constructor(resources: Resource[]);
+```
+
+## Properties
+
+### `resources`
+
+```ts
+resources: Resource[];
+```
+
+### `id`
+
+```ts
+id: number;
+```
+
+## Methods
+
+### `getAverageColor`
+
+```ts
+getAverageColor(): Color;
+```
+
+### `fromResourceGroup`
+
+```ts
+static fromResourceGroup(resourceGroup: ResourceGroup): Cubemap | null;
+```
+
+### `updateWithColors`
+
+```ts
+updateWithColors(colors: Color[]): void;
+```
+

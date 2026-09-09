@@ -1,0 +1,343 @@
+---
+title: "Rigidbody"
+description: "Physics component providing colliders, forces, velocities, tags, and spatial queries."
+---
+**Module:** `bezel`
+
+Physics component providing colliders, forces, velocities, tags, and spatial queries.
+
+## Declaration
+
+```ts
+export class Rigidbody extends Component { ... }
+```
+
+**Extends:** `Component`
+
+## Properties
+
+### `sendSignal`
+
+```ts
+sendSignal: string;
+```
+
+### `isSensor`
+
+```ts
+isSensor: boolean;
+```
+
+## Methods
+
+### `atAttach`
+
+```ts
+override atAttach(): void;
+```
+
+### `init`
+
+```ts
+override init(): void;
+```
+
+### `beforePhysics`
+
+```ts
+override beforePhysics(): void;
+```
+
+### `update`
+
+```ts
+override update(deltaTime: number): void;
+```
+
+### `clone`
+
+```ts
+clone(): Rigidbody;
+```
+
+### `addCollider`
+
+```ts
+addCollider(collider: Collider): void;
+```
+
+### `setFriction`
+
+```ts
+setFriction(friction: number): void;
+```
+
+### `applyForce`
+
+Applies a force to the body.
+
+```ts
+applyForce(force: Force3d): void;
+```
+
+### `applyForceAtPoint`
+
+Applies a force at the specified position, allowing an off-center force to produce torque.
+
+```ts
+applyForceAtPoint(force: Force3d, point: Position3d): void;
+```
+
+### `applyImpulse`
+
+Applies an instantaneous impulse to the body.
+
+```ts
+applyImpulse(impulse: Impulse3d): void;
+```
+
+### `setLinearVelocity`
+
+```ts
+setLinearVelocity(velocity: Velocity3d): void;
+```
+
+### `addLinearVelocity`
+
+Adds to the body's current linear velocity.
+
+```ts
+addLinearVelocity(velocity: Velocity3d): void;
+```
+
+### `setAngularVelocity`
+
+```ts
+setAngularVelocity(velocity: Velocity3d): void;
+```
+
+### `addAngularVelocity`
+
+Adds to the body's current angular velocity.
+
+```ts
+addAngularVelocity(velocity: Velocity3d): void;
+```
+
+### `setMaxLinearVelocity`
+
+```ts
+setMaxLinearVelocity(velocity: number): void;
+```
+
+### `setMaxAngularVelocity`
+
+```ts
+setMaxAngularVelocity(velocity: number): void;
+```
+
+### `getLinearVelocity`
+
+```ts
+getLinearVelocity(): Velocity3d;
+```
+
+### `getAngularVelocity`
+
+```ts
+getAngularVelocity(): Velocity3d;
+```
+
+### `getVelocity`
+
+```ts
+getVelocity(): Velocity3d;
+```
+
+### `raycast`
+
+```ts
+raycast(direction: Normal3d, maxDistance: number): RaycastResult;
+```
+
+### `raycastAll`
+
+```ts
+raycastAll(direction: Normal3d, maxDistance: number): RaycastResult;
+```
+
+### `raycastWorld`
+
+```ts
+raycastWorld(
+            origin: Position3d,
+            direction: Normal3d,
+            maxDistance: number,
+        ): RaycastResult;
+```
+
+### `raycastWorldAll`
+
+```ts
+raycastWorldAll(
+            origin: Position3d,
+            direction: Normal3d,
+            maxDistance: number,
+        ): RaycastResult;
+```
+
+### `raycastTagged`
+
+```ts
+raycastTagged(
+            tags: string[],
+            direction: Normal3d,
+            maxDistance: number,
+        ): RaycastResult;
+```
+
+### `raycastTaggedAll`
+
+```ts
+raycastTaggedAll(
+            tags: string[],
+            direction: Normal3d,
+            maxDistance: number,
+        ): RaycastResult;
+```
+
+### `overlap`
+
+```ts
+overlap(): OverlapResult;
+```
+
+### `overlapWithCollider`
+
+```ts
+overlapWithCollider(collider: Collider): OverlapResult;
+```
+
+### `overlapWithColliderWorld`
+
+```ts
+overlapWithColliderWorld(
+            collider: Collider,
+            position: Position3d,
+        ): OverlapResult;
+```
+
+### `predictMovementWithCollider`
+
+```ts
+predictMovementWithCollider(
+            endPosition: Position3d,
+            collider: Collider,
+        ): SweepResult;
+```
+
+### `predictMovement`
+
+```ts
+predictMovement(endPosition: Position3d): SweepResult;
+```
+
+### `predictMovementWithColliderWorld`
+
+```ts
+predictMovementWithColliderWorld(
+            startPosition: Position3d,
+            endPosition: Position3d,
+            collider: Collider,
+        ): SweepResult;
+```
+
+### `predictMovementWorld`
+
+```ts
+predictMovementWorld(
+            startPosition: Position3d,
+            endPosition: Position3d,
+        ): SweepResult;
+```
+
+### `predictMovementWithColliderAll`
+
+```ts
+predictMovementWithColliderAll(
+            endPosition: Position3d,
+            collider: Collider,
+        ): SweepResult;
+```
+
+### `predictMovementAll`
+
+```ts
+predictMovementAll(endPosition: Position3d): SweepResult;
+```
+
+### `predictMovementWithColliderAllWorld`
+
+```ts
+predictMovementWithColliderAllWorld(
+            startPosition: Position3d,
+            endPosition: Position3d,
+            collider: Collider,
+        ): SweepResult;
+```
+
+### `predictMovementAllWorld`
+
+```ts
+predictMovementAllWorld(
+            startPosition: Position3d,
+            endPosition: Position3d,
+        ): SweepResult;
+```
+
+### `hasTag`
+
+```ts
+hasTag(tag: string): boolean;
+```
+
+### `addTag`
+
+```ts
+addTag(tag: string): void;
+```
+
+### `removeTag`
+
+```ts
+removeTag(tag: string): void;
+```
+
+### `setDamping`
+
+```ts
+setDamping(linearDamping: number, angularDamping: number): void;
+```
+
+### `setMass`
+
+```ts
+setMass(mass: number): void;
+```
+
+### `setRestituition`
+
+Sets collision restitution (bounciness); the method name retains its existing spelling.
+
+```ts
+setRestituition(restitution: number): void;
+```
+
+### `setMotionType`
+
+Selects a static, dynamically simulated, or kinematic body.
+
+```ts
+setMotionType(motionType: "Static" | "Dynamic" | "Kinematic"): void;
+```
+

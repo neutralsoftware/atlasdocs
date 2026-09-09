@@ -1,0 +1,105 @@
+---
+title: "InputAction"
+description: "Named button or axis mapping. Register it before querying it."
+---
+**Module:** `atlas/input`
+
+Named button or axis mapping. Register it before querying it.
+
+## Declaration
+
+```ts
+export class InputAction { ... }
+```
+
+## Properties
+
+### `triggers`
+
+```ts
+triggers: Trigger[];
+```
+
+### `axisTriggers`
+
+```ts
+axisTriggers: AxisTrigger[];
+```
+
+### `name`
+
+```ts
+name: string;
+```
+
+### `isAxis`
+
+```ts
+isAxis: boolean;
+```
+
+### `isAxisSingle`
+
+```ts
+isAxisSingle: boolean;
+```
+
+### `normalized`
+
+Whether to normalize the two-dimensional action value.
+
+```ts
+normalized: boolean;
+```
+
+### `invertY`
+
+Whether to invert the action Y axis.
+
+```ts
+invertY: boolean;
+```
+
+## Methods
+
+### `createButtonAction`
+
+Creates a named digital action from button bindings; register the returned action before polling it.
+
+```ts
+static createButtonAction(
+            name: string,
+            triggers: Trigger[],
+        ): InputAction;
+```
+
+### `createAxisAction`
+
+Creates a named axis action from axis bindings; register the returned action before polling it.
+
+```ts
+static createAxisAction(
+            name: string,
+            axisTriggers: AxisTrigger[],
+        ): InputAction;
+```
+
+### `createSingleAxisAction`
+
+Creates a single axis using positive and negative button bindings.
+
+```ts
+static createSingleAxisAction(
+            name: string,
+            positiveTrigger: Trigger,
+            negativeTrigger: Trigger,
+        ): InputAction;
+```
+
+## Examples
+
+```ts
+import { Input, InputAction, Key, Trigger } from "atlas/input";
+Input.addAction(InputAction.createButtonAction("jump", [Trigger.fromKey(Key.Space)]));
+```
+

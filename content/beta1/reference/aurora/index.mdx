@@ -1,0 +1,28 @@
+---
+title: "aurora"
+description: "Noise, procedural terrain, and biome APIs."
+---
+`declare module "aurora"`
+
+Noise, procedural terrain, and biome APIs.
+
+## Classes
+
+- [`PerlinNoise`](./perlin-noise) — Two-dimensional Perlin noise generator with optional seed.
+- [`SimplexNoise`](./simplex-noise) — Two-dimensional simplex noise sampling.
+- [`WorleyNoise`](./worley-noise) — Cellular noise generator configured by point count and optional seed.
+- [`FractalNoise`](./fractal-noise) — Layered noise generator configured by octave count and persistence.
+- [`Noise`](./noise) — Convenience entry points for the supported two-dimensional noise functions.
+- [`Biome`](./biome) — Terrain appearance and height, moisture, and temperature selection settings.
+- [`Terrain`](./terrain) — Terrain object created from a heightmap or procedural generator, with biome support.
+- [`TerrainGenerator`](./terrain-generator) — Base class for a height function that can be applied to terrain.
+- [`HillGenerator`](./hill-generator) — Procedural hill height generator configured by scale and amplitude.
+- [`MountainGenerator`](./mountain-generator) — Layered mountain height generator configured by scale, amplitude, octaves, and persistence.
+- [`PlainGenerator`](./plain-generator) — Procedural plain height generator configured by scale and amplitude.
+- [`IslandGenerator`](./island-generator) — Procedural island height generator configured by feature count and scale.
+- [`CompoundGenerator`](./compound-generator) — Terrain generator that combines multiple child generators.
+
+## Types
+
+- [`BiomeFunction`](./biome-function) — Callback receiving a biome for custom biome configuration.
+

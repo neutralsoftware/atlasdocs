@@ -1,0 +1,111 @@
+---
+title: "Text"
+description: "UI text rendered with a font, color, screen position, and optional style."
+---
+**Module:** `graphite`
+
+UI text rendered with a font, color, screen position, and optional style.
+
+## Declaration
+
+```ts
+export class Text extends UIObject { ... }
+```
+
+**Extends:** `UIObject`
+
+## Constructors
+
+```ts
+constructor();
+```
+
+```ts
+constructor(
+            text: string,
+            font: Font,
+            color: Color,
+            position: Position2d,
+        );
+```
+
+## Properties
+
+### `content`
+
+```ts
+content: string;
+```
+
+### `font`
+
+```ts
+font: Font;
+```
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `fontSize`
+
+```ts
+fontSize: number;
+```
+
+### `color`
+
+```ts
+color: Color;
+```
+
+## Methods
+
+### `getSize`
+
+Returns the current dimensions.
+
+```ts
+override getSize(): Size2d;
+```
+
+### `getScreenPosition`
+
+Returns the UI element's screen-space position.
+
+```ts
+override getScreenPosition(): Position2d;
+```
+
+### `setScreenPosition`
+
+Sets the UI element's screen-space position.
+
+```ts
+override setScreenPosition(position: Position2d): void;
+```
+
+### `style`
+
+Returns the element's style.
+
+```ts
+style(): UIStyle;
+```
+
+### `setStyle`
+
+Applies a style to the element.
+
+```ts
+setStyle(style: UIStyle): Text;
+```
+
+### `setFontSize`
+
+```ts
+setFontSize(size: number): Text;
+```
+

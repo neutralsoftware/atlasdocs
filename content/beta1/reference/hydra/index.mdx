@@ -1,0 +1,24 @@
+---
+title: "hydra"
+description: "Atmosphere, weather, clouds, and water rendering."
+---
+`declare module "hydra"`
+
+Atmosphere, weather, clouds, and water rendering.
+
+## Classes
+
+- [`WorleyNoise3D`](./worley-noise3-d) — Three-dimensional cellular noise with helpers producing texture handles.
+- [`Clouds`](./clouds) — Volumetric cloud noise and rendering controls, including density, lighting steps, and wind.
+- [`Atmosphere`](./atmosphere) — Day/night cycle, sky colors, celestial lighting, weather, and clouds.
+- [`Fluid`](./fluid) — Renderable water surface with configurable extent, color, wave motion, and textures.
+
+## Enums
+
+- [`WeatherCondition`](./weather-condition) — Weather preset represented by a WeatherState.
+
+## Types
+
+- [`WeatherState`](./weather-state) — Weather condition, intensity, and wind returned by a weather delegate.
+- [`WeatherDelegate`](./weather-delegate) — Computes weather from the current view and frame information.
+

@@ -1,0 +1,61 @@
+---
+title: "atlas"
+description: "Scene, object, component, resource, camera, and window APIs."
+---
+`declare module "atlas"`
+
+Scene, object, component, resource, camera, and window APIs.
+
+## Submodules
+
+- [`atlas/audio`](./audio)
+- [`atlas/graphics`](./graphics)
+- [`atlas/input`](./input)
+- [`atlas/log`](./log)
+- [`atlas/particle`](./particle)
+- [`atlas/units`](./units)
+
+## Types
+
+- [`Fog`](./fog) — Fog color and intensity used by the scene environment.
+- [`VolumetricLighting`](./volumetric-lighting) — Controls volumetric light scattering and its accumulation parameters.
+- [`LightBloomConfiguration`](./light-bloom-configuration) — Brightness threshold, filter radius, and sample budget for light bloom.
+- [`RimLightingConfiguration`](./rim-lighting-configuration) — Color and strength of the rim-lighting effect.
+- [`Environment`](./environment) — Scene-wide fog, lighting effects, and color lookup texture.
+- [`ViewInformation`](./view-information) — Camera position, target, and timing information supplied to frame-dependent delegates.
+- [`WindowConfiguration`](./window-configuration) — Window geometry, presentation flags, and rendering configuration for windowed mode.
+- [`VideoMode`](./video-mode) — Monitor resolution in pixels and refresh rate in hertz.
+- [`Controller`](./controller) — Type alias for Gamepad.
+- [`ControllerID`](./controller-id) — Device descriptor returned by Window.getControllers; isJoystick distinguishes joystick devices.
+
+## Classes
+
+- [`Scene`](./scene) — Access to the active scene, its lighting, atmosphere, camera, and window.
+- [`Component`](./component) — Base class for behavior attached to a GameObject. Override lifecycle and event hooks to implement scripts.
+- [`Material`](./material) — Physically based surface properties. Defaults include white albedo, metallic 0, roughness 0.5, and AO 1.
+- [`CoreVertex`](./core-vertex) — Mesh vertex with position, color, UV coordinates, and a tangent-space basis.
+- [`Instance`](./instance) — A transform for an instance of a CoreObject. Transform methods commit changes to the runtime.
+- [`GameObject`](./game-object) — Base class for scene objects with a transform, visibility, and attached components.
+- [`UIObject`](./uiobject) — Base class for UI elements with screen-space positioning and measured size.
+- [`CoreObject`](./core-object) — Renderable mesh with vertices, indices, textures, material, and optional instances.
+- [`Model`](./model) — A resource-backed model containing multiple CoreObjects.
+- [`Resource`](./resource) — Reference to a named asset and its resource type.
+- [`ResourceGroup`](./resource-group) — Named collection of resources with lookup by resource name.
+- [`Camera`](./camera) — Active camera controls for projection, orientation, movement, and depth of field.
+- [`Monitor`](./monitor) — Connected display information and supported video modes.
+- [`Gamepad`](./gamepad) — Connected gamepad access, trigger creation, and vibration control.
+- [`Joystick`](./joystick) — Joystick access using device-specific axis and button indices.
+- [`Window`](./window) — Active runtime window: scene objects, input, audio, display configuration, and frame timing.
+
+## Enums
+
+- [`ResourceType`](./resource-type) — Asset category used when loading or looking up a resource.
+- [`ControllerAxis`](./controller-axis) — Logical gamepad axes, including paired sticks and individual axis selections.
+- [`ControllerButton`](./controller-button) — Standard gamepad button identifiers.
+- [`NintendoControllerButton`](./nintendo-controller-button) — Button identifiers using Nintendo controller labels.
+- [`SonyControllerButton`](./sony-controller-button) — Button identifiers using Sony controller labels.
+
+## Values
+
+- [`CONTROLLER_UNDEFINED`](./controller-undefined) — Sentinel used by global controller triggers to avoid selecting a specific controller.
+

@@ -1,0 +1,30 @@
+---
+title: "TerrainGenerator"
+description: "Base class for a height function that can be applied to terrain."
+---
+**Module:** `aurora`
+
+Base class for a height function that can be applied to terrain.
+
+## Declaration
+
+```ts
+export abstract class TerrainGenerator { ... }
+```
+
+## Methods
+
+### `generateHeight`
+
+Samples the procedural terrain height at the supplied coordinates.
+
+```ts
+abstract generateHeight(x: number, y: number): number;
+```
+
+### `applyTo`
+
+```ts
+applyTo(terrain: Terrain): void;
+```
+

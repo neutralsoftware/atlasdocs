@@ -1,0 +1,120 @@
+---
+title: "Clouds"
+description: "Volumetric cloud noise and rendering controls, including density, lighting steps, and wind."
+---
+**Module:** `hydra`
+
+Volumetric cloud noise and rendering controls, including density, lighting steps, and wind.
+
+## Declaration
+
+```ts
+export class Clouds { ... }
+```
+
+## Constructors
+
+```ts
+constructor(frequency: number, numDivisions: number);
+```
+
+## Properties
+
+### `position`
+
+```ts
+position: Position3d;
+```
+
+### `size`
+
+```ts
+size: Size3d;
+```
+
+### `scale`
+
+```ts
+scale: number;
+```
+
+### `offset`
+
+```ts
+offset: Position3d;
+```
+
+### `density`
+
+```ts
+density: number;
+```
+
+### `densityMultiplier`
+
+```ts
+densityMultiplier: number;
+```
+
+### `absorption`
+
+```ts
+absorption: number;
+```
+
+### `scattering`
+
+```ts
+scattering: number;
+```
+
+### `phase`
+
+```ts
+phase: number;
+```
+
+### `clusterStrength`
+
+```ts
+clusterStrength: number;
+```
+
+### `primaryStepCount`
+
+```ts
+primaryStepCount: number;
+```
+
+### `lightStepCount`
+
+```ts
+lightStepCount: number;
+```
+
+### `lightStepMultiplier`
+
+```ts
+lightStepMultiplier: number;
+```
+
+### `minStepLength`
+
+```ts
+minStepLength: number;
+```
+
+### `wind`
+
+```ts
+wind: Force3d;
+```
+
+## Methods
+
+### `getCloudTexture`
+
+```ts
+getCloudTexture(size: number): number;
+```
+

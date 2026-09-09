@@ -1,0 +1,38 @@
+---
+title: "Debug"
+description: "Writes messages to the Atlas runtime log at the selected severity."
+---
+**Module:** `atlas/log`
+
+Writes messages to the Atlas runtime log at the selected severity.
+
+## Declaration
+
+```ts
+export const Debug: {
+        print(message: string): void;
+        warning(message: string): void;
+        error(message: string): void;
+    };
+```
+
+## Methods
+
+### `print`
+
+```ts
+print(message: string): void;
+```
+
+### `warning`
+
+```ts
+warning(message: string): void;
+```
+
+### `error`
+
+```ts
+error(message: string): void;
+```
+

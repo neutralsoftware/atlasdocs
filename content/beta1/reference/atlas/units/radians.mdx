@@ -1,0 +1,80 @@
+---
+title: "Radians"
+description: "Angle stored in radians, with degree conversion and arithmetic returning new values."
+---
+**Module:** `atlas/units`
+
+Angle stored in radians, with degree conversion and arithmetic returning new values.
+
+## Declaration
+
+```ts
+export class Radians { ... }
+```
+
+## Constructors
+
+```ts
+constructor(value: number);
+```
+
+## Properties
+
+### `value`
+
+```ts
+value: number;
+```
+
+## Methods
+
+### `add`
+
+Returns a new value by adding the operand.
+
+```ts
+add(other: Radians): Radians;
+```
+
+### `subtract`
+
+Returns a new value by subtracting the operand.
+
+```ts
+subtract(other: Radians): Radians;
+```
+
+### `multiply`
+
+Returns a new value by multiplying by the operand.
+
+```ts
+multiply(other: Radians | number): Radians;
+```
+
+### `divide`
+
+Returns a new value by dividing by the operand.
+
+```ts
+divide(other: Radians | number): Radians;
+```
+
+### `toNumber`
+
+```ts
+toNumber(): number;
+```
+
+### `fromDegrees`
+
+```ts
+static fromDegrees(degrees: number): Radians;
+```
+
+### `toDegrees`
+
+```ts
+toDegrees(): number;
+```
+

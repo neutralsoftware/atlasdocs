@@ -1,0 +1,82 @@
+---
+title: "Vehicle"
+description: "Physics vehicle component with driving inputs and configurable wheels and drivetrain."
+---
+**Module:** `bezel`
+
+Physics vehicle component with driving inputs and configurable wheels and drivetrain.
+
+## Declaration
+
+```ts
+export class Vehicle extends Component { ... }
+```
+
+**Extends:** `Component`
+
+## Properties
+
+### `settings`
+
+```ts
+settings: VehicleSettings;
+```
+
+### `forward`
+
+```ts
+forward: number;
+```
+
+### `right`
+
+```ts
+right: number;
+```
+
+### `brake`
+
+```ts
+brake: number;
+```
+
+### `handBrake`
+
+```ts
+handBrake: number;
+```
+
+## Methods
+
+### `atAttach`
+
+```ts
+override atAttach(): void;
+```
+
+### `beforePhysics`
+
+```ts
+override beforePhysics(): void;
+```
+
+### `requestRecreate`
+
+Requests recreation of the vehicle physics state after configuration changes.
+
+```ts
+requestRecreate(): void;
+```
+
+### `init`
+
+```ts
+override init(): void;
+```
+
+### `update`
+
+```ts
+override update(deltaTime: number): void;
+```
+

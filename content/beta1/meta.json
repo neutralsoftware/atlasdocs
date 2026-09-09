@@ -19,7 +19,9 @@
         "hydra",
         "opal",
         "photon",
-        "tracer"
+        "tracer",
+        "---Reference---",
+        "reference"
     ],
     "title": "Beta 1 Vela",
     "root": "version"

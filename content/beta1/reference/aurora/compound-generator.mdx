@@ -1,0 +1,32 @@
+---
+title: "CompoundGenerator"
+description: "Terrain generator that combines multiple child generators."
+---
+**Module:** `aurora`
+
+Terrain generator that combines multiple child generators.
+
+## Declaration
+
+```ts
+export class CompoundGenerator extends TerrainGenerator { ... }
+```
+
+**Extends:** `TerrainGenerator`
+
+## Methods
+
+### `addGenerator`
+
+```ts
+addGenerator<T extends TerrainGenerator>(generator: T): void;
+```
+
+### `generateHeight`
+
+Samples the procedural terrain height at the supplied coordinates.
+
+```ts
+override generateHeight(x: number, y: number): number;
+```
+
